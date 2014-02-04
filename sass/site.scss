@@ -5,17 +5,12 @@
 // ============================================= 
 
 
-//  Import components              
-// ============================================= 
-@import "components/mixins"; 
-@import "compass/css3/inline-block";
-@import "components/variables"; 
-
-
-//  Import partials              
+//  Imports            
 // =============================================
-// @import "partials/reset";
+@import "compass/css3/inline-block";
+@import "partials/mixins";
 @import "partials/type";
+@import "partials/variables";
 
 
 
@@ -27,14 +22,6 @@
 	max-width: 623px;
 	height: 100%;
 	background: white;
-}
-
-.graphic-header {
-	position: relative;
-	margin-bottom: 10px;
-	@media (min-width: $large) {
-		// margin-bottom: em(40);
-	}
 }
 
 .graphic-title {
@@ -51,23 +38,12 @@
 	margin: 0;
 	font-weight: 600;
 	font-size: 20px;
-	font-family: "MuseoSans",Helvetica,Arial,sans-serif;
+	font-family: $sans;
 	line-height: 120%;
 }
 
-
-
-
-// BAR CHART
-
 #chart {
 	margin-bottom: 10px;
-}
-
-.body-copy {
-	display: block;
-	margin-bottom: 20px;
-	line-height: 150%;
 }
 
 .graphic-copy {
@@ -81,13 +57,10 @@
 	background-color: $bground;
 }
 
-.start-line {
-	stroke: $med-gray;
-}
 
-.grid-line {
-	stroke: $light-gray;
-}
+
+
+// BAR CHART
 
 .bar-bg {
 	fill: $bground;
@@ -101,9 +74,6 @@
 .name {
 	font-weight: 500;
 	font-size: 12px;
-	@media (min-width: $small) {
-		// font-size: 12px;
-	}
 }
 
 .value-labels {
@@ -121,41 +91,11 @@
 	}
 }
 
-.axis line {
-	stroke: #ccc;
-	stroke-width: 1;
-}
-
-line.median {
-	stroke: #777;
-	stroke-width: 1;
-}
-
-.tick text {
-	font-size: 11px;
-	fill: $med-gray;
-	@media (min-width: $small) {
-		font-size: 12px;
-	}
-}
-
-.tick-labels {
-	font-size: 11px;
-	fill: $med-gray;
-	@media (min-width: $small) {
-		font-size: 12px;
-	}
-}
-
 .domain { 
 	fill: none; 
 	stroke: $med-gray; 
 	stroke-width: 1; 
 } 
-
-.event-year {
-	fill: $med-gray;
-}
 
 .sources-copy {
 	display: block;
@@ -173,7 +113,7 @@ line.median {
 
 .tooltip {   
 	position: absolute;           
-	font-family: "MuseoSans",Helvetica,Arial,sans-serif;              
+	font-family: $sans;              
 	padding: 10px;             
 	font-size: 12px;        
 	background: $bground;   

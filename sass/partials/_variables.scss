@@ -29,9 +29,11 @@ $selection-color-type: #FFF;
 $link: $blue;
 $link-hover: darken($link, 8%);
 
-$sans:Arial,Helvetica,Verdana,sans-serif;
-$serif:Georgia,Times,Times New Roman,serif;
-$mono:"Courier New",Courier,mono;
+$sans: "MuseoSans",Helvetica,Arial,sans-serif;
+$condensed: "FCKaiserCond", Helvetica, Arial, sans-serif;
+$slab: "FCZizouSlab", Georgia,Times,Times New Roman,serif;
+$serif: "CaslonFS", Georgia,Times,Times New Roman,serif;
+$mono: "Courier New",Courier,mono;
 
 
 /* !-- Project ------------------------------------ */
@@ -42,8 +44,6 @@ $medium: 870px;
 $large: 1070px;
 $xlarge: 1280px;
 $xxlarge: 1480px;
-// $xxxlarge: 1700px;
-// $xxxxlarge: 1880px;
 
 $bground-1: #FFDF80;
 $bground-2: #FFB581;
@@ -64,16 +64,8 @@ $accent-50: tint($accent, 50%);
 $bground-90: shade($bground, 30%);
 
 
-// Mixin that uses variables
-// =============================================
+/* !-- Project ------------------------------------ */
 
-// @mixin text-link {
-// 	@include trans(0.2s, color, ease-in-out);
-// 	color: $accent-40;
-// 	&:hover {
-// 		color: $accent;
-// 	}
-// }
 
 
 /* !-- Paths ------------------------------------ */

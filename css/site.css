@@ -1,4 +1,4 @@
-/* line 770, ../sass/components/_mixins.scss */
+/* line 770, ../sass/partials/_mixins.scss */
 .visuallyhidden.focusable:active,
 .visuallyhidden.focusable:focus {
   clip: auto;
@@ -9,12 +9,6 @@
   width: auto;
 }
 
-/* !============================================= */
-/* ! Variables						  			  */
-/* !============================================= */
-/* !-- Universal ------------------------------------ */
-/* !-- Project ------------------------------------ */
-/* !-- Paths ------------------------------------ */
 @font-face {
   font-weight: 500;
   font-style: normal;
@@ -226,7 +220,7 @@
   src: url("http://www.fastcodesign.com/fonts/caslonfs/caslonfs-medium_italic-webfont.eot?#iefix") format("eot"), url("http://www.fastcodesign.com/fonts/caslonfs/caslonfs-medium_italic-webfont.woff") format("woff"), url("http://www.fastcodesign.com/fonts/caslonfs/caslonfs-medium_italic-webfont.ttf") format("truetype"), url("http://www.fastcodesign.com/fonts/caslonfs/caslonfs-medium_italic-webfont.svg#webfontydPYhPC6") format("svg");
 }
 
-/* line 201, ../sass/partials/_type.scss */
+/* line 197, ../sass/partials/_type.scss */
 .graphic-article {
   font-weight: 300;
   font-style: normal;
@@ -234,7 +228,7 @@
   font-family: "MuseoSans", Helvetica, Arial, sans-serif;
 }
 
-/* line 209, ../sass/partials/_type.scss */
+/* line 205, ../sass/partials/_type.scss */
 .graphic-article h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
   font-style: normal;
@@ -242,7 +236,14 @@
   text-rendering: optimizeLegibility;
 }
 
-/* line 25, ../sass/site.scss */
+/* !============================================= */
+/* ! Variables						  			  */
+/* !============================================= */
+/* !-- Universal ------------------------------------ */
+/* !-- Project ------------------------------------ */
+/* !-- Project ------------------------------------ */
+/* !-- Paths ------------------------------------ */
+/* line 20, ../sass/site.scss */
 .graphic-article {
   margin: 0 auto;
   max-width: 623px;
@@ -250,159 +251,95 @@
   background: white;
 }
 
-/* line 32, ../sass/site.scss */
-.graphic-header {
-  position: relative;
-  margin-bottom: 10px;
-}
-
-/* line 40, ../sass/site.scss */
+/* line 27, ../sass/site.scss */
 .graphic-title {
   margin-bottom: 20px;
   font-size: 48px;
   line-height: 100%;
 }
 @media (min-width: 680px) {
-  /* line 40, ../sass/site.scss */
+  /* line 27, ../sass/site.scss */
   .graphic-title {
     font-size: 60px;
   }
 }
 
-/* line 49, ../sass/site.scss */
+/* line 36, ../sass/site.scss */
 .graphic-dek {
   display: block;
   margin: 0;
   font-weight: 600;
   font-size: 20px;
-  font-family: "MuseoSans",Helvetica,Arial,sans-serif;
+  font-family: "MuseoSans", Helvetica, Arial, sans-serif;
   line-height: 120%;
 }
 
-/* line 63, ../sass/site.scss */
+/* line 45, ../sass/site.scss */
 #chart {
   margin-bottom: 10px;
 }
 
-/* line 67, ../sass/site.scss */
-.body-copy {
-  display: block;
-  margin-bottom: 20px;
-  line-height: 150%;
-}
-
-/* line 73, ../sass/site.scss */
+/* line 49, ../sass/site.scss */
 .graphic-copy {
   margin: 5px 0px 10px;
   font-size: 14px;
   line-height: 140%;
 }
 
-/* line 79, ../sass/site.scss */
+/* line 55, ../sass/site.scss */
 .graphic-container {
   padding: 10px;
   background-color: floralwhite;
 }
 
-/* line 84, ../sass/site.scss */
-.start-line {
-  stroke: #999999;
-}
-
-/* line 88, ../sass/site.scss */
-.grid-line {
-  stroke: #ededed;
-}
-
-/* line 92, ../sass/site.scss */
+/* line 65, ../sass/site.scss */
 .bar-bg {
   fill: floralwhite;
 }
 
-/* line 96, ../sass/site.scss */
+/* line 69, ../sass/site.scss */
 .bar {
   fill: #ff81a0;
   shape-rendering: crispEdges;
 }
 
-/* line 101, ../sass/site.scss */
+/* line 74, ../sass/site.scss */
 .name {
   font-weight: 500;
   font-size: 12px;
 }
 
-/* line 109, ../sass/site.scss */
+/* line 79, ../sass/site.scss */
 .value-labels {
   font-size: 11px;
 }
 @media (min-width: 680px) {
-  /* line 109, ../sass/site.scss */
+  /* line 79, ../sass/site.scss */
   .value-labels {
     font-size: 12px;
   }
 }
 
-/* line 116, ../sass/site.scss */
+/* line 86, ../sass/site.scss */
 .x-axis-label {
   font-size: 11px;
   fill: #999999;
 }
 @media (min-width: 680px) {
-  /* line 116, ../sass/site.scss */
+  /* line 86, ../sass/site.scss */
   .x-axis-label {
     font-size: 12px;
   }
 }
 
-/* line 124, ../sass/site.scss */
-.axis line {
-  stroke: #ccc;
-  stroke-width: 1;
-}
-
-/* line 129, ../sass/site.scss */
-line.median {
-  stroke: #777;
-  stroke-width: 1;
-}
-
-/* line 134, ../sass/site.scss */
-.tick text {
-  font-size: 11px;
-  fill: #999999;
-}
-@media (min-width: 400px) {
-  /* line 134, ../sass/site.scss */
-  .tick text {
-    font-size: 12px;
-  }
-}
-
-/* line 142, ../sass/site.scss */
-.tick-labels {
-  font-size: 11px;
-  fill: #999999;
-}
-@media (min-width: 400px) {
-  /* line 142, ../sass/site.scss */
-  .tick-labels {
-    font-size: 12px;
-  }
-}
-
-/* line 150, ../sass/site.scss */
+/* line 94, ../sass/site.scss */
 .domain {
   fill: none;
   stroke: #999999;
   stroke-width: 1;
 }
 
-/* line 156, ../sass/site.scss */
-.event-year {
-  fill: #999999;
-}
-
-/* line 160, ../sass/site.scss */
+/* line 100, ../sass/site.scss */
 .sources-copy {
   display: block;
   margin-bottom: 5px;
@@ -414,16 +351,16 @@ line.median {
   line-height: 130%;
 }
 @media (min-width: 400px) {
-  /* line 160, ../sass/site.scss */
+  /* line 100, ../sass/site.scss */
   .sources-copy {
     font-size: 12px;
   }
 }
 
-/* line 174, ../sass/site.scss */
+/* line 114, ../sass/site.scss */
 .tooltip {
   position: absolute;
-  font-family: "MuseoSans",Helvetica,Arial,sans-serif;
+  font-family: "MuseoSans", Helvetica, Arial, sans-serif;
   padding: 10px;
   font-size: 12px;
   background: floralwhite;
@@ -432,7 +369,7 @@ line.median {
   font-weight: 300;
 }
 
-/* line 185, ../sass/site.scss */
+/* line 125, ../sass/site.scss */
 .tooltip-param {
   color: #999999;
 }
