@@ -47,7 +47,7 @@
 }
 
 .graphic-copy {
-	margin: 5px 0px 10px;
+	margin: 5px 0px 15px;
 	font-size: 14px;
 	line-height: 140%;
 }
@@ -55,12 +55,19 @@
 .graphic-container {
 	padding: 10px;
 	background-color: $bground;
+	@media (min-width: $small) {
+		padding: 20px;
+	}
 }
 
 
 
 
 // BAR CHART
+
+.bar-chart {
+	margin-top: 10px;
+}
 
 .bar-bg {
 	fill: $bground;
