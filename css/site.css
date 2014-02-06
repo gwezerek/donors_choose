@@ -288,6 +288,7 @@
 
 /* line 55, ../sass/site.scss */
 .graphic-container {
+  position: relative;
   padding: 10px;
   background-color: floralwhite;
 }
@@ -298,59 +299,59 @@
   }
 }
 
-/* line 68, ../sass/site.scss */
+/* line 69, ../sass/site.scss */
 .bar-chart {
   margin-top: 10px;
 }
 
-/* line 72, ../sass/site.scss */
+/* line 73, ../sass/site.scss */
 .bar-bg {
   fill: floralwhite;
 }
 
-/* line 76, ../sass/site.scss */
+/* line 77, ../sass/site.scss */
 .bar {
   fill: #ff81a0;
   shape-rendering: crispEdges;
 }
 
-/* line 81, ../sass/site.scss */
+/* line 82, ../sass/site.scss */
 .name {
   font-weight: 500;
   font-size: 12px;
 }
 
-/* line 86, ../sass/site.scss */
+/* line 87, ../sass/site.scss */
 .value-labels {
   font-size: 11px;
 }
 @media (min-width: 680px) {
-  /* line 86, ../sass/site.scss */
+  /* line 87, ../sass/site.scss */
   .value-labels {
     font-size: 12px;
   }
 }
 
-/* line 93, ../sass/site.scss */
+/* line 94, ../sass/site.scss */
 .x-axis-label {
   font-size: 11px;
   fill: #999999;
 }
 @media (min-width: 680px) {
-  /* line 93, ../sass/site.scss */
+  /* line 94, ../sass/site.scss */
   .x-axis-label {
     font-size: 12px;
   }
 }
 
-/* line 101, ../sass/site.scss */
+/* line 102, ../sass/site.scss */
 .domain {
   fill: none;
   stroke: #999999;
   stroke-width: 1;
 }
 
-/* line 107, ../sass/site.scss */
+/* line 108, ../sass/site.scss */
 .sources-copy {
   display: block;
   margin-bottom: 5px;
@@ -362,14 +363,14 @@
   line-height: 130%;
 }
 @media (min-width: 400px) {
-  /* line 107, ../sass/site.scss */
+  /* line 108, ../sass/site.scss */
   .sources-copy {
     font-size: 12px;
   }
 }
 
-/* line 121, ../sass/site.scss */
-.tooltip {
+/* line 122, ../sass/site.scss */
+.graphic-tooltip {
   position: absolute;
   font-family: "MuseoSans", Helvetica, Arial, sans-serif;
   padding: 10px;
@@ -378,9 +379,15 @@
   border: 1px solid #ff81a0;
   pointer-events: none;
   font-weight: 300;
+  z-index: 100;
 }
 
-/* line 132, ../sass/site.scss */
+/* line 134, ../sass/site.scss */
+.tooltip-title {
+  font-weight: 500;
+}
+
+/* line 138, ../sass/site.scss */
 .tooltip-param {
   color: #999999;
 }

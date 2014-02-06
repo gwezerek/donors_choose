@@ -1,24 +1,4 @@
-<!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js">
-<!--<![endif]-->
-
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width">
-	<title>Medal Totals</title>
-	<link rel="stylesheet" href="css/site.css">
-	<script src="http://d3js.org/d3.v3.min.js"></script>
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-</head>
-
-<body>
-	<article class="graphic-article">
+<article class="graphic-article">
 		<div class="graphic-container">
 			<div id="chart"> 
 				<span class="graphic-dek">Which Countries Will Win&nbsp;Big?</span>
@@ -67,7 +47,7 @@
 			.attr('width', width);
 
 		// DAT DATA		
-		d3.csv('medals.csv', function(data){
+		d3.csv('http://www.fastcodesign.com/asset_files/-/2014/02/06/medals.csv', function(data){
 
 			// Sorting
 			var sortedData = data.sort(function(a, b) {
@@ -171,7 +151,7 @@
 				.text("Predicted Medals");
 
 			// Tooltipz
-			var div = d3.select(".graphic-container").append("div")   
+			var div = d3.select("body").append("div")   
 				.attr("class", "graphic-tooltip")               
 				.style("opacity", 0);
 		});
@@ -211,7 +191,3 @@
 	</script>
 
 </article>
-
-</body>
-
-</html>

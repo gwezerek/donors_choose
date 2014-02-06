@@ -9,7 +9,7 @@
 // =============================================
 @import "compass/css3/inline-block";
 @import "partials/mixins";
-@import "partials/type";
+@import "partials/type"; 
 @import "partials/variables";
 
 
@@ -53,6 +53,7 @@
 }
 
 .graphic-container {
+	position: relative;
 	padding: 10px;
 	background-color: $bground;
 	@media (min-width: $small) {
@@ -118,7 +119,7 @@
 	}
 }
 
-.tooltip {   
+.graphic-tooltip {   
 	position: absolute;           
 	font-family: $sans;              
 	padding: 10px;             
@@ -126,7 +127,12 @@
 	background: $bground;   
 	border: 1px solid $bground-4;      
 	pointer-events: none;    
-	font-weight: 300;     
+	font-weight: 300;  
+	z-index: 100; // Needed to beat overzealous page defaults.   
+}
+
+.tooltip-title {
+	font-weight: 500;
 }
 
 .tooltip-param {
