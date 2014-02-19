@@ -220,19 +220,65 @@
   src: url("http://www.fastcodesign.com/fonts/caslonfs/caslonfs-medium_italic-webfont.eot?#iefix") format("eot"), url("http://www.fastcodesign.com/fonts/caslonfs/caslonfs-medium_italic-webfont.woff") format("woff"), url("http://www.fastcodesign.com/fonts/caslonfs/caslonfs-medium_italic-webfont.ttf") format("truetype"), url("http://www.fastcodesign.com/fonts/caslonfs/caslonfs-medium_italic-webfont.svg#webfontydPYhPC6") format("svg");
 }
 
-/* line 197, ../sass/partials/_type.scss */
+@font-face {
+  font-family: "Colfax";
+  src: url("http://www.fastcolabs.com/fonts/colfax-licensed/ColfaxWebThin.eot?") format("embedded-opentype"), url("http://www.fastcolabs.com/fonts/colfax-licensed/ColfaxWebThin.woff") format("woff");
+  font-style: normal;
+  font-weight: 100;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: "Colfax";
+  src: url("http://www.fastcolabs.com/fonts/colfax-licensed/ColfaxWebLight.eot?") format("embedded-opentype"), url("http://www.fastcolabs.com/fonts/colfax-licensed/ColfaxWebLight.woff") format("woff");
+  font-style: normal;
+  font-weight: 200;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: "Colfax";
+  src: url("http://www.fastcolabs.com/fonts/colfax-licensed/ColfaxWebRegular.eot?") format("embedded-opentype"), url("http://www.fastcolabs.com/fonts/colfax-licensed/ColfaxWebRegular.woff") format("woff");
+  font-style: normal;
+  font-weight: 300;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: "Colfax";
+  src: url("http://www.fastcolabs.com/fonts/colfax-licensed/ColfaxWebMedium.eot?") format("embedded-opentype"), url("http://www.fastcolabs.com/fonts/colfax-licensed/ColfaxWebMedium.woff") format("woff");
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: "Colfax";
+  src: url("http://www.fastcolabs.com/fonts/colfax-licensed/ColfaxWebBold.eot?") format("embedded-opentype"), url("http://www.fastcolabs.com/fonts/colfax-licensed/ColfaxWebBold.woff") format("woff");
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: "Colfax";
+  src: url("http://www.fastcolabs.com/fonts/colfax-licensed/ColfaxWebBlack.eot?") format("embedded-opentype"), url("http://www.fastcolabs.com/fonts/colfax-licensed/ColfaxWebBlack.woff") format("woff");
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: normal;
+}
+
+/* line 238, ../sass/partials/_type.scss */
 .graphic-article {
   font-weight: 300;
   font-style: normal;
   font-size: 16px;
-  font-family: "MuseoSans", Helvetica, Arial, sans-serif;
 }
 
-/* line 205, ../sass/partials/_type.scss */
+/* line 246, ../sass/partials/_type.scss */
 .graphic-article h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
   font-style: normal;
-  font-family: "FCKaiserCond", Helvetica, Arial, sans-serif;
   text-rendering: optimizeLegibility;
 }
 
@@ -244,150 +290,320 @@
 /* !-- Project ------------------------------------ */
 /* !-- Paths ------------------------------------ */
 /* line 20, ../sass/site.scss */
-.graphic-article {
+.fc-graphic-article {
   margin: 0 auto;
   max-width: 623px;
   height: 100%;
-  background: white;
+  font-family: "Colfax", Helvetica, Arial, sans-serif;
+  color: #222222;
+  font-size: 11px;
 }
 
-/* line 27, ../sass/site.scss */
-.graphic-title {
-  margin-bottom: 20px;
-  font-size: 48px;
-  line-height: 100%;
-}
-@media (min-width: 680px) {
-  /* line 27, ../sass/site.scss */
-  .graphic-title {
-    font-size: 60px;
-  }
-}
-
-/* line 36, ../sass/site.scss */
-.graphic-dek {
-  display: block;
+/* line 29, ../sass/site.scss */
+.fc-decorative-border {
   margin: 0;
-  font-weight: 600;
-  font-size: 20px;
-  font-family: "MuseoSans", Helvetica, Arial, sans-serif;
-  line-height: 120%;
+  padding: 0;
+  font-size: 0;
 }
 
-/* line 45, ../sass/site.scss */
-#chart {
-  margin-bottom: 10px;
+/* line 35, ../sass/site.scss */
+.fc-decorative-border-box {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  margin: 0;
+  width: calc(100%/7);
+  height: 10px;
+  list-style: none;
+}
+/* line 41, ../sass/site.scss */
+.fc-decorative-border-box:nth-child(1) {
+  background-color: #ffdf80;
+}
+/* line 44, ../sass/site.scss */
+.fc-decorative-border-box:nth-child(2) {
+  background-color: #ffb581;
+}
+/* line 47, ../sass/site.scss */
+.fc-decorative-border-box:nth-child(3) {
+  background-color: #ff8a80;
+}
+/* line 50, ../sass/site.scss */
+.fc-decorative-border-box:nth-child(4) {
+  background-color: #ff81cb;
+}
+/* line 53, ../sass/site.scss */
+.fc-decorative-border-box:nth-child(5) {
+  background-color: #df81ff;
+}
+/* line 56, ../sass/site.scss */
+.fc-decorative-border-box:nth-child(6) {
+  background-color: #9288ff;
+}
+/* line 59, ../sass/site.scss */
+.fc-decorative-border-box:nth-child(7) {
+  background-color: #81a0ff;
 }
 
-/* line 49, ../sass/site.scss */
-.graphic-copy {
-  margin: 5px 0px 15px;
-  font-size: 14px;
-  line-height: 140%;
-}
-
-/* line 55, ../sass/site.scss */
-.graphic-container {
+/* line 64, ../sass/site.scss */
+.fc-graphic-container {
   position: relative;
-  padding: 10px;
-  background-color: floralwhite;
+  padding: 15px;
+  border-right: 1px solid #ededed;
+  border-bottom: 1px solid #ededed;
+  border-left: 1px solid #ededed;
+  background-color: white;
 }
 @media (min-width: 400px) {
-  /* line 55, ../sass/site.scss */
-  .graphic-container {
+  /* line 64, ../sass/site.scss */
+  .fc-graphic-container {
     padding: 20px;
   }
 }
 
-/* line 69, ../sass/site.scss */
-.bar-chart {
-  margin-top: 10px;
+/* line 76, ../sass/site.scss */
+.fc-graphic-overline {
+  margin: 0 0 3px;
+  color: #999999;
+  letter-spacing: 1px;
+  font-weight: 300;
+  font-size: 11px;
 }
 
-/* line 73, ../sass/site.scss */
+/* line 84, ../sass/site.scss */
+.fc-graphic-title {
+  margin: 0 0 20px -2px;
+  letter-spacing: -1px;
+  font-weight: 600;
+  font-size: 42px;
+  line-height: 90%;
+}
+@media (min-width: 680px) {
+  /* line 84, ../sass/site.scss */
+  .fc-graphic-title {
+    font-size: 60px;
+  }
+}
+
+/* line 95, ../sass/site.scss */
+.fc-graphic-content-block {
+  margin: 0 0 20px;
+}
+
+/* line 99, ../sass/site.scss */
+.fc-graphic-subhed {
+  margin: 0 0 10px;
+  border-bottom: 1px solid #ededed;
+  font-weight: 300;
+  font-size: 16px;
+}
+
+/* line 106, ../sass/site.scss */
+.fc-graphic-dropdown-wrapper {
+  color: #222222;
+}
+
+/* line 110, ../sass/site.scss */
+.fc-graphic-trend-list {
+  margin: 0;
+  padding: 0;
+  list-style-position: inside;
+}
+
+/* line 116, ../sass/site.scss */
+.fc-graphic-trend-item {
+  margin-bottom: 5px;
+}
+
+/* line 120, ../sass/site.scss */
+.fc-graphic-legend {
+  margin: 0;
+  padding: 0;
+  color: #999999;
+  list-style-position: inside;
+}
+
+/* line 127, ../sass/site.scss */
+.fc-graphic-legend-item {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  vertical-align: top;
+  margin-right: 5px;
+  width: 47%;
+}
+/* line 132, ../sass/site.scss */
+.fc-graphic-legend-item:before {
+  content: "\002022";
+  font-size: 36px;
+  line-height: 50%;
+  margin-left: -5px;
+  padding-right: 2px;
+}
+/* line 139, ../sass/site.scss */
+.fc-graphic-legend-item:nth-of-type(1):before {
+  color: #ffdf80;
+}
+/* line 142, ../sass/site.scss */
+.fc-graphic-legend-item:nth-of-type(3):before {
+  color: #ffb581;
+}
+/* line 145, ../sass/site.scss */
+.fc-graphic-legend-item:nth-of-type(5):before {
+  color: #ff8a80;
+}
+/* line 148, ../sass/site.scss */
+.fc-graphic-legend-item:nth-of-type(7):before {
+  color: #ff81cb;
+}
+/* line 151, ../sass/site.scss */
+.fc-graphic-legend-item:nth-of-type(2):before {
+  color: #df81ff;
+}
+/* line 154, ../sass/site.scss */
+.fc-graphic-legend-item:nth-of-type(4):before {
+  color: #9288ff;
+}
+/* line 157, ../sass/site.scss */
+.fc-graphic-legend-item:nth-of-type(6):before {
+  color: #81a0ff;
+}
+/* line 160, ../sass/site.scss */
+.fc-graphic-legend-item:nth-of-type(8):before {
+  color: #999999;
+}
+
+/* line 165, ../sass/site.scss */
+.fc-graphic-extremes-list {
+  margin: 0 0 5px;
+  padding: 0;
+  list-style: none;
+}
+
+/* line 171, ../sass/site.scss */
+.fc-graphic-extremes-item {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  margin: 0 4px 8px 0;
+  padding: 5px 5px 3px;
+  background-color: #ededed;
+}
+
+/* line 178, ../sass/site.scss */
+.fc-graphic-tag {
+  color: #999999;
+  text-decoration: none;
+}
+
+/* line 183, ../sass/site.scss */
+.sources-copy {
+  display: block;
+  padding-top: 7px;
+  border-top: 1px solid #ededed;
+  color: #999999;
+  text-align: left;
+  line-height: 130%;
+}
+@media (min-width: 400px) {
+  /* line 183, ../sass/site.scss */
+  .sources-copy {
+    font-size: 12px;
+  }
+}
+
+/* line 195, ../sass/site.scss */
+.sources-leadin {
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* line 200, ../sass/site.scss */
+.sources-leadin-reverse {
+  color: white;
+  font-weight: 600;
+}
+
+/* line 205, ../sass/site.scss */
+.sources-copy-reverse {
+  color: #ededed;
+}
+
+/* line 217, ../sass/site.scss */
 .bar-bg {
-  fill: floralwhite;
+  fill: white;
 }
 
-/* line 77, ../sass/site.scss */
+/* line 221, ../sass/site.scss */
 .bar {
   fill: #ff81a0;
   shape-rendering: crispEdges;
 }
 
-/* line 82, ../sass/site.scss */
+/* line 226, ../sass/site.scss */
 .name {
-  font-weight: 500;
   font-size: 12px;
 }
 
-/* line 87, ../sass/site.scss */
+/* line 230, ../sass/site.scss */
 .value-labels {
   font-size: 11px;
 }
 @media (min-width: 680px) {
-  /* line 87, ../sass/site.scss */
+  /* line 230, ../sass/site.scss */
   .value-labels {
     font-size: 12px;
   }
 }
 
-/* line 94, ../sass/site.scss */
+/* line 237, ../sass/site.scss */
 .x-axis-label {
   font-size: 11px;
-  fill: #999999;
 }
 @media (min-width: 680px) {
-  /* line 94, ../sass/site.scss */
+  /* line 237, ../sass/site.scss */
   .x-axis-label {
     font-size: 12px;
   }
 }
 
-/* line 102, ../sass/site.scss */
+/* line 244, ../sass/site.scss */
 .domain {
   fill: none;
   stroke: #999999;
   stroke-width: 1;
 }
 
-/* line 108, ../sass/site.scss */
-.sources-copy {
-  display: block;
-  margin-bottom: 5px;
-  padding-top: 10px;
-  border-top: 1px solid #999999;
-  color: #999999;
-  text-align: left;
-  font-size: 11px;
-  line-height: 130%;
-}
-@media (min-width: 400px) {
-  /* line 108, ../sass/site.scss */
-  .sources-copy {
-    font-size: 12px;
-  }
-}
-
-/* line 122, ../sass/site.scss */
+/* line 250, ../sass/site.scss */
 .graphic-tooltip {
   position: absolute;
-  font-family: "MuseoSans", Helvetica, Arial, sans-serif;
   padding: 10px;
-  font-size: 12px;
-  background: floralwhite;
-  border: 1px solid #ff81a0;
-  pointer-events: none;
+  border: 1px solid #999999;
+  background: white;
   font-weight: 300;
-  z-index: 100;
+  font-size: 12px;
+  font-family: "Colfax", Helvetica, Arial, sans-serif;
+  pointer-events: none;
 }
 
-/* line 134, ../sass/site.scss */
+/* line 261, ../sass/site.scss */
 .tooltip-title {
+  margin: 0;
   font-weight: 500;
 }
 
-/* line 138, ../sass/site.scss */
+/* line 266, ../sass/site.scss */
 .tooltip-param {
+  margin: 0;
   color: #999999;
+  line-height: 120%;
 }

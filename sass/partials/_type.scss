@@ -188,7 +188,48 @@
     font-family: "CaslonFS";
     src: url("http://www.fastcodesign.com/fonts/caslonfs/caslonfs-medium_italic-webfont.eot?#iefix") format("eot"), url("http://www.fastcodesign.com/fonts/caslonfs/caslonfs-medium_italic-webfont.woff") format("woff"), url("http://www.fastcodesign.com/fonts/caslonfs/caslonfs-medium_italic-webfont.ttf") format("truetype"), url("http://www.fastcodesign.com/fonts/caslonfs/caslonfs-medium_italic-webfont.svg#webfontydPYhPC6") format("svg");
 }
-
+@font-face{
+font-family:"Colfax";
+    src:url("http://www.fastcolabs.com/fonts/colfax-licensed/ColfaxWebThin.eot?") format("embedded-opentype"),url("http://www.fastcolabs.com/fonts/colfax-licensed/ColfaxWebThin.woff") format("woff");
+    font-style:normal;
+    font-weight:100;
+    font-stretch:normal
+}
+@font-face{
+    font-family:"Colfax";
+    src:url("http://www.fastcolabs.com/fonts/colfax-licensed/ColfaxWebLight.eot?") format("embedded-opentype"),url("http://www.fastcolabs.com/fonts/colfax-licensed/ColfaxWebLight.woff") format("woff");
+    font-style:normal;
+    font-weight:200;
+    font-stretch:normal
+}
+@font-face{
+    font-family:"Colfax";
+    src:url("http://www.fastcolabs.com/fonts/colfax-licensed/ColfaxWebRegular.eot?") format("embedded-opentype"),url("http://www.fastcolabs.com/fonts/colfax-licensed/ColfaxWebRegular.woff") format("woff");
+    font-style:normal;
+    font-weight:300;
+    font-stretch:normal
+}
+@font-face{
+    font-family:"Colfax";
+    src:url("http://www.fastcolabs.com/fonts/colfax-licensed/ColfaxWebMedium.eot?") format("embedded-opentype"),url("http://www.fastcolabs.com/fonts/colfax-licensed/ColfaxWebMedium.woff") format("woff");
+    font-style:normal;
+    font-weight:500;
+    font-stretch:normal
+}
+@font-face{
+    font-family:"Colfax";
+    src:url("http://www.fastcolabs.com/fonts/colfax-licensed/ColfaxWebBold.eot?") format("embedded-opentype"),url("http://www.fastcolabs.com/fonts/colfax-licensed/ColfaxWebBold.woff") format("woff");
+    font-style:normal;
+    font-weight:600;
+    font-stretch:normal
+}
+@font-face{
+    font-family:"Colfax";
+    src:url("http://www.fastcolabs.com/fonts/colfax-licensed/ColfaxWebBlack.eot?") format("embedded-opentype"),url("http://www.fastcolabs.com/fonts/colfax-licensed/ColfaxWebBlack.woff") format("woff");
+    font-style:normal;
+    font-weight:700;
+    font-stretch:normal
+}
 
 
 
@@ -198,7 +239,7 @@
     font-weight: 300;
     font-style: normal;
     font-size: 16px;
-    font-family: "MuseoSans", Helvetica, Arial, sans-serif;
+    // font-family: "MuseoSans", Helvetica, Arial, sans-serif;
 
 }
 
@@ -206,7 +247,7 @@
     // color: $accent;
     font-weight: 500;
     font-style: normal;
-    font-family: "FCKaiserCond", Helvetica, Arial, sans-serif;
+    // font-family: "FCKaiserCond", Helvetica, Arial, sans-serif;
     text-rendering: optimizeLegibility;
 }
 

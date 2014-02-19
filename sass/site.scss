@@ -9,7 +9,7 @@
 // =============================================
 @import "compass/css3/inline-block";
 @import "partials/mixins";
-@import "partials/type"; 
+@import "partials/type";
 @import "partials/variables";
 
 
@@ -17,57 +17,201 @@
 //  Base styles            
 // =============================================
 
-.graphic-article {
+.fc-graphic-article {
 	margin: 0 auto;
 	max-width: 623px;
 	height: 100%;
-	background: white;
+	font-family: $sans;
+	color: $txt-black;
+	font-size: 11px;
 }
 
-.graphic-title {
-	margin-bottom: 20px;
-	font-size: 48px;
-	line-height: 100%;
-	@media (min-width: $smedium) {
-		font-size: 60px;
+.fc-decorative-border {
+	margin: 0;
+	padding: 0;
+	font-size: 0;
+}
+
+.fc-decorative-border-box {
+	@include inline-block;
+	margin: 0;
+	width: calc(100%/7);
+	height: 10px;
+	list-style: none;
+	&:nth-child(1) {
+		background-color: $bground-1;
+	}
+	&:nth-child(2) {
+		background-color: $bground-2;
+	}
+	&:nth-child(3) {
+		background-color: $bground-3;
+	}
+	&:nth-child(4) {
+		background-color: $bground-5;
+	}
+	&:nth-child(5) {
+		background-color: $bground-7;
+	}
+	&:nth-child(6) {
+		background-color: $bground-9;
+	}
+	&:nth-child(7) {
+		background-color: $bground-10;
 	}
 }
 
-.graphic-dek {
-	display: block;
-	margin: 0;
-	font-weight: 600;
-	font-size: 20px;
-	font-family: $sans;
-	line-height: 120%;
-}
-
-#chart {
-	margin-bottom: 10px;
-}
-
-.graphic-copy {
-	margin: 5px 0px 15px;
-	font-size: 14px;
-	line-height: 140%;
-}
-
-.graphic-container {
+.fc-graphic-container {
 	position: relative;
-	padding: 10px;
+	padding: 15px;
+	border-right: 1px solid $light-gray;
+	border-bottom: 1px solid $light-gray;
+	border-left: 1px solid $light-gray;
 	background-color: $bground;
 	@media (min-width: $small) {
 		padding: 20px;
 	}
 }
 
+.fc-graphic-overline {
+	margin: 0 0 3px;
+	color: $med-gray;
+	letter-spacing: 1px;
+	font-weight: 300;
+	font-size: 11px;
+}
+
+.fc-graphic-title {
+	margin: 0 0 20px -2px;
+	letter-spacing: -1px;
+	font-weight: 600;
+	font-size: 42px;
+	line-height: 90%;
+	@media (min-width: $smedium) {
+		font-size: 60px;
+	}
+}
+
+.fc-graphic-content-block {
+	margin: 0 0 20px;
+}
+
+.fc-graphic-subhed {
+	margin: 0 0 10px;
+	border-bottom: 1px solid $light-gray;
+	font-weight: 300;
+	font-size: 16px;;
+}
+
+.fc-graphic-dropdown-wrapper {
+	color: $text-black;
+}
+
+.fc-graphic-trend-list {
+	margin: 0;
+	padding: 0;
+	list-style-position: inside;
+}
+
+.fc-graphic-trend-item {
+	margin-bottom: 5px;
+}
+
+.fc-graphic-legend {
+	margin: 0;
+	padding: 0;
+	color: $med-gray;
+	list-style-position: inside;
+}
+
+.fc-graphic-legend-item {
+	@include inline-block;
+	vertical-align: top;
+	margin-right: 5px;
+	width: 47%;
+	&:before {
+		content: "\002022";
+		font-size: 36px;
+		line-height: 50%;
+		margin-left: -5px;
+		padding-right: 2px;
+	}
+	&:nth-of-type(1):before {
+		color: $bground-1;
+	}
+	&:nth-of-type(3):before {
+		color: $bground-2;
+	}
+	&:nth-of-type(5):before {
+		color: $bground-3;
+	}
+	&:nth-of-type(7):before {
+		color: $bground-5;
+	}
+	&:nth-of-type(2):before {
+		color: $bground-7;
+	}
+	&:nth-of-type(4):before {
+		color: $bground-9;
+	}
+	&:nth-of-type(6):before {
+		color: $bground-10;
+	}
+	&:nth-of-type(8):before {
+		color: $med-gray;
+	}
+}
+
+.fc-graphic-extremes-list {
+	margin: 0 0 5px;
+	padding: 0;
+	list-style: none;
+}
+
+.fc-graphic-extremes-item {
+	@include inline-block;
+	margin: 0 4px 8px 0;
+	padding: 5px 5px 3px;
+	background-color: $light-gray;
+}
+
+.fc-graphic-tag {
+	color: $med-gray;
+	text-decoration: none;
+}
+
+.sources-copy {
+	display: block;
+	padding-top: 7px;
+	border-top: 1px solid $light-gray;
+	color: $med-gray;
+	text-align: left;
+	line-height: 130%;
+	@media (min-width: $small) {
+		font-size: 12px;
+	}
+}
+
+.sources-leadin {
+	text-transform: uppercase;
+	font-weight: 500;
+}
+
+.sources-leadin-reverse {
+	color: white;
+	font-weight: 600;
+}
+
+.sources-copy-reverse {
+	color: $light-gray;
+}
 
 
 
 // BAR CHART
 
 .bar-chart {
-	margin-top: 10px;
+	// margin-top: 10px;
 }
 
 .bar-bg {
@@ -80,7 +224,6 @@
 }
 
 .name {
-	font-weight: 500;
 	font-size: 12px;
 }
 
@@ -93,7 +236,6 @@
 
 .x-axis-label {
 	font-size: 11px;
-	fill: $med-gray;
 	@media (min-width: $smedium) {
 		font-size: 12px; 
 	}
@@ -105,38 +247,26 @@
 	stroke-width: 1; 
 } 
 
-.sources-copy {
-	display: block;
-	margin-bottom: 5px;
-	padding-top: 10px;
-	border-top: 1px solid $med-gray;
-	color: $med-gray;
-	text-align: left;
-	font-size: 11px;
-	line-height: 130%;
-	@media (min-width: $small) {
-		font-size: 12px;
-	}
-}
-
 .graphic-tooltip {   
-	position: absolute;           
-	font-family: $sans;              
-	padding: 10px;             
-	font-size: 12px;        
-	background: $bground;   
-	border: 1px solid $bground-4;      
-	pointer-events: none;    
-	font-weight: 300;  
-	z-index: 100; // Needed to beat overzealous page defaults.   
+	position: absolute;              
+	padding: 10px;   
+	border: 1px solid $med-gray;        
+	background: $bground;    
+	font-weight: 300;             
+	font-size: 12px;           
+	font-family: $sans;      
+	pointer-events: none;  
 }
 
 .tooltip-title {
+	margin: 0;
 	font-weight: 500;
 }
 
 .tooltip-param {
+	margin: 0;
 	color: $med-gray;
+	line-height: 120%;
 }
 
 
