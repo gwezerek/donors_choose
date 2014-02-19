@@ -128,7 +128,13 @@
 	@include inline-block;
 	vertical-align: top;
 	margin-right: 5px;
-	width: 47%;
+	width: 47%; // Magic numbers sighhhhh
+	@media (min-width: 460px) {
+		width: 31%;
+	}
+	@media (min-width: 600px) {
+		width: 23%;
+	}
 	&:before {
 		content: "\002022";
 		font-size: 36px;
@@ -207,6 +213,12 @@
 }
 
 
+// GENERAL CHART STYLES
+svg {
+	shape-rendering: crispEdges;
+}
+
+
 
 // BAR CHART
 
@@ -269,6 +281,13 @@
 	line-height: 120%;
 }
 
+
+
+// STACKED BAR CHART
+
+.fc-stacked-bar {
+	margin: 0 0 15px;
+}
 
 
 

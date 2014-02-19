@@ -438,7 +438,19 @@
   margin-right: 5px;
   width: 47%;
 }
-/* line 132, ../sass/site.scss */
+@media (min-width: 460px) {
+  /* line 127, ../sass/site.scss */
+  .fc-graphic-legend-item {
+    width: 31%;
+  }
+}
+@media (min-width: 600px) {
+  /* line 127, ../sass/site.scss */
+  .fc-graphic-legend-item {
+    width: 23%;
+  }
+}
+/* line 138, ../sass/site.scss */
 .fc-graphic-legend-item:before {
   content: "\002022";
   font-size: 36px;
@@ -446,47 +458,47 @@
   margin-left: -5px;
   padding-right: 2px;
 }
-/* line 139, ../sass/site.scss */
+/* line 145, ../sass/site.scss */
 .fc-graphic-legend-item:nth-of-type(1):before {
   color: #ffdf80;
 }
-/* line 142, ../sass/site.scss */
+/* line 148, ../sass/site.scss */
 .fc-graphic-legend-item:nth-of-type(3):before {
   color: #ffb581;
 }
-/* line 145, ../sass/site.scss */
+/* line 151, ../sass/site.scss */
 .fc-graphic-legend-item:nth-of-type(5):before {
   color: #ff8a80;
 }
-/* line 148, ../sass/site.scss */
+/* line 154, ../sass/site.scss */
 .fc-graphic-legend-item:nth-of-type(7):before {
   color: #ff81cb;
 }
-/* line 151, ../sass/site.scss */
+/* line 157, ../sass/site.scss */
 .fc-graphic-legend-item:nth-of-type(2):before {
   color: #df81ff;
 }
-/* line 154, ../sass/site.scss */
+/* line 160, ../sass/site.scss */
 .fc-graphic-legend-item:nth-of-type(4):before {
   color: #9288ff;
 }
-/* line 157, ../sass/site.scss */
+/* line 163, ../sass/site.scss */
 .fc-graphic-legend-item:nth-of-type(6):before {
   color: #81a0ff;
 }
-/* line 160, ../sass/site.scss */
+/* line 166, ../sass/site.scss */
 .fc-graphic-legend-item:nth-of-type(8):before {
   color: #999999;
 }
 
-/* line 165, ../sass/site.scss */
+/* line 171, ../sass/site.scss */
 .fc-graphic-extremes-list {
   margin: 0 0 5px;
   padding: 0;
   list-style: none;
 }
 
-/* line 171, ../sass/site.scss */
+/* line 177, ../sass/site.scss */
 .fc-graphic-extremes-item {
   display: -moz-inline-stack;
   display: inline-block;
@@ -499,13 +511,13 @@
   background-color: #ededed;
 }
 
-/* line 178, ../sass/site.scss */
+/* line 184, ../sass/site.scss */
 .fc-graphic-tag {
   color: #999999;
   text-decoration: none;
 }
 
-/* line 183, ../sass/site.scss */
+/* line 189, ../sass/site.scss */
 .sources-copy {
   display: block;
   padding-top: 7px;
@@ -515,75 +527,80 @@
   line-height: 130%;
 }
 @media (min-width: 400px) {
-  /* line 183, ../sass/site.scss */
+  /* line 189, ../sass/site.scss */
   .sources-copy {
     font-size: 12px;
   }
 }
 
-/* line 195, ../sass/site.scss */
+/* line 201, ../sass/site.scss */
 .sources-leadin {
   text-transform: uppercase;
   font-weight: 500;
 }
 
-/* line 200, ../sass/site.scss */
+/* line 206, ../sass/site.scss */
 .sources-leadin-reverse {
   color: white;
   font-weight: 600;
 }
 
-/* line 205, ../sass/site.scss */
+/* line 211, ../sass/site.scss */
 .sources-copy-reverse {
   color: #ededed;
 }
 
 /* line 217, ../sass/site.scss */
+svg {
+  shape-rendering: crispEdges;
+}
+
+/* line 229, ../sass/site.scss */
 .bar-bg {
   fill: white;
 }
 
-/* line 221, ../sass/site.scss */
+/* line 233, ../sass/site.scss */
 .bar {
   fill: #ff81a0;
   shape-rendering: crispEdges;
 }
 
-/* line 226, ../sass/site.scss */
+/* line 238, ../sass/site.scss */
 .name {
   font-size: 12px;
 }
 
-/* line 230, ../sass/site.scss */
+/* line 242, ../sass/site.scss */
 .value-labels {
   font-size: 11px;
 }
 @media (min-width: 680px) {
-  /* line 230, ../sass/site.scss */
+  /* line 242, ../sass/site.scss */
   .value-labels {
     font-size: 12px;
   }
 }
 
-/* line 237, ../sass/site.scss */
+/* line 249, ../sass/site.scss */
 .x-axis-label {
   font-size: 11px;
 }
 @media (min-width: 680px) {
-  /* line 237, ../sass/site.scss */
+  /* line 249, ../sass/site.scss */
   .x-axis-label {
     font-size: 12px;
   }
 }
 
-/* line 244, ../sass/site.scss */
+/* line 256, ../sass/site.scss */
 .domain {
   fill: none;
   stroke: #999999;
   stroke-width: 1;
 }
 
-/* line 250, ../sass/site.scss */
+/* line 262, ../sass/site.scss */
 .graphic-tooltip {
   position: absolute;
   padding: 10px;
@@ -595,15 +612,20 @@
   pointer-events: none;
 }
 
-/* line 261, ../sass/site.scss */
+/* line 273, ../sass/site.scss */
 .tooltip-title {
   margin: 0;
   font-weight: 500;
 }
 
-/* line 266, ../sass/site.scss */
+/* line 278, ../sass/site.scss */
 .tooltip-param {
   margin: 0;
   color: #999999;
   line-height: 120%;
+}
+
+/* line 288, ../sass/site.scss */
+.fc-stacked-bar {
+  margin: 0 0 15px;
 }
