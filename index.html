@@ -32,7 +32,60 @@
 			<h6 class="fc-graphic-overline">2008-2013</h6>
 			<h4 class="fc-graphic-title">Resource Priorities</h4>
 			<section class="fc-graphic-content-block">
-				<h5 class="fc-graphic-subhed">In <span class="fc-graphic-dropdown-wrapper">Alaska</span> donors funded:</h5>
+				<h5 class="fc-graphic-subhed">In 
+				<select class="chosen-select" tabindex="-1">
+					<option value="AL">Alabama</option>
+					<option value="AK">Alaska</option>
+					<option value="AZ">Arizona</option>
+					<option value="AR">Arkansas</option>
+					<option value="CA">California</option>
+					<option value="CO">Colorado</option>
+					<option value="CT">Connecticut</option>
+					<option value="DE">Delaware</option>
+					<option value="FL">Florida</option>
+					<option value="GA">Georgia</option>
+					<option value="HI">Hawaii</option>
+					<option value="ID">Idaho</option>
+					<option value="IL">Illinois</option>
+					<option value="IN">Indiana</option>
+					<option value="IA">Iowa</option>
+					<option value="KS">Kansas</option>
+					<option value="KY">Kentucky</option>
+					<option value="LA">Louisiana</option>
+					<option value="ME">Maine</option>
+					<option value="MD">Maryland</option>
+					<option value="MA">Massachusetts</option>
+					<option value="MI">Michigan</option>
+					<option value="MN">Minnesota</option>
+					<option value="MS">Mississippi</option>
+					<option value="MO">Missouri</option>
+					<option value="MT">Montana</option>
+					<option value="NE">Nebraska</option>
+					<option value="NV">Nevada</option>
+					<option value="NH">New Hampshire</option>
+					<option value="NJ">New Jersey</option>
+					<option value="NM">New Mexico</option>
+					<option value="NY">New York</option>
+					<option value="NC">North Carolina</option>
+					<option value="ND">North Dakota</option>
+					<option value="OH">Ohio</option>
+					<option value="OK">Oklahoma</option>
+					<option value="OR">Oregon</option>
+					<option value="PA">Pennsylvania</option>
+					<option value="RI">Rhode Island</option>
+					<option value="SC">South Carolina</option>
+					<option value="SD">South Dakota</option>
+					<option value="TN">Tennessee</option>
+					<option value="TX">Texas</option>
+					<option value="UT">Utah</option>
+					<option value="VT">Vermont</option>
+					<option value="VA">Virginia</option>
+					<option value="WA">Washington</option>
+					<option value="WV">West Virginia</option>
+					<option value="WI">Wisconsin</option>
+					<option value="WY">Wyoming</option>
+		        </select>
+				donors funded:</h5>
 				<ol class="fc-graphic-trend-list">
 					<li class="fc-graphic-trend-item">74% of teachers’ 7,603 requests (30th of 50)</li>
 					<li class="fc-graphic-trend-item">88% of Applied Learning requests (1st of 50)</li>
@@ -77,10 +130,10 @@
 
 			var margin = {top: 20, right: 0, bottom: 30, left: 0},
 			    width = pageWidth - margin.left - margin.right,
-			    height = 320 - margin.top - margin.bottom;
+			    height = 140;
 
 			var x = d3.scale.ordinal()
-			    .rangeRoundBands([0, width], .25);
+			    .rangeRoundBands([0, width], 0);
 
 			var y = d3.scale.linear()
 			    .rangeRound([width, 0]);
@@ -99,8 +152,7 @@
 			var svg = d3.select(".fc-stacked-bar").append("svg")
 			    .attr("width", width + margin.left + margin.right)
 			    .attr("height", height + margin.top + margin.bottom)
-			  .append("g")
-			    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+			  .append("g");
 
 			d3.tsv("requests.tsv", function(error, data) {
 			  color.domain(d3.keys(data[0]).filter(function(key) { 
@@ -133,6 +185,10 @@
 			      .style("stroke", "white")
 			      .style("fill", function(d) { return color(d.name); });
 
+			});
+
+			$('select').on('change', function() {
+			  alert( this.value ); // or $(this).val()
 			});
 
 			</script>
