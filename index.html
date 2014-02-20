@@ -204,8 +204,9 @@
 			    d.filledTotal = filledTotal;
 
 			    // Creates a new sub-array in each d that holds the returned vals
+			    // Putting reqTotal into each item for easy access in the filled width calc in the updateData function
 			    d.categories = color.domain().map(function(name, index) { 
-				    	return {name: name, requested:+d[name], filled:+d["FILLED " + name], x0: x0, x1: x0 += +d[name]}; 
+				    	return {name: name, requested:+d[name], filled:+d["FILLED " + name], reqTotal:reqTotal, x0: x0, x1: x0 += +d[name]}; 
 			    });
 
 			    d.categories.forEach(function(d) { 
@@ -264,14 +265,16 @@
 		        return row['State'] == state;
 		      });
 
+  		      console.log(currentDatum);
+
+
 			  // Append the segments of each state's bars to the container g element
 			  var reqRects = REQUESTS.selectAll("rect")
 			      .data(currentDatum[0]['categories']);
-			      console.log(currentDatum);
 
 			  reqRects.enter().append("rect")
 			      .attr("height", "40")
-			      .style("stroke", "white")
+			      // .style("stroke", "white")
 			      .style("fill", function(d) { return color(d.name); });
 
 			   reqRects
@@ -283,12 +286,12 @@
 			      .data(currentDatum[0]['categories']);
 
 			  connectPolys.enter().append("polygon")
-			      .style("stroke", "white")
+			      // .style("stroke", "white")
 			      .style("fill", function(d) { return color(d.name); });
 
 			   connectPolys
   			      .attr("points", function(d) { 
-			      	return x(d.x0) + ",0 " + x(d.x1) + ",0 " + ( x(d.x0) + (x(d.x1) - x(d.x0))*.75) + ",20 " + x(d.x0) + ",20";
+			      	return x(d.x0) + ",0 " + x(d.x1) + ",0 " + ( x(d.x0) + (x(d.x1) - x(d.x0)) * ( d.filled / d.requested ) ) + ",20 " + x(d.x0) + ",20";
 			      });
 
 
@@ -297,12 +300,16 @@
 
 			  filledRects.enter().append("rect")
 			      .attr("height", "40")
-			      .style("stroke", "white")
+			      // .style("stroke", "white")
 			      .style("fill", function(d) { return color(d.name); });
 
 			   filledRects
    			      .attr("x", function(d) { return x(d.x0); })
-			      .attr("width", function(d) { return ( ( x(d.x1) - x(d.x0) )*.75 ); });
+			      .attr("width", function(d) { return ( ( x(d.x1) - x(d.x0) ) * ( d.filled / d.requested ) ); });
+
+			}
+
+			function updateAnnotations(state) {
 
 			}
 
