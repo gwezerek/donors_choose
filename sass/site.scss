@@ -98,13 +98,15 @@
 
 .fc-graphic-subhed {
 	margin: 0 0 10px;
+	padding-bottom: 3px;
 	border-bottom: 1px solid $light-gray;
 	font-weight: 300;
 	font-size: 16px;;
 }
 
-.fc-graphic-dropdown-wrapper {
-	color: $text-black;
+.fc-graphic-select {
+	vertical-align: text-bottom;
+	margin: 2px 0;
 }
 
 .fc-graphic-trend-list {
@@ -115,6 +117,14 @@
 
 .fc-graphic-trend-item {
 	margin-bottom: 5px;
+}
+
+.fc-graphic-annotation-requests {
+	margin: 0 0 3px;
+}
+
+.fc-graphic-annotation-funded {
+	margin: 0 0 15px;
 }
 
 .fc-graphic-legend {
@@ -286,7 +296,7 @@ svg {
 // STACKED BAR CHART
 
 .fc-stacked-bar {
-	margin: 0 0 15px;
+	margin: 0 0 3px;
 }
 
 

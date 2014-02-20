@@ -33,7 +33,7 @@
 			<h4 class="fc-graphic-title">Resource Priorities</h4>
 			<section class="fc-graphic-content-block">
 				<h5 class="fc-graphic-subhed">In 
-				<select class="chosen-select" tabindex="-1">
+				<select class="fc-graphic-select" tabindex="-1">
 					<option value="AL">Alabama</option>
 					<option value="AK">Alaska</option>
 					<option value="AZ">Arizona</option>
@@ -65,7 +65,7 @@
 					<option value="NH">New Hampshire</option>
 					<option value="NJ">New Jersey</option>
 					<option value="NM">New Mexico</option>
-					<option value="NY">New York</option>
+					<option value="NY" selected>New York</option>
 					<option value="NC">North Carolina</option>
 					<option value="ND">North Dakota</option>
 					<option value="OH">Ohio</option>
@@ -85,16 +85,17 @@
 					<option value="WI">Wisconsin</option>
 					<option value="WY">Wyoming</option>
 		        </select>
-				donors funded:</h5>
+				, donors funded:</h5>
 				<ol class="fc-graphic-trend-list">
-					<li class="fc-graphic-trend-item">74% of teachers’ 7,603 requests (30th of 50)</li>
 					<li class="fc-graphic-trend-item">88% of Applied Learning requests (1st of 50)</li>
 					<li class="fc-graphic-trend-item">38% of Special Needs requests (49th of 50)</li>
 				</ol>	
 			</section>
 			<section class="fc-graphic-content-block">
+				<p class="fc-graphic-annotation fc-graphic-annotation-requests">Teachers requested 7,603 resources overall.</p>
 				<div class="fc-stacked-bar">
 				</div>
+				<p class="fc-graphic-annotation fc-graphic-annotation-funded">Donors funded 74% of those requests.</p>
 				<ol class="fc-graphic-legend">
 					<li class="fc-graphic-legend-item">Literacy &amp; Language</li>
 					<li class="fc-graphic-legend-item">Special Needs</li>
@@ -126,18 +127,20 @@
 		<!-- D3 STACKED BAR LAYOUT -->
 		<script>
 
+			var firstState = $('select').val();
 			var pageWidth = parseInt(d3.select('.fc-graphic-content-block').style('width')) - 15; // REVISIT AND GET THE RIGHT WIDTH
 
-			var margin = {top: 20, right: 0, bottom: 30, left: 0},
+			var margin = {top: 0, right: 0, bottom:0, left: 0},
 			    width = pageWidth - margin.left - margin.right,
 			    height = 140;
 
-			var x = d3.scale.ordinal()
-			    .rangeRoundBands([0, width], 0);
+			var x = d3.scale.linear()
+			    .rangeRound([0, width]);
 
-			var y = d3.scale.linear()
-			    .rangeRound([width, 0]);
+			var y = d3.scale.ordinal()
+			    .rangeRoundBands([height, 0]);
 
+			// Sets bar colors
 			var color = d3.scale.ordinal()
 			    .range([
 			    	"#FFDF80",
@@ -149,39 +152,53 @@
 					"#81A0FF",
 				 ]);
 
+			// Adds SVG element, append a container g element for each state
 			var svg = d3.select(".fc-stacked-bar").append("svg")
 			    .attr("width", width + margin.left + margin.right)
 			    .attr("height", height + margin.top + margin.bottom)
-			  .append("g");
+			  .append("g")
+			  	.attr("class", "state-container");
 
+			// DAT DATA
 			d3.tsv("requests.tsv", function(error, data) {
+			  // Assigns the colors we set in the range to the columns of data
 			  color.domain(d3.keys(data[0]).filter(function(key) { 
 			  		return key !== "State";
 			  }));
 
+			  // COME BACK TO THIS
 			  data.forEach(function(d) {
-			    var y0 = 0;
-			    d.categories = color.domain().map(function(name) { return {name: name, y0: y0, y1: y0 += +d[name]}; });
-			    d.categories.forEach(function(d) { d.y0 /= y0; d.y1 /= y0; });
+			    var x0 = 0;
+			    // Creates a new sub-array in each d that holds the returned vals
+			    d.categories = color.domain().map(function(name) { return {name: name, x0: x0, x1: x0 += +d[name]}; });
+			    d.categories.forEach(function(d) { d.x0 /= x0; d.x1 /= x0; });
 			  });
 
-			  data.sort(function(a, b) { return b.categories[0].y1 - a.categories[0].y1; });
+  			  data = data.filter(function(row) {
+		        return row['State'] == firstState;
+		      })
 
-			  x.domain(data.map(function(d) { return d.State; }));
+			  // Sorts data in ascending order by Literacy and Language %
+			  // data.sort(function(a, b) { return b.categories[0].x1 - a.categories[0].x1; });
 
-			  var state = svg.selectAll(".state")
+			  //Sets the domain for y equal to the series of U.S. States
+			  // x.domain(data.map(function(d) { return d.State; }));
+
+			  // Append the segments of each state's bars to the container g element
+			  var requests = svg.selectAll(".state")
 			      .data(data)
 			    .enter().append("g")
 			      .attr("class", "state")
 			      .attr("transform", function(d) { return "translate(0," + x(d.State) + ")"; });
 
-			  state.selectAll("rect")
+			  // Append the segments of each state's bars to the container g element
+			  requests.selectAll("rect")
 			      .data(function(d) { return d.categories; })
 			    .enter().append("rect")
-			      .attr("width", x.rangeBand())
-			      .attr("x", function(d) { return (width - y(d.y1) - (y(d.y0) - y(d.y1))); })
-			      .attr("width", function(d) { return y(d.y0) - y(d.y1); })
-			      .attr("height", "3")
+			      // Sets the x position 
+			      .attr("x", function(d) { return x(d.x0); })
+			      .attr("width", function(d) { return x(d.x0) + x(d.x1); })
+			      .attr("height", "40")
 			      .style("stroke", "white")
 			      .style("fill", function(d) { return color(d.name); });
 
