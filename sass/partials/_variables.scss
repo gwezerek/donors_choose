@@ -6,21 +6,6 @@
 
 /* !-- Universal ------------------------------------ */
 
-$black-5: #f5f5f5;
-$black-10: #ededed;
-$black-15: #ccc;
-$black-50: #999;
-$black-75: #666; 
-$black-90: #222; 
-$black-95: #111; 
-
-$light-gray: $black-10;
-$med-gray: $black-50;
-$dark-gray: $black-75;
-$tease-txt: $black-75;
-$txt-black: $black-90;
-$text-black: $txt-black;
-
 $blue: #1d78af;
 
 $selection-color: $blue;
@@ -28,6 +13,9 @@ $selection-color-type: #FFF;
 
 $link: $blue;
 $link-hover: darken($link, 8%);
+
+
+
 
 $sans: "Colfax",Helvetica,Arial,sans-serif;
 $condensed: "FCKaiserCond", Helvetica, Arial, sans-serif;
@@ -38,6 +26,7 @@ $mono: "Courier New",Courier,mono;
 
 /* !-- Project ------------------------------------ */
 
+// Sizes
 $small: 400px;
 $smedium: 680px;
 $medium: 870px;
@@ -45,23 +34,46 @@ $large: 1070px;
 $xlarge: 1280px;
 $xxlarge: 1480px;
 
-$bground-1: #FFDF80;
-$bground-2: #FFB581;
-$bground-3: #FF8A80;
-$bground-4: #FF81A0;
-$bground-5: #FF81CB;
-$bground-6: #FF81F5;
-$bground-7: #DF81FF;
-$bground-8: #B681FF;
-$bground-9: #9288FF;
-$bground-10: #81A0FF;
+//Colors
+$bground-1:	rgb(243,255,129);
+$bground-2:	rgb(201,255,129);
+$bground-3:	rgb(158,255,129);
+$bground-4:	rgb(129,255,141);
+$bground-5:	rgb(129,255,183);
+$bground-6:	rgb(129,255,225);
+$bground-7:	rgb(129,242,255);
+$bground-8:	rgb(129,200,255);
+$bground-9:	rgb(129,159,255);
+$bground-10: rgb(140,129,255);
+$bground-11: rgb(183,129,255);
+$bground-12: rgb(224,129,255);
+$bground-13: rgb(255,129,244);
+$bground-14: rgb(255,129,201);
+$bground-15: rgb(255,138,128);
+$bground-16: rgb(255,181,129);
+$bground-17: rgb(255,223,128);
 
-$accent: rgb(34, 34, 34);;
+//"Gray"scale
+$black-10:	rgb(255, 247, 231);
+$black-20:	rgb(230, 223, 209);
+$black-30:	rgb(204, 198, 185);
+$black-40:	rgb(179, 173, 162);
+$black-50:	rgb(153, 148, 138);
+$black-60:	rgb(128, 124, 116);
+$black-70:	rgb(102, 99, 93);
+$black-80:	rgb(77, 74, 69);
+$black-90:	rgb(51, 49, 46);
+$black-100:	rgb(25, 25, 20);
+
+// Colloquial grays
+$bground-gray: rgb(230,230,230);
+$light-gray: $black-20;
+$med-gray: $black-60;
+$dark-gray: $black-70;
+$txt-black: $black-90;
+
 $bground: white;
-
-$accent-40: tint($accent,40%);
-$accent-50: tint($accent, 50%);
-$bground-90: shade($bground, 30%);
+$accent: $txt-black;
 
 
 /* !-- Project ------------------------------------ */

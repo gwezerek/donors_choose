@@ -20,13 +20,13 @@
 <body>
 		<article class="fc-graphic-article">
 		<ul class="fc-decorative-border">
-			<li class="fc-decorative-border-box"></li>
-			<li class="fc-decorative-border-box"></li>
-			<li class="fc-decorative-border-box"></li>
-			<li class="fc-decorative-border-box"></li>
-			<li class="fc-decorative-border-box"></li>
-			<li class="fc-decorative-border-box"></li>
-			<li class="fc-decorative-border-box"></li>
+			<li class="fc-decorative-border-box LiteracyLanguage"></li>
+			<li class="fc-decorative-border-box MathScience"></li>
+			<li class="fc-decorative-border-box MusictheArts"></li>
+			<li class="fc-decorative-border-box AppliedLearning"></li>
+			<li class="fc-decorative-border-box SpecialNeeds"></li>
+			<li class="fc-decorative-border-box HistoryCivics"></li>
+			<li class="fc-decorative-border-box HealthSports"></li>
 		</ul>
 		<div class="fc-graphic-container">
 			<h6 class="fc-graphic-overline">2008-2013</h6>
@@ -112,14 +112,13 @@
 			<section class="fc-graphic-content-block">
 				<h5 class="fc-graphic-subhed">Explore the Extremes</h5>
 				<ol class="fc-graphic-extremes-list">
-					<li class="fc-graphic-extremes-item" data-state="AK"><a href="#" class="fc-graphic-tag">Most Funded Overall</a></li>
-					<li class="fc-graphic-extremes-item" data-state="AK"><a href="#" class="fc-graphic-tag">Least Resource Requests</a></li>
-					<li class="fc-graphic-extremes-item" data-state="AK"><a href="#" class="fc-graphic-tag">Most Resource Requests</a></li>
-					<li class="fc-graphic-extremes-item" data-state="AK"><a href="#" class="fc-graphic-tag">Least Funded Overall</a></li>
-					<li class="fc-graphic-extremes-item" data-state="AK"><a href="#" class="fc-graphic-tag">Most Funded Music &amp; Arts</a></li>
-					<li class="fc-graphic-extremes-item" data-state="AK"><a href="#" class="fc-graphic-tag">Least Funded History &amp; Civics</a></li>
-					<li class="fc-graphic-extremes-item" data-state="AK"><a href="#" class="fc-graphic-tag">Most Funded History &amp; Civics</a></li>
-					<li class="fc-graphic-extremes-item" data-state="AK"><a href="#" class="fc-graphic-tag">Least Funded Special Needs</a></li>
+					<li class="fc-graphic-extremes-item" data-state="MI"><a href="#" class="fc-graphic-tag">Most Funded Overall</a></li>
+					<li class="fc-graphic-extremes-item" data-state="IN"><a href="#" class="fc-graphic-tag">Least Funded Overall</a></li>
+					<li class="fc-graphic-extremes-item" data-state="ND"><a href="#" class="fc-graphic-tag">Least Resource Requests</a></li>
+					<li class="fc-graphic-extremes-item" data-state="CA"><a href="#" class="fc-graphic-tag">Most Resource Requests</a></li>
+					<li class="fc-graphic-extremes-item" data-state="NH"><a href="#" class="fc-graphic-tag">Least Funded History &amp; Civics</a></li>
+					<li class="fc-graphic-extremes-item" data-state="ME"><a href="#" class="fc-graphic-tag">Most Funded History &amp; Civics</a></li>
+					<li class="fc-graphic-extremes-item" data-state="VT"><a href="#" class="fc-graphic-tag">Least Funded Special Needs</a></li>
 					<li class="fc-graphic-extremes-item" data-state="AK"><a href="#" class="fc-graphic-tag">Most Funded Applied Learning</a></li>
 				</ol>	
 			</section>
@@ -274,8 +273,7 @@
 
 			  reqRects.enter().append("rect")
 			      .attr("height", "40")
-			      // .style("stroke", "white")
-			      .style("fill", function(d) { return color(d.name); });
+			      .attr("class", function(d) { console.log(d.name.replace(/[\s+\&]/g, '')); return d.name.replace(/[\s+\&]/g, ''); });
 
 			   reqRects
    			      .attr("x", function(d) { return x(d.x0); })
@@ -286,8 +284,7 @@
 			      .data(currentDatum[0]['categories']);
 
 			  connectPolys.enter().append("polygon")
-			      // .style("stroke", "white")
-			      .style("fill", function(d) { return color(d.name); });
+				  .attr("class", function(d) { console.log(d.name.replace(/[\s+\&]/g, '')); return d.name.replace(/[\s+\&]/g, ''); });
 
 			   connectPolys
   			      .attr("points", function(d) { 
@@ -300,8 +297,7 @@
 
 			  filledRects.enter().append("rect")
 			      .attr("height", "40")
-			      // .style("stroke", "white")
-			      .style("fill", function(d) { return color(d.name); });
+			      .attr("class", function(d) { console.log(d.name.replace(/[\s+\&]/g, '')); return d.name.replace(/[\s+\&]/g, ''); });
 
 			   filledRects
    			      .attr("x", function(d) { return x(d.x0); })

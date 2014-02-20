@@ -38,32 +38,11 @@
 	width: calc(100%/7);
 	height: 10px;
 	list-style: none;
-	&:nth-child(1) {
-		background-color: $bground-1;
-	}
-	&:nth-child(2) {
-		background-color: $bground-2;
-	}
-	&:nth-child(3) {
-		background-color: $bground-3;
-	}
-	&:nth-child(4) {
-		background-color: $bground-5;
-	}
-	&:nth-child(5) {
-		background-color: $bground-7;
-	}
-	&:nth-child(6) {
-		background-color: $bground-9;
-	}
-	&:nth-child(7) {
-		background-color: $bground-10;
-	}
 }
 
 .fc-graphic-container {
 	position: relative;
-	padding: 15px;
+	padding: 25px 15px 15px;
 	border-right: 1px solid $light-gray;
 	border-bottom: 1px solid $light-gray;
 	border-left: 1px solid $light-gray;
@@ -84,7 +63,7 @@
 }
 
 .fc-graphic-title {
-	margin: 0 0 30px -2px;
+	margin: 0 0 25px -2px;
 	letter-spacing: -1px;
 	font-weight: 600;
 	font-size: 42px;
@@ -95,7 +74,7 @@
 }
 
 .fc-graphic-content-block {
-	margin: 0 0 20px;
+	margin: 0 0 15px;
 }
 
 .fc-graphic-subhed {
@@ -123,7 +102,7 @@
 }
 
 .fc-graphic-annotation {
-	color: $txt-black;
+	color: $med-gray;
 }
 
 .fc-graphic-annotation-requests {
@@ -160,28 +139,28 @@
 		padding-right: 2px;
 	}
 	&:nth-of-type(1):before {
-		color: $bground-1;
+		color: $bground-17;
 	}
 	&:nth-of-type(2):before {
-		color: $bground-2;
+		color: $bground-16;
 	}
 	&:nth-of-type(3):before {
-		color: $bground-3;
+		color: $bground-15;
 	}
 	&:nth-of-type(4):before {
-		color: $bground-5;
+		color: $bground-14;
 	}
 	&:nth-of-type(5):before {
-		color: $bground-7;
+		color: $bground-12;
 	}
 	&:nth-of-type(6):before {
-		color: $bground-9;
+		color: $bground-11;
 	}
 	&:nth-of-type(7):before {
 		color: $bground-10;
 	}
 	&:nth-of-type(8):before {
-		color: $med-gray;
+		color: $bground-gray;
 	}
 }
 
@@ -195,7 +174,7 @@
 	@include inline-block;
 	margin: 0 4px 8px 0;
 	padding: 5px 5px 3px;
-	background-color: $light-gray;
+	background-color: $bground-gray;
 }
 
 .fc-graphic-tag {
@@ -323,6 +302,35 @@ svg {
 
 .connectors {
 	opacity: .5;
+}
+
+.LiteracyLanguage {
+	fill: $bground-17;
+	background-color: $bground-17;
+}
+.MathScience {
+	fill: $bground-16;
+	background-color: $bground-16;
+}
+.MusictheArts {
+	fill: $bground-15;
+	background-color: $bground-15;
+}
+.AppliedLearning {
+	fill: $bground-14;
+	background-color: $bground-14;
+}
+.SpecialNeeds {
+	fill: $bground-12;
+	background-color: $bground-12;
+}
+.HistoryCivics {
+	fill: $bground-11;
+	background-color: $bground-11;
+}
+.HealthSports  {
+	fill: $bground-10;
+	background-color: $bground-10;
 }
 
 
