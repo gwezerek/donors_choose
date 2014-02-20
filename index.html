@@ -133,8 +133,6 @@
 			var firstState = $('select').val();
 			var pageWidth = parseInt(d3.select('.fc-graphic-content-block').style('width'));
 
-			console.log(pageWidth);
-
 			var margin = {top: 0, right: 0, bottom:0, left: 0},
 			    width = pageWidth - margin.left - margin.right,
 			    height = 102;
@@ -169,23 +167,32 @@
 
 			  DATA = data;
 			  		
-			  // Assigns the colors we set in the range to the columns of data
-			  color.domain(d3.keys(DATA[0]).filter(function(key) { 
-			  		return key !== "State";
+			  // Assigns the colors we set in the range to the columns of requests
+			  color.domain(d3.keys(DATA[0]).filter(function(key, index) {
+				    if( (index > 0) && (index < 8) ) {
+				    	return key; 
+			    	} else {
+			    		return;
+			    	} 
 			  }));
 
 			  DATA.forEach(function(d) {
 			    var x0 = 0;
 			    var stateArray = $.map(d, function (value) { return value; });
+
+			    // Whatever is returned becomes a
 			    var reqTotal = stateArray.reduce(function(a, b, index, array){
 			    	if( (index > 1) && (index < 8) ) {
 					  return parseInt(a) + parseInt(b);
+			    	} else if ( index < 2 ) {
+			    		return b;
 			    	} else {
-			    		return b ;
+			    		return a;
 			    	}
 				});
+
 				var filledTotal = stateArray.reduce(function(a, b, index, array){
-			    	if( (index > 1) ) {
+			    	if( (index > 7)) {
 					  return parseInt(a) + parseInt(b);
 			    	} else {
 			    		return b ;
@@ -193,10 +200,14 @@
 				});
 
 			    // Add Total property to each state object
-			    d.Total = reqTotal;
+			    d.reqTotal = reqTotal;
+			    d.filledTotal = filledTotal;
 
 			    // Creates a new sub-array in each d that holds the returned vals
-			    d.categories = color.domain().map(function(name) { return {name: name, requested:+d[name], x0: x0, x1: x0 += +d[name]}; });
+			    d.categories = color.domain().map(function(name, index) { 
+				    	return {name: name, requested:+d[name], filled:+d["FILLED " + name], x0: x0, x1: x0 += +d[name]}; 
+			    });
+
 			    d.categories.forEach(function(d) { 
 			    	d.x0 /= x0; d.x1 /= x0; 
 			    });
