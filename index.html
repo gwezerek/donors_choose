@@ -174,13 +174,35 @@
 			  		return key !== "State";
 			  }));
 
-			  // COME BACK TO THIS
 			  DATA.forEach(function(d) {
 			    var x0 = 0;
+			    var stateArray = $.map(d, function (value) { return value; });
+			    var reqTotal = stateArray.reduce(function(a, b, index, array){
+			    	if( (index > 1) && (index < 8) ) {
+					  return parseInt(a) + parseInt(b);
+			    	} else {
+			    		return b ;
+			    	}
+				});
+				var filledTotal = stateArray.reduce(function(a, b, index, array){
+			    	if( (index > 1) ) {
+					  return parseInt(a) + parseInt(b);
+			    	} else {
+			    		return b ;
+			    	}
+				});
+
+			    // Add Total property to each state object
+			    d.Total = reqTotal;
+
 			    // Creates a new sub-array in each d that holds the returned vals
-			    d.categories = color.domain().map(function(name) { return {name: name, x0: x0, x1: x0 += +d[name]}; });
-			    d.categories.forEach(function(d) { d.x0 /= x0; d.x1 /= x0; });
+			    d.categories = color.domain().map(function(name) { return {name: name, requested:+d[name], x0: x0, x1: x0 += +d[name]}; });
+			    d.categories.forEach(function(d) { 
+			    	d.x0 /= x0; d.x1 /= x0; 
+			    });
 			  });
+
+			  console.log(DATA);
 
 			  var currentDatum = DATA.filter(function(row) {
 		        return row['State'] == 'NY';
@@ -234,6 +256,7 @@
 			  // Append the segments of each state's bars to the container g element
 			  var reqRects = REQUESTS.selectAll("rect")
 			      .data(currentDatum[0]['categories']);
+			      console.log(currentDatum);
 
 			  reqRects.enter().append("rect")
 			      .attr("height", "40")
