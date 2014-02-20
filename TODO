@@ -1,0 +1,14 @@
+TODO
+
+Get real second graph in place 
+Add dynamic annotations
+Write hover function
+Link up additional stories to real states
+Add data insufficient markers
+
+Debug legend across browsers
+Add transitions to update function
+Add active classes to the extremes
+Add icons to extremes
+Add extra colors to palette for clarity
+Sort segments by their size

@@ -86,39 +86,41 @@
 					<option value="WY">Wyoming</option>
 		        </select>
 				, donors funded:</h5>
-				<ol class="fc-graphic-trend-list">
+				<ul class="fc-graphic-trend-list">
 					<li class="fc-graphic-trend-item">88% of Applied Learning requests (1st of 50)</li>
 					<li class="fc-graphic-trend-item">38% of Special Needs requests (49th of 50)</li>
-				</ol>	
+				</ul>	
 			</section>
 			<section class="fc-graphic-content-block">
 				<p class="fc-graphic-annotation fc-graphic-annotation-requests">Teachers requested 7,603 resources overall.</p>
 				<div class="fc-stacked-bar">
+					<p class="fc-graphic-label fc-graphic-requested">Requested</p>
+					<p class="fc-graphic-label fc-graphic-fulfilled">Fulfilled</p>
 				</div>
 				<p class="fc-graphic-annotation fc-graphic-annotation-funded">Donors funded 74% of those requests.</p>
 				<ol class="fc-graphic-legend">
 					<li class="fc-graphic-legend-item">Literacy &amp; Language</li>
-					<li class="fc-graphic-legend-item">Special Needs</li>
 					<li class="fc-graphic-legend-item">Math &amp; Science</li>
-					<li class="fc-graphic-legend-item">History &amp; Civics</li>
 					<li class="fc-graphic-legend-item">Music &amp; Arts</li>
-					<li class="fc-graphic-legend-item">Health &amp; Sports</li>
 					<li class="fc-graphic-legend-item">Applied Learning</li>
-					<li class="fc-graphic-legend-item">Insignificant Data</li>
+					<li class="fc-graphic-legend-item">Special Needs</li>
+					<li class="fc-graphic-legend-item">History &amp; Civics</li>
+					<li class="fc-graphic-legend-item">Health &amp; Sports</li>
+					<li class="fc-graphic-legend-item">Data insufficient</li>
 				</ol>	
 			</section>
 			<section class="fc-graphic-content-block">
 				<h5 class="fc-graphic-subhed">Explore the Extremes</h5>
 				<ol class="fc-graphic-extremes-list">
-					<li class="fc-graphic-extremes-item"><a href="#" class="fc-graphic-tag">Most Funded Overall</a></li>
-					<li class="fc-graphic-extremes-item"><a href="#" class="fc-graphic-tag">Least Resource Requests</a></li>
-					<li class="fc-graphic-extremes-item"><a href="#" class="fc-graphic-tag">Most Resource Requests</a></li>
-					<li class="fc-graphic-extremes-item"><a href="#" class="fc-graphic-tag">Least Funded Overall</a></li>
-					<li class="fc-graphic-extremes-item"><a href="#" class="fc-graphic-tag">Most Funded Music &amp; Arts</a></li>
-					<li class="fc-graphic-extremes-item"><a href="#" class="fc-graphic-tag">Least Funded History &amp; Civics</a></li>
-					<li class="fc-graphic-extremes-item"><a href="#" class="fc-graphic-tag">Most Funded History &amp; Civics</a></li>
-					<li class="fc-graphic-extremes-item"><a href="#" class="fc-graphic-tag">Least Funded Special Needs</a></li>
-					<li class="fc-graphic-extremes-item"><a href="#" class="fc-graphic-tag">Most Funded Applied Learning</a></li>
+					<li class="fc-graphic-extremes-item" data-state="AK"><a href="#" class="fc-graphic-tag">Most Funded Overall</a></li>
+					<li class="fc-graphic-extremes-item" data-state="AK"><a href="#" class="fc-graphic-tag">Least Resource Requests</a></li>
+					<li class="fc-graphic-extremes-item" data-state="AK"><a href="#" class="fc-graphic-tag">Most Resource Requests</a></li>
+					<li class="fc-graphic-extremes-item" data-state="AK"><a href="#" class="fc-graphic-tag">Least Funded Overall</a></li>
+					<li class="fc-graphic-extremes-item" data-state="AK"><a href="#" class="fc-graphic-tag">Most Funded Music &amp; Arts</a></li>
+					<li class="fc-graphic-extremes-item" data-state="AK"><a href="#" class="fc-graphic-tag">Least Funded History &amp; Civics</a></li>
+					<li class="fc-graphic-extremes-item" data-state="AK"><a href="#" class="fc-graphic-tag">Most Funded History &amp; Civics</a></li>
+					<li class="fc-graphic-extremes-item" data-state="AK"><a href="#" class="fc-graphic-tag">Least Funded Special Needs</a></li>
+					<li class="fc-graphic-extremes-item" data-state="AK"><a href="#" class="fc-graphic-tag">Most Funded Applied Learning</a></li>
 				</ol>	
 			</section>
 			<span class="sources-copy"><span class="sources-leadin">SOURCE</span> Donors Choose</span>
@@ -127,12 +129,15 @@
 		<!-- D3 STACKED BAR LAYOUT -->
 		<script>
 
+			var DATA, REQUESTS, FULFILLED, CONNECTORS;
 			var firstState = $('select').val();
-			var pageWidth = parseInt(d3.select('.fc-graphic-content-block').style('width')) - 15; // REVISIT AND GET THE RIGHT WIDTH
+			var pageWidth = parseInt(d3.select('.fc-graphic-content-block').style('width'));
+
+			console.log(pageWidth);
 
 			var margin = {top: 0, right: 0, bottom:0, left: 0},
 			    width = pageWidth - margin.left - margin.right,
-			    height = 140;
+			    height = 102;
 
 			var x = d3.scale.linear()
 			    .rangeRound([0, width]);
@@ -161,52 +166,112 @@
 
 			// DAT DATA
 			d3.tsv("requests.tsv", function(error, data) {
+
+			  DATA = data;
+			  		
 			  // Assigns the colors we set in the range to the columns of data
-			  color.domain(d3.keys(data[0]).filter(function(key) { 
+			  color.domain(d3.keys(DATA[0]).filter(function(key) { 
 			  		return key !== "State";
 			  }));
 
 			  // COME BACK TO THIS
-			  data.forEach(function(d) {
+			  DATA.forEach(function(d) {
 			    var x0 = 0;
 			    // Creates a new sub-array in each d that holds the returned vals
 			    d.categories = color.domain().map(function(name) { return {name: name, x0: x0, x1: x0 += +d[name]}; });
 			    d.categories.forEach(function(d) { d.x0 /= x0; d.x1 /= x0; });
 			  });
 
-  			  data = data.filter(function(row) {
-		        return row['State'] == firstState;
-		      })
+			  var currentDatum = DATA.filter(function(row) {
+		        return row['State'] == 'NY';
+		      });
 
-			  // Sorts data in ascending order by Literacy and Language %
-			  // data.sort(function(a, b) { return b.categories[0].x1 - a.categories[0].x1; });
-
-			  //Sets the domain for y equal to the series of U.S. States
-			  // x.domain(data.map(function(d) { return d.State; }));
-
-			  // Append the segments of each state's bars to the container g element
-			  var requests = svg.selectAll(".state")
-			      .data(data)
+		      REQUESTS = svg.selectAll(".requests")
+			      .data(currentDatum)
 			    .enter().append("g")
-			      .attr("class", "state")
-			      .attr("transform", function(d) { return "translate(0," + x(d.State) + ")"; });
+			      .attr("class", "requests");
+
+  			  CONNECTORS = svg.selectAll(".connectors")
+			      .data(currentDatum)
+			    .enter().append("g")
+			      .attr("transform", "translate(0,40)")
+			      .attr("class", "connectors");
+
+			  FULFILLED = svg.selectAll(".fulfilled")
+			      .data(currentDatum)
+			    .enter().append("g")
+			      .attr("transform", "translate(0,60)")
+			      .attr("class", "fulfilled");
+
+  			  updateData('NY');
+
+			});
+
+
+
+
+			// HANDLERS
+
+			$('select').on('change', function() {
+			  updateData(this.value); // or $(this).val()
+			});
+
+			$('.fc-graphic-extremes-item').on('click', function() {
+			  var state = $(this).data( "state" );
+
+			  updateData(state); // or $(this).val()
+			  $('select').val(state);
+			});
+
+
+			// HELPER FUNCTIONS
+			function updateData(state) {
+			  
+			  var currentDatum = DATA.filter(function(row) {
+		        return row['State'] == state;
+		      });
 
 			  // Append the segments of each state's bars to the container g element
-			  requests.selectAll("rect")
-			      .data(function(d) { return d.categories; })
-			    .enter().append("rect")
-			      // Sets the x position 
-			      .attr("x", function(d) { return x(d.x0); })
-			      .attr("width", function(d) { return x(d.x0) + x(d.x1); })
+			  var reqRects = REQUESTS.selectAll("rect")
+			      .data(currentDatum[0]['categories']);
+
+			  reqRects.enter().append("rect")
 			      .attr("height", "40")
 			      .style("stroke", "white")
 			      .style("fill", function(d) { return color(d.name); });
 
-			});
+			   reqRects
+   			      .attr("x", function(d) { return x(d.x0); })
+			      .attr("width", function(d) { return (x(d.x1) - x(d.x0)); });
 
-			$('select').on('change', function() {
-			  alert( this.value ); // or $(this).val()
-			});
+
+		      var connectPolys = CONNECTORS.selectAll("polygon")
+			      .data(currentDatum[0]['categories']);
+
+			  connectPolys.enter().append("polygon")
+			      .style("stroke", "white")
+			      .style("fill", function(d) { return color(d.name); });
+
+			   connectPolys
+  			      .attr("points", function(d) { 
+			      	return x(d.x0) + ",0 " + x(d.x1) + ",0 " + ( x(d.x0) + (x(d.x1) - x(d.x0))*.75) + ",20 " + x(d.x0) + ",20";
+			      });
+
+
+			  var filledRects = FULFILLED.selectAll("rect")
+			      .data(currentDatum[0]['categories']);
+
+			  filledRects.enter().append("rect")
+			      .attr("height", "40")
+			      .style("stroke", "white")
+			      .style("fill", function(d) { return color(d.name); });
+
+			   filledRects
+   			      .attr("x", function(d) { return x(d.x0); })
+			      .attr("width", function(d) { return ( ( x(d.x1) - x(d.x0) )*.75 ); });
+
+			}
+
 
 			</script>
 
