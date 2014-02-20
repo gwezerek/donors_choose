@@ -267,40 +267,61 @@
   		      console.log(currentDatum);
 
 
-			  // Append the segments of each state's bars to the container g element
+			  // REQUEST RECTS
 			  var reqRects = REQUESTS.selectAll("rect")
 			      .data(currentDatum[0]['categories']);
 
 			  reqRects.enter().append("rect")
 			      .attr("height", "40")
-			      .attr("class", function(d) { console.log(d.name.replace(/[\s+\&]/g, '')); return d.name.replace(/[\s+\&]/g, ''); });
+			      .attr("class", function(d) { return d.name.replace(/[\s+\&]/g, ''); });
 
 			   reqRects
    			      .attr("x", function(d) { return x(d.x0); })
+   			      .attr("class", function(d) { 
+			      	if (d.requested < 40){
+				      	return "fc-insufficient"; 
+			      	} else {
+			      		return d.name.replace(/[\s+\&]/g, '');
+			      	}
+			      })
 			      .attr("width", function(d) { return (x(d.x1) - x(d.x0)); });
 
-
+			  // CONNECTOR POLYGONS
 		      var connectPolys = CONNECTORS.selectAll("polygon")
 			      .data(currentDatum[0]['categories']);
 
 			  connectPolys.enter().append("polygon")
-				  .attr("class", function(d) { console.log(d.name.replace(/[\s+\&]/g, '')); return d.name.replace(/[\s+\&]/g, ''); });
+				  .attr("class", function(d) { return d.name.replace(/[\s+\&]/g, ''); });
 
 			   connectPolys
+				  .attr("class", function(d) { 
+			      	if (d.requested < 40){
+				      	return "fc-insufficient"; 
+			      	} else {
+			      		return d.name.replace(/[\s+\&]/g, '');
+			      	}
+			      })
   			      .attr("points", function(d) { 
 			      	return x(d.x0) + ",0 " + x(d.x1) + ",0 " + ( x(d.x0) + (x(d.x1) - x(d.x0)) * ( d.filled / d.requested ) ) + ",20 " + x(d.x0) + ",20";
 			      });
 
-
+			  // FULFILLED RECTS
 			  var filledRects = FULFILLED.selectAll("rect")
 			      .data(currentDatum[0]['categories']);
 
 			  filledRects.enter().append("rect")
 			      .attr("height", "40")
-			      .attr("class", function(d) { console.log(d.name.replace(/[\s+\&]/g, '')); return d.name.replace(/[\s+\&]/g, ''); });
+			      .attr("class", function(d) { return d.name.replace(/[\s+\&]/g, ''); });
 
 			   filledRects
    			      .attr("x", function(d) { return x(d.x0); })
+  			      .attr("class", function(d) { 
+			      	if (d.requested < 40){
+				      	return "fc-insufficient"; 
+			      	} else {
+			      		return d.name.replace(/[\s+\&]/g, '');
+			      	}
+			      })
 			      .attr("width", function(d) { return ( ( x(d.x1) - x(d.x0) ) * ( d.filled / d.requested ) ); });
 
 			}

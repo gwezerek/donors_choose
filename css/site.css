@@ -695,3 +695,8 @@ svg {
   fill: #8c81ff;
   background-color: #8c81ff;
 }
+
+/* line 336, ../sass/site.scss */
+.fc-insufficient {
+  fill: #e6e6e6;
+}
