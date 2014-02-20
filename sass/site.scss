@@ -118,7 +118,8 @@
 }
 
 .fc-graphic-trend-item {
-	margin-bottom: 5px;
+	@include inline-block;
+	margin: 0 15px 5px 0;
 }
 
 .fc-graphic-annotation {

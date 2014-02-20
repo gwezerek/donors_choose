@@ -419,25 +419,31 @@
 
 /* line 120, ../sass/site.scss */
 .fc-graphic-trend-item {
-  margin-bottom: 5px;
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  margin: 0 15px 5px 0;
 }
 
-/* line 124, ../sass/site.scss */
+/* line 125, ../sass/site.scss */
 .fc-graphic-annotation {
   color: #999999;
 }
 
-/* line 128, ../sass/site.scss */
+/* line 129, ../sass/site.scss */
 .fc-graphic-annotation-requests {
   margin: 0 0 3px;
 }
 
-/* line 132, ../sass/site.scss */
+/* line 133, ../sass/site.scss */
 .fc-graphic-annotation-funded {
   margin: 0 0 15px;
 }
 
-/* line 136, ../sass/site.scss */
+/* line 137, ../sass/site.scss */
 .fc-graphic-legend {
   margin: 0;
   padding: 0;
@@ -445,7 +451,7 @@
   list-style-position: inside;
 }
 
-/* line 143, ../sass/site.scss */
+/* line 144, ../sass/site.scss */
 .fc-graphic-legend-item {
   display: -moz-inline-stack;
   display: inline-block;
@@ -458,18 +464,18 @@
   width: 47%;
 }
 @media (min-width: 460px) {
-  /* line 143, ../sass/site.scss */
+  /* line 144, ../sass/site.scss */
   .fc-graphic-legend-item {
     width: 31%;
   }
 }
 @media (min-width: 600px) {
-  /* line 143, ../sass/site.scss */
+  /* line 144, ../sass/site.scss */
   .fc-graphic-legend-item {
     width: 23%;
   }
 }
-/* line 154, ../sass/site.scss */
+/* line 155, ../sass/site.scss */
 .fc-graphic-legend-item:before {
   content: "\002022";
   font-size: 36px;
@@ -477,47 +483,47 @@
   margin-left: -5px;
   padding-right: 2px;
 }
-/* line 161, ../sass/site.scss */
+/* line 162, ../sass/site.scss */
 .fc-graphic-legend-item:nth-of-type(1):before {
   color: #ffdf80;
 }
-/* line 164, ../sass/site.scss */
+/* line 165, ../sass/site.scss */
 .fc-graphic-legend-item:nth-of-type(2):before {
   color: #ffb581;
 }
-/* line 167, ../sass/site.scss */
+/* line 168, ../sass/site.scss */
 .fc-graphic-legend-item:nth-of-type(3):before {
   color: #ff8a80;
 }
-/* line 170, ../sass/site.scss */
+/* line 171, ../sass/site.scss */
 .fc-graphic-legend-item:nth-of-type(4):before {
   color: #ff81cb;
 }
-/* line 173, ../sass/site.scss */
+/* line 174, ../sass/site.scss */
 .fc-graphic-legend-item:nth-of-type(5):before {
   color: #df81ff;
 }
-/* line 176, ../sass/site.scss */
+/* line 177, ../sass/site.scss */
 .fc-graphic-legend-item:nth-of-type(6):before {
   color: #9288ff;
 }
-/* line 179, ../sass/site.scss */
+/* line 180, ../sass/site.scss */
 .fc-graphic-legend-item:nth-of-type(7):before {
   color: #81a0ff;
 }
-/* line 182, ../sass/site.scss */
+/* line 183, ../sass/site.scss */
 .fc-graphic-legend-item:nth-of-type(8):before {
   color: #999999;
 }
 
-/* line 187, ../sass/site.scss */
+/* line 188, ../sass/site.scss */
 .fc-graphic-extremes-list {
   margin: 0 0 5px;
   padding: 0;
   list-style: none;
 }
 
-/* line 193, ../sass/site.scss */
+/* line 194, ../sass/site.scss */
 .fc-graphic-extremes-item {
   display: -moz-inline-stack;
   display: inline-block;
@@ -530,13 +536,13 @@
   background-color: #ededed;
 }
 
-/* line 200, ../sass/site.scss */
+/* line 201, ../sass/site.scss */
 .fc-graphic-tag {
   color: #999999;
   text-decoration: none;
 }
 
-/* line 205, ../sass/site.scss */
+/* line 206, ../sass/site.scss */
 .sources-copy {
   display: block;
   padding-top: 7px;
@@ -546,80 +552,80 @@
   line-height: 130%;
 }
 @media (min-width: 400px) {
-  /* line 205, ../sass/site.scss */
+  /* line 206, ../sass/site.scss */
   .sources-copy {
     font-size: 12px;
   }
 }
 
-/* line 217, ../sass/site.scss */
+/* line 218, ../sass/site.scss */
 .sources-leadin {
   text-transform: uppercase;
   font-weight: 500;
 }
 
-/* line 222, ../sass/site.scss */
+/* line 223, ../sass/site.scss */
 .sources-leadin-reverse {
   color: white;
   font-weight: 600;
 }
 
-/* line 227, ../sass/site.scss */
+/* line 228, ../sass/site.scss */
 .sources-copy-reverse {
   color: #ededed;
 }
 
-/* line 233, ../sass/site.scss */
+/* line 234, ../sass/site.scss */
 svg {
   shape-rendering: crispEdges;
 }
 
-/* line 245, ../sass/site.scss */
+/* line 246, ../sass/site.scss */
 .bar-bg {
   fill: white;
 }
 
-/* line 249, ../sass/site.scss */
+/* line 250, ../sass/site.scss */
 .bar {
   fill: #ff81a0;
   shape-rendering: crispEdges;
 }
 
-/* line 254, ../sass/site.scss */
+/* line 255, ../sass/site.scss */
 .name {
   font-size: 12px;
 }
 
-/* line 258, ../sass/site.scss */
+/* line 259, ../sass/site.scss */
 .value-labels {
   font-size: 11px;
 }
 @media (min-width: 680px) {
-  /* line 258, ../sass/site.scss */
+  /* line 259, ../sass/site.scss */
   .value-labels {
     font-size: 12px;
   }
 }
 
-/* line 265, ../sass/site.scss */
+/* line 266, ../sass/site.scss */
 .x-axis-label {
   font-size: 11px;
 }
 @media (min-width: 680px) {
-  /* line 265, ../sass/site.scss */
+  /* line 266, ../sass/site.scss */
   .x-axis-label {
     font-size: 12px;
   }
 }
 
-/* line 272, ../sass/site.scss */
+/* line 273, ../sass/site.scss */
 .domain {
   fill: none;
   stroke: #999999;
   stroke-width: 1;
 }
 
-/* line 278, ../sass/site.scss */
+/* line 279, ../sass/site.scss */
 .graphic-tooltip {
   position: absolute;
   padding: 10px;
@@ -631,26 +637,26 @@ svg {
   pointer-events: none;
 }
 
-/* line 289, ../sass/site.scss */
+/* line 290, ../sass/site.scss */
 .tooltip-title {
   margin: 0;
   font-weight: 500;
 }
 
-/* line 294, ../sass/site.scss */
+/* line 295, ../sass/site.scss */
 .tooltip-param {
   margin: 0;
   color: #999999;
   line-height: 120%;
 }
 
-/* line 304, ../sass/site.scss */
+/* line 305, ../sass/site.scss */
 .fc-stacked-bar {
   margin: 0 0 1px;
   position: relative;
 }
 
-/* line 309, ../sass/site.scss */
+/* line 310, ../sass/site.scss */
 .fc-graphic-label {
   position: absolute;
   top: 0;
@@ -661,17 +667,17 @@ svg {
   margin: 0;
 }
 
-/* line 315, ../sass/site.scss */
+/* line 316, ../sass/site.scss */
 .fc-graphic-requested {
   top: 15px;
 }
 
-/* line 319, ../sass/site.scss */
+/* line 320, ../sass/site.scss */
 .fc-graphic-fulfilled {
   top: 75px;
 }
 
-/* line 323, ../sass/site.scss */
+/* line 324, ../sass/site.scss */
 .connectors {
   opacity: .5;
 }
