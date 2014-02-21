@@ -74,6 +74,9 @@ body {
 
 .requests, .fulfilled, .connectors {
 	stroke: white;
+	& rect, polygon {
+		@include trans(0.2s, opacity, ease-in-out);
+	}
 }
 
 
@@ -198,6 +201,8 @@ body {
 
 .fc-graphic-annotation-funded {
 	margin: 0 0 15px;
+	border-bottom: 1px solid #e6dfd1;
+	padding-bottom: 5px;
 }
 
 .fc-graphic-legend {
@@ -208,6 +213,7 @@ body {
 
 .fc-graphic-legend-item {
 	@include inline-block;
+	@include trans(0.2s, opacity, ease-in-out);
 	margin-right: 5px;
 	width: 47%;
 	background-color: white;
@@ -322,6 +328,7 @@ body {
 	letter-spacing: .5px;
 	font-weight: 500;
 	font-size: 9px;
+	pointer-events: none;
 }
 
 .fc-graphic-requested {
@@ -342,13 +349,7 @@ body {
 
 // HOVER STATES
 .fc-graphic-inactive {
-	opacity: 20;
-  -webkit-filter: blur(5px);
-	-webkit-transition: all 1s ease;
-     -moz-transition: all 1s ease;
-      -ms-transition: all 1s ease;
-       -o-transition: all 1s ease;
-          transition: all 1s ease;
+	opacity: .2;
 }
 
 

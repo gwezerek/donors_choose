@@ -95,7 +95,7 @@
 				<p class="fc-graphic-annotation fc-graphic-annotation-requests"></p>
 				<div class="fc-stacked-bar">
 					<p class="fc-graphic-label fc-graphic-requested">Requested</p>
-					<p class="fc-graphic-label fc-graphic-fulfilled">Fulfilled</p>
+					<p class="fc-graphic-label fc-graphic-fulfilled">Funded</p>
 				</div>
 				<p class="fc-graphic-annotation fc-graphic-annotation-funded"></p>
 				<ol class="fc-graphic-legend">
@@ -124,6 +124,9 @@
 			</section>
 			<span class="sources-copy"><span class="sources-leadin">Source:</span> Donors Choose</span>
 		</div>
+
+
+
 
 		<!-- D3 STACKED BAR LAYOUT -->
 		<script>
@@ -229,15 +232,18 @@
 
 
 
-
+			// =============================================
 			// HANDLERS
+			// =============================================
 
+			// Select box
 			$('select').on('change', function() {
 			  STATE = this.value;
 			  updateData(STATE);
 			  $('.fc-graphic-extremes-item').removeClass("fc-graphic-extremes-active");
 			});
 
+			// Extremes list
 			$('.fc-graphic-extremes-item').on('click', function() {
 			  var 	$this = $(this);
 			  		STATE = $this.data( "state" );
@@ -248,6 +254,22 @@
   			  $this.siblings().removeClass("fc-graphic-extremes-active");
 			});
 
+			// Hover
+			$('.fc-stacked-bar').on({
+			    mouseenter: function () {
+			    	var nopeClasses = justThisClass(this);
+			    	for (var i = 0; i < nopeClasses.length; i++) {
+					    nopeClasses[i].classList.add('fc-graphic-inactive');
+					};
+			    },
+			    mouseleave: function () {
+			        var errybody = $('rect, polygon, .fc-graphic-legend-item');
+			    	for (var i = 0; i < errybody.length; i++) {
+					    errybody[i].classList.remove('fc-graphic-inactive');
+					};
+			    }
+			}, "rect, polygon, .fc-graphic-legend-item"); //pass the element as an argument to .on
+
 			// Resize
 			window.addEventListener("resize", debounce(function () {
 			    resize();
@@ -257,8 +279,27 @@
 
 
 
-
+			// =============================================
 			// HELPER FUNCTIONS
+			// =============================================
+
+			function getChildren(n, skipMe){
+			    var r = [];
+			    var elem = null;
+			    for ( ; n; n = n.nextSibling ) 
+			       if ( n.nodeType == 1 && n != skipMe)
+			          r.push( n );        
+			    return r;
+			};
+
+			function getSiblings(n) {
+			    return getChildren(n.parentNode.firstChild, n);
+			}
+
+			function justThisClass(selected) {
+				var className = selected.getAttribute('class');
+				return $('rect, polygon, .fc-graphic-legend-item').not('.'+className);
+			}
 
 			function updateData(STATE) {		  
 			  var currentDatum = DATA.filter(function(row) {
@@ -407,11 +448,11 @@
 
 			};
 
-			// HACKITY HACKITY HACKITY to get around wrong SVG width due to width not being set by time d3 runs
+			// Dangerous hack to get around wrong SVG width due to width not being set by time d3 runs
 			setTimeout(function(){ 
 				resize();
 				$(".fc-stacked-bar").css("opacity", "1");
-			}, 300);
+			}, 500);
 
 
 			</script>
