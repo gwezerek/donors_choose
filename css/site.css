@@ -506,28 +506,25 @@
   margin: 0 4px 8px 0;
   padding: 5px 5px 3px;
   background-color: #e6e6e6;
+  border: 1px solid white;
 }
 
-/* line 180, ../sass/site.scss */
+/* line 181, ../sass/site.scss */
 .fc-graphic-extremes-active {
-  -webkit-transition: background-color 0.2s ease-in-out;
-  -moz-transition: background-color 0.2s ease-in-out;
-  -o-transition: background-color 0.2s ease-in-out;
-  transition: background-color 0.2s ease-in-out;
-  background-color: #99948a;
-}
-/* line 183, ../sass/site.scss */
-.fc-graphic-extremes-active a {
-  color: #e6dfd1;
+  -webkit-transition: border-color 0.2s ease-in-out;
+  -moz-transition: border-color 0.2s ease-in-out;
+  -o-transition: border-color 0.2s ease-in-out;
+  transition: border-color 0.2s ease-in-out;
+  border: 1px solid #99948a;
 }
 
-/* line 188, ../sass/site.scss */
+/* line 186, ../sass/site.scss */
 .fc-graphic-tag {
   color: #99948a;
   text-decoration: none;
 }
 
-/* line 193, ../sass/site.scss */
+/* line 191, ../sass/site.scss */
 .sources-copy {
   display: block;
   padding-top: 7px;
@@ -537,36 +534,36 @@
   line-height: 130%;
 }
 @media (min-width: 400px) {
-  /* line 193, ../sass/site.scss */
+  /* line 191, ../sass/site.scss */
   .sources-copy {
     font-size: 12px;
   }
 }
 
-/* line 205, ../sass/site.scss */
+/* line 203, ../sass/site.scss */
 .sources-leadin {
   text-transform: uppercase;
   font-weight: 500;
 }
 
-/* line 210, ../sass/site.scss */
+/* line 208, ../sass/site.scss */
 .sources-leadin-reverse {
   color: white;
   font-weight: 600;
 }
 
-/* line 215, ../sass/site.scss */
+/* line 213, ../sass/site.scss */
 .sources-copy-reverse {
   color: #e6dfd1;
 }
 
-/* line 226, ../sass/site.scss */
+/* line 224, ../sass/site.scss */
 .fc-stacked-bar {
   margin: 0 0 1px;
   position: relative;
 }
 
-/* line 231, ../sass/site.scss */
+/* line 229, ../sass/site.scss */
 .fc-graphic-label {
   position: absolute;
   top: 0;
@@ -577,69 +574,69 @@
   margin: 0;
 }
 
-/* line 237, ../sass/site.scss */
+/* line 235, ../sass/site.scss */
 .fc-graphic-requested {
   top: 15px;
 }
 
-/* line 241, ../sass/site.scss */
+/* line 239, ../sass/site.scss */
 .fc-graphic-fulfilled {
   top: 75px;
 }
 
-/* line 245, ../sass/site.scss */
+/* line 243, ../sass/site.scss */
 .connectors {
   opacity: .5;
 }
 
-/* line 249, ../sass/site.scss */
+/* line 247, ../sass/site.scss */
 .LiteracyLanguage {
   fill: #ffdf80;
   background-color: #ffdf80;
 }
 
-/* line 253, ../sass/site.scss */
+/* line 251, ../sass/site.scss */
 .MathScience {
   fill: #ffb581;
   background-color: #ffb581;
 }
 
-/* line 257, ../sass/site.scss */
+/* line 255, ../sass/site.scss */
 .MusictheArts {
   fill: #ff8a80;
   background-color: #ff8a80;
 }
 
-/* line 261, ../sass/site.scss */
+/* line 259, ../sass/site.scss */
 .AppliedLearning {
   fill: #ff81c9;
   background-color: #ff81c9;
 }
 
-/* line 265, ../sass/site.scss */
+/* line 263, ../sass/site.scss */
 .SpecialNeeds {
   fill: #e081ff;
   background-color: #e081ff;
 }
 
-/* line 269, ../sass/site.scss */
+/* line 267, ../sass/site.scss */
 .HistoryCivics {
   fill: #b781ff;
   background-color: #b781ff;
 }
 
-/* line 273, ../sass/site.scss */
+/* line 271, ../sass/site.scss */
 .HealthSports {
   fill: #8c81ff;
   background-color: #8c81ff;
 }
 
-/* line 278, ../sass/site.scss */
+/* line 276, ../sass/site.scss */
 .fc-insufficient {
   fill: #e6e6e6;
 }
 
-/* line 286, ../sass/site.scss */
+/* line 284, ../sass/site.scss */
 .fc-graphic-inactive {
   opacity: 20;
   -webkit-transition: all 1s ease;
