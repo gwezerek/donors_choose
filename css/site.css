@@ -402,7 +402,7 @@
 
 /* line 104, ../sass/site.scss */
 .fc-graphic-annotation {
-  color: #99948a;
+  color: #33312e;
 }
 
 /* line 108, ../sass/site.scss */
@@ -533,37 +533,35 @@
   text-align: left;
   line-height: 130%;
 }
-@media (min-width: 400px) {
-  /* line 191, ../sass/site.scss */
-  .sources-copy {
-    font-size: 12px;
-  }
-}
 
-/* line 203, ../sass/site.scss */
+/* line 200, ../sass/site.scss */
 .sources-leadin {
   text-transform: uppercase;
-  font-weight: 500;
 }
 
-/* line 208, ../sass/site.scss */
+/* line 204, ../sass/site.scss */
 .sources-leadin-reverse {
   color: white;
   font-weight: 600;
 }
 
-/* line 213, ../sass/site.scss */
+/* line 209, ../sass/site.scss */
 .sources-copy-reverse {
   color: #e6dfd1;
 }
 
-/* line 224, ../sass/site.scss */
+/* line 220, ../sass/site.scss */
 .fc-stacked-bar {
+  -webkit-transition: opacity 0.2s ease-in-out;
+  -moz-transition: opacity 0.2s ease-in-out;
+  -o-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+  opacity: 0;
   margin: 0 0 1px;
   position: relative;
 }
 
-/* line 229, ../sass/site.scss */
+/* line 227, ../sass/site.scss */
 .fc-graphic-label {
   position: absolute;
   top: 0;
@@ -574,69 +572,69 @@
   margin: 0;
 }
 
-/* line 235, ../sass/site.scss */
+/* line 233, ../sass/site.scss */
 .fc-graphic-requested {
   top: 15px;
 }
 
-/* line 239, ../sass/site.scss */
+/* line 237, ../sass/site.scss */
 .fc-graphic-fulfilled {
   top: 75px;
 }
 
-/* line 243, ../sass/site.scss */
+/* line 241, ../sass/site.scss */
 .connectors {
   opacity: .5;
 }
 
-/* line 247, ../sass/site.scss */
+/* line 245, ../sass/site.scss */
 .LiteracyLanguage {
   fill: #ffdf80;
   background-color: #ffdf80;
 }
 
-/* line 251, ../sass/site.scss */
+/* line 249, ../sass/site.scss */
 .MathScience {
   fill: #ffb581;
   background-color: #ffb581;
 }
 
-/* line 255, ../sass/site.scss */
+/* line 253, ../sass/site.scss */
 .MusictheArts {
   fill: #ff8a80;
   background-color: #ff8a80;
 }
 
-/* line 259, ../sass/site.scss */
+/* line 257, ../sass/site.scss */
 .AppliedLearning {
   fill: #ff81c9;
   background-color: #ff81c9;
 }
 
-/* line 263, ../sass/site.scss */
+/* line 261, ../sass/site.scss */
 .SpecialNeeds {
   fill: #e081ff;
   background-color: #e081ff;
 }
 
-/* line 267, ../sass/site.scss */
+/* line 265, ../sass/site.scss */
 .HistoryCivics {
   fill: #b781ff;
   background-color: #b781ff;
 }
 
-/* line 271, ../sass/site.scss */
+/* line 269, ../sass/site.scss */
 .HealthSports {
   fill: #8c81ff;
   background-color: #8c81ff;
 }
 
-/* line 276, ../sass/site.scss */
+/* line 274, ../sass/site.scss */
 .fc-insufficient {
   fill: #e6e6e6;
 }
 
-/* line 284, ../sass/site.scss */
+/* line 282, ../sass/site.scss */
 .fc-graphic-inactive {
   opacity: 20;
   -webkit-transition: all 1s ease;

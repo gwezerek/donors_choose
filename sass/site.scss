@@ -102,7 +102,7 @@
 }
 
 .fc-graphic-annotation {
-	color: $med-gray;
+	color: $txt-black;
 }
 
 .fc-graphic-annotation-requests {
@@ -195,14 +195,10 @@
 	color: $med-gray;
 	text-align: left;
 	line-height: 130%;
-	@media (min-width: $small) {
-		font-size: 12px;
-	}
 }
 
 .sources-leadin {
 	text-transform: uppercase;
-	font-weight: 500;
 }
 
 .sources-leadin-reverse {
@@ -222,6 +218,8 @@
 // STACKED BAR CHART
 
 .fc-stacked-bar {
+	@include trans(0.2s, opacity, ease-in-out);
+	opacity: 0;
 	margin: 0 0 1px;
 	position: relative;
 }
