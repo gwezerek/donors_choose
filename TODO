@@ -1,6 +1,7 @@
 TODO
 
-Write hover function
 Add icons to extremes
-Add dynamic annotations
+Add rankings
 Test across browsers
+
+Pass in current state as an argument

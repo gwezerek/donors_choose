@@ -607,7 +607,7 @@ body {
   -o-transition: border-color 0.2s ease-in-out;
   transition: border-color 0.2s ease-in-out;
   margin: 0 4px 8px 0;
-  padding: 5px 7px 2px 6px;
+  padding: 6px 8px 2px 19px;
   border: 1px solid #e6dfd1;
   cursor: pointer;
 }
@@ -632,15 +632,39 @@ body {
 }
 
 /* line 270, ../sass/site.scss */
+.fc-graphic-most {
+  background: url("/icon_up.svg") no-repeat 6px 7px;
+  background-size: 8px;
+}
+@media (min-width: 400px) {
+  /* line 270, ../sass/site.scss */
+  .fc-graphic-most {
+    background-size: 11px;
+  }
+}
+
+/* line 278, ../sass/site.scss */
+.fc-graphic-least {
+  background: url("/icon_down.svg") no-repeat 6px 7px;
+  background-size: 8px;
+}
+@media (min-width: 400px) {
+  /* line 278, ../sass/site.scss */
+  .fc-graphic-least {
+    background-size: 11px;
+  }
+}
+
+/* line 287, ../sass/site.scss */
 .fc-graphic-extremes-active {
   border: 1px solid #66635d;
 }
-/* line 272, ../sass/site.scss */
+/* line 289, ../sass/site.scss */
 .fc-graphic-extremes-active .fc-graphic-tag {
   color: #66635d;
 }
 
-/* line 277, ../sass/site.scss */
+/* line 294, ../sass/site.scss */
 .fc-graphic-tag {
   -webkit-transition: color 0.2s ease-in-out;
   -moz-transition: color 0.2s ease-in-out;
@@ -650,7 +674,7 @@ body {
   text-decoration: none;
 }
 
-/* line 283, ../sass/site.scss */
+/* line 300, ../sass/site.scss */
 .sources-copy {
   display: block;
   padding-top: 7px;
@@ -661,23 +685,23 @@ body {
   font-size: 9px;
 }
 
-/* line 296, ../sass/site.scss */
+/* line 310, ../sass/site.scss */
 .sources-leadin {
   text-transform: uppercase;
 }
 
-/* line 300, ../sass/site.scss */
+/* line 314, ../sass/site.scss */
 .sources-leadin-reverse {
   color: white;
   font-weight: 600;
 }
 
-/* line 305, ../sass/site.scss */
+/* line 319, ../sass/site.scss */
 .sources-copy-reverse {
   color: #e6dfd1;
 }
 
-/* line 316, ../sass/site.scss */
+/* line 330, ../sass/site.scss */
 .fc-stacked-bar {
   -webkit-transition: opacity 0.2s ease-in-out;
   -moz-transition: opacity 0.2s ease-in-out;
@@ -688,7 +712,7 @@ body {
   opacity: 0;
 }
 
-/* line 323, ../sass/site.scss */
+/* line 337, ../sass/site.scss */
 .fc-graphic-label {
   position: absolute;
   top: 0;
@@ -704,22 +728,22 @@ body {
   pointer-events: none;
 }
 
-/* line 334, ../sass/site.scss */
+/* line 348, ../sass/site.scss */
 .fc-graphic-requested {
   top: 15px;
 }
 
-/* line 338, ../sass/site.scss */
+/* line 352, ../sass/site.scss */
 .fc-graphic-fulfilled {
   top: 75px;
 }
 
-/* line 342, ../sass/site.scss */
+/* line 356, ../sass/site.scss */
 .connectors {
   opacity: .5;
 }
 
-/* line 351, ../sass/site.scss */
+/* line 365, ../sass/site.scss */
 .fc-graphic-inactive {
   opacity: .2;
 }

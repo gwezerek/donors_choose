@@ -251,7 +251,7 @@ body {
 .fc-graphic-extremes-item {
 	@include trans(0.2s, border-color, ease-in-out);
 	margin: 0 4px 8px 0;
-	padding: 5px 7px 2px 6px;
+	padding: 6px 8px 2px 19px;
 	border: 1px solid $light-gray;
 	cursor: pointer;
 
@@ -266,6 +266,23 @@ body {
 		@include inline-block;
 	}
 }
+
+.fc-graphic-most {
+	background: url('/icon_up.svg') no-repeat 6px 7px;
+	background-size: 8px;
+	@media (min-width: $small) {
+		background-size: 11px;
+	}
+}
+
+.fc-graphic-least {
+	background: url('/icon_down.svg') no-repeat 6px 7px;
+	background-size: 8px;
+	@media (min-width: $small) {
+		background-size: 11px;
+	}
+}
+
 
 .fc-graphic-extremes-active {
 	border: 1px solid $dark-gray;
@@ -288,9 +305,6 @@ body {
 	text-transform: uppercase;
 	letter-spacing: .5px;
 	font-size: 9px;
-	@media (min-width: $small) {
-		// font-size: 11px;
-	}
 }
 
 .sources-leadin {
