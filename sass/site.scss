@@ -143,8 +143,9 @@ body {
 
 .fc-graphic-copy {
 	color: $dark-gray;
-	line-height: 130%;
+	font-weight: 300;
 	font-size: 12px;
+	line-height: 130%;
 	@media (min-width: $small) {
 		font-size: 14px;
 	}
@@ -193,6 +194,7 @@ body {
 
 .fc-graphic-annotation {
 	color: $dark-gray;
+	font-weight: 300;
 }
 
 .fc-graphic-annotation-requests {
@@ -201,8 +203,8 @@ body {
 
 .fc-graphic-annotation-funded {
 	margin: 0 0 15px;
-	border-bottom: 1px solid #e6dfd1;
 	padding-bottom: 5px;
+	border-bottom: 1px solid #e6dfd1;
 }
 
 .fc-graphic-legend {
@@ -251,7 +253,7 @@ body {
 .fc-graphic-extremes-item {
 	@include trans(0.2s, border-color, ease-in-out);
 	margin: 0 4px 8px 0;
-	padding: 6px 8px 2px 19px;
+	padding: 5px 8px 3px 19px;
 	border: 1px solid $light-gray;
 	cursor: pointer;
 
@@ -268,7 +270,8 @@ body {
 }
 
 .fc-graphic-most {
-	background: url('/projects/donors_choose/icon_up.svg') no-repeat 6px 7px;
+	background: url('/icon_up.svg') no-repeat 6px 7px;
+	// background: url('/projects/donors_choose/icon_up.svg') no-repeat 6px 7px;
 	background-size: 8px;
 	@media (min-width: $small) {
 		background-size: 11px;
@@ -276,7 +279,8 @@ body {
 }
 
 .fc-graphic-least {
-	background: url('/projects/donors_choose/icon_down.svg') no-repeat 6px 7px;
+	background: url('/icon_down.svg') no-repeat 6px 7px;
+	// background: url('/projects/donors_choose/icon_down.svg') no-repeat 6px 7px;
 	background-size: 8px;
 	@media (min-width: $small) {
 		background-size: 11px;
@@ -295,6 +299,7 @@ body {
 	@include trans(0.2s, color, ease-in-out);
 	color: $med-gray;
 	text-decoration: none;
+	font-weight: 300;
 }
 
 .sources-copy {
@@ -304,6 +309,7 @@ body {
 	color: $med-gray;
 	text-transform: uppercase;
 	letter-spacing: .5px;
+	font-weight: 300;
 	font-size: 9px;
 }
 
