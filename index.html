@@ -29,8 +29,10 @@
 			<li class="fc-decorative-border-box HealthSports"></li>
 		</ul>
 		<div class="fc-graphic-container">
-			<h6 class="fc-graphic-overline">2008-2013</h6>
-			<h4 class="fc-graphic-title">Resource Priorities</h4>
+			<header class="fc-graphic-content-block">
+				<h4 class="fc-graphic-title">Resource Priorities</h4>
+				<span class="fc-graphic-copy">Over the years, the halfpipe has evolved into an industry standard &ldquo;Superpipe.&rdquo; Yes, its walls have gradually gotten taller, but that height has enabled a smoother geometry: Now, the entire half-pipe is essentially one huge transition with no flat spots or sudden impacts. <span class="fc-graphic-byline">Graphic by Gus&nbsp;Wezerek.</span></span>
+			</header>
 			<section class="fc-graphic-content-block">
 				<h5 class="fc-graphic-subhed">In 
 				<select class="fc-graphic-select" tabindex="-1">
@@ -85,13 +87,11 @@
 					<option value="WI">Wisconsin</option>
 					<option value="WY">Wyoming</option>
 		        </select>
-				:</h5>
+				, from 2008&ndash;2013:</h5>
 				<!-- <ul class="fc-graphic-trend-list">
 					<li class="fc-graphic-trend-item">&bull; 88% of Applied Learning requests (1st of 50)</li>
 					<li class="fc-graphic-trend-item">&bull; 38% of Special Needs requests (49th of 50)</li>
 				</ul> -->	
-			</section>
-			<section class="fc-graphic-content-block">
 				<p class="fc-graphic-annotation fc-graphic-annotation-requests"></p>
 				<div class="fc-stacked-bar">
 					<p class="fc-graphic-label fc-graphic-requested">Requested</p>
@@ -99,7 +99,7 @@
 				</div>
 				<p class="fc-graphic-annotation fc-graphic-annotation-funded"></p>
 				<ol class="fc-graphic-legend">
-					<li class="fc-graphic-legend-item LiteracyLanguage"><span class="fc-graphic-legend-text">Literacy &amp; Language</span></li>
+					<li class="fc-graphic-legend-item LiteracyLanguage"><span class="fc-graphic-legend-text">Literacy &amp; Lang.</span></li>
 					<li class="fc-graphic-legend-item MathScience"><span class="fc-graphic-legend-text">Math &amp; Science</span></li>
 					<li class="fc-graphic-legend-item MusictheArts"><span class="fc-graphic-legend-text">Music &amp; Arts</span></li>
 					<li class="fc-graphic-legend-item AppliedLearning"><span class="fc-graphic-legend-text">Applied Learning</span></li>
@@ -107,8 +107,8 @@
 					<li class="fc-graphic-legend-item HistoryCivics"><span class="fc-graphic-legend-text">History &amp; Civics</span></li>
 					<li class="fc-graphic-legend-item HealthSports"><span class="fc-graphic-legend-text">Health &amp; Sports</span></li>
 					<li class="fc-graphic-legend-item fc-insufficient"><span class="fc-graphic-legend-text">Data insufficient</span></li>
-				</ol>	<span class="fc-graphic-legend-text">
-			</section><span class="fc-graphic-legend-text">
+				</ol>	
+			</section>
 			<section class="fc-graphic-content-block">
 				<h5 class="fc-graphic-subhed">Explore the Extremes</h5>
 				<ol class="fc-graphic-extremes-list">
@@ -235,6 +235,7 @@
 			$('select').on('change', function() {
 			  STATE = this.value;
 			  updateData(STATE);
+			  $('.fc-graphic-extremes-item').removeClass("fc-graphic-extremes-active");
 			});
 
 			$('.fc-graphic-extremes-item').on('click', function() {

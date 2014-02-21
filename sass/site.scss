@@ -13,50 +13,67 @@
 @import "partials/variables";
 
 
+//  FOR DEMO PAGE ONLY           
+// =============================================
+
+*, *:before, *:after { -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box; box-sizing: border-box;
+ }
+
+body {
+	padding: 10px 0; 
+	@media (min-width: $small) {
+		padding: 20px; 
+	}
+}
 
 
 // Stacked colors
 // =============================================
 
 .LiteracyLanguage {
-	fill: $bground-17;
-	color: $bground-17;
 	background-color: $bground-17;
+	color: $bground-17;
+	fill: $bground-17;
 }
 .MathScience {
-	fill: $bground-16;
-	color: $bground-16;
 	background-color: $bground-16;
+	color: $bground-16;
+	fill: $bground-16;
 }
 .MusictheArts {
-	fill: $bground-15;
-	color: $bground-15;
 	background-color: $bground-15;
+	color: $bground-15;
+	fill: $bground-15;
 }
 .AppliedLearning {
-	fill: $bground-14;
-	color: $bground-14;
 	background-color: $bground-14;
+	color: $bground-14;
+	fill: $bground-14;
 }
 .SpecialNeeds {
-	fill: $bground-12;
-	color: $bground-12;
 	background-color: $bground-12;
+	color: $bground-12;
+	fill: $bground-12;
 }
 .HistoryCivics {
-	fill: $bground-11;
-	color: $bground-11;
 	background-color: $bground-11;
+	color: $bground-11;
+	fill: $bground-11;
 }
 .HealthSports  {
-	fill: $bground-10;
-	color: $bground-10;
 	background-color: $bground-10;
+	color: $bground-10;
+	fill: $bground-10;
 }
 
 .fc-insufficient {
-	fill: $bground-gray;
 	color: $bground-gray;
+	fill: $bground-gray;
+}
+
+.requests, .fulfilled, .connectors {
+	stroke: white;
 }
 
 
@@ -65,11 +82,14 @@
 
 .fc-graphic-article {
 	margin: 0 auto;
-	max-width: 623px;
+	max-width: 520px;
 	height: 100%;
-	font-family: $sans;
 	color: $txt-black;
 	font-size: 11px;
+	font-family: $sans;
+	@media (min-width: $small) {
+		font-size: 12px;
+	}
 }
 
 .fc-decorative-border {
@@ -88,52 +108,65 @@
 
 .fc-graphic-container {
 	position: relative;
-	padding: 25px 15px 15px;
+	padding: 30px 15px 15px;
 	border-right: 1px solid $light-gray;
 	border-bottom: 1px solid $light-gray;
 	border-left: 1px solid $light-gray;
 	background-color: $bground;
 	@media (min-width: $small) {
-		padding: 20px;
+		padding: 30px 20px 20px;
 	}
 }
 
 .fc-graphic-overline {
 	margin: 0 0 5px;
-	color: $med-gray;
-	letter-spacing: 1px;
 	padding-bottom: 3px;
+	border-bottom: 1px solid $light-gray;
+	color: $med-gray;
 	font-weight: 300;
 	font-size: 11px;
-	border-bottom: 1px solid $light-gray;
 }
 
 .fc-graphic-title {
-	margin: 0 0 25px -2px;
+	margin: 0 0 10px -2px;
 	letter-spacing: -1px;
 	font-weight: 600;
 	font-size: 42px;
 	line-height: 90%;
-	@media (min-width: $smedium) {
-		font-size: 60px;
+	@media (min-width: $small) {
+		font-size: 48px;
 	}
 }
 
+.fc-graphic-copy {
+	color: $dark-gray;
+	line-height: 130%;
+}
+
+.fc-graphic-byline {
+	text-transform: uppercase;
+	letter-spacing: .5px;
+	font-size: 9px;
+	line-height: 90%;
+}
+
 .fc-graphic-content-block {
-	margin: 0 0 15px;
+	margin: 0 0 20px;
 }
 
 .fc-graphic-subhed {
 	margin: 0 0 10px;
 	padding-bottom: 3px;
 	border-bottom: 1px solid $light-gray;
-	font-weight: 300;
-	font-size: 16px;;
+	font-size: 14px;
+	@media (min-width: $small) {
+		font-size: 16px;
+	}
 }
 
 .fc-graphic-select {
-	vertical-align: text-bottom;
 	margin: 2px 0;
+	vertical-align: text-bottom;
 }
 
 .fc-graphic-trend-list {
@@ -148,7 +181,7 @@
 }
 
 .fc-graphic-annotation {
-	color: $txt-black;
+	color: $dark-gray;
 }
 
 .fc-graphic-annotation-requests {
@@ -168,29 +201,30 @@
 .fc-graphic-legend-item {
 	@include inline-block;
 	margin-right: 5px;
-	font-size: 36px;
-	line-height: 50%;
+	width: 47%;
 	background-color: white;
-
-	width: 47%; // Magic numbers sighhhhh
-	@media (min-width: 460px) {
-		width: 31%;
+	font-size: 36px;
+	line-height: 40%; // Magic numbers sighhhhh
+	@media (min-width: 450px) {
+		width: 30%;
 	}
-	@media (min-width: 600px) {
+	@media (min-width: 570px) {
 		width: 23%;
 	}
 	&:before {
-		content: "\002022";
 		margin-left: -5px;
 		padding-right: 2px;
+		content: "\002022";
 	}
 }
 
 .fc-graphic-legend-text {
-	font-size: 11px;
+	color: $dark-gray;
 	vertical-align: top;
-	line-height: 130%;
-	color: $med-gray;
+	text-transform: uppercase;
+	letter-spacing: .5px;
+	font-size: 9px;
+	line-height: 90%;
 }
 
 .fc-graphic-extremes-list {
@@ -200,19 +234,33 @@
 }
 
 .fc-graphic-extremes-item {
-	@include inline-block;
+	@include trans(0.2s, border-color, ease-in-out);
 	margin: 0 4px 8px 0;
 	padding: 5px 5px 3px;
-	background-color: $bground-gray;
-	border: 1px solid white;
+	border: 1px solid $light-gray;
+	cursor: pointer;
+
+	&:hover {
+		border: 1px solid $dark-gray;
+		& .fc-graphic-tag {
+			color: $dark-gray;
+		}
+	}
+
+	@media (min-width: $small) {
+		@include inline-block;
+	}
 }
 
 .fc-graphic-extremes-active {
-	@include trans(0.2s, border-color, ease-in-out);
-	border: 1px solid $med-gray;
+	border: 1px solid $dark-gray;
+	& .fc-graphic-tag {
+		color: $dark-gray;
+	}
 }
 
 .fc-graphic-tag {
+	@include trans(0.2s, color, ease-in-out);
 	color: $med-gray;
 	text-decoration: none;
 }
@@ -222,8 +270,12 @@
 	padding-top: 7px;
 	border-top: 1px solid $light-gray;
 	color: $med-gray;
-	text-align: left;
-	line-height: 130%;
+	font-size: 9px;
+	text-transform: uppercase;
+	letter-spacing: .5px;
+	@media (min-width: $small) {
+		// font-size: 11px;
+	}
 }
 
 .sources-leadin {
@@ -248,15 +300,18 @@
 
 .fc-stacked-bar {
 	@include trans(0.2s, opacity, ease-in-out);
-	opacity: 0;
-	margin: 0 0 1px;
 	position: relative;
+	margin: 0 0 1px;
+	opacity: 0;
 }
 
 .fc-graphic-label {
 	@include absolute(0 0 0 10px);
-	color: $med-gray;
 	margin: 0;
+	color: $dark-gray;
+	text-transform: uppercase;
+	letter-spacing: .5px;
+	font-size: 9px;
 }
 
 .fc-graphic-requested {
@@ -278,12 +333,12 @@
 // HOVER STATES
 .fc-graphic-inactive {
 	opacity: 20;
+  -webkit-filter: blur(5px);
 	-webkit-transition: all 1s ease;
      -moz-transition: all 1s ease;
-       -o-transition: all 1s ease;
       -ms-transition: all 1s ease;
+       -o-transition: all 1s ease;
           transition: all 1s ease;
-  -webkit-filter: blur(5px);
 }
 
 

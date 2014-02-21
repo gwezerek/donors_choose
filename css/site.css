@@ -289,79 +289,108 @@
 /* !-- Project ------------------------------------ */
 /* !-- Project ------------------------------------ */
 /* !-- Paths ------------------------------------ */
-/* line 21, ../sass/site.scss */
+/* line 19, ../sass/site.scss */
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 23, ../sass/site.scss */
+body {
+  padding: 10px 0;
+}
+@media (min-width: 400px) {
+  /* line 23, ../sass/site.scss */
+  body {
+    padding: 20px;
+  }
+}
+
+/* line 34, ../sass/site.scss */
 .LiteracyLanguage {
-  fill: #ffdf80;
-  color: #ffdf80;
   background-color: #ffdf80;
+  color: #ffdf80;
+  fill: #ffdf80;
 }
 
-/* line 26, ../sass/site.scss */
+/* line 39, ../sass/site.scss */
 .MathScience {
-  fill: #ffb581;
-  color: #ffb581;
   background-color: #ffb581;
+  color: #ffb581;
+  fill: #ffb581;
 }
 
-/* line 31, ../sass/site.scss */
+/* line 44, ../sass/site.scss */
 .MusictheArts {
-  fill: #ff8a80;
-  color: #ff8a80;
   background-color: #ff8a80;
+  color: #ff8a80;
+  fill: #ff8a80;
 }
 
-/* line 36, ../sass/site.scss */
+/* line 49, ../sass/site.scss */
 .AppliedLearning {
-  fill: #ff81c9;
-  color: #ff81c9;
   background-color: #ff81c9;
+  color: #ff81c9;
+  fill: #ff81c9;
 }
 
-/* line 41, ../sass/site.scss */
+/* line 54, ../sass/site.scss */
 .SpecialNeeds {
-  fill: #e081ff;
-  color: #e081ff;
   background-color: #e081ff;
+  color: #e081ff;
+  fill: #e081ff;
 }
 
-/* line 46, ../sass/site.scss */
+/* line 59, ../sass/site.scss */
 .HistoryCivics {
-  fill: #b781ff;
-  color: #b781ff;
   background-color: #b781ff;
+  color: #b781ff;
+  fill: #b781ff;
 }
 
-/* line 51, ../sass/site.scss */
+/* line 64, ../sass/site.scss */
 .HealthSports {
-  fill: #8c81ff;
-  color: #8c81ff;
   background-color: #8c81ff;
+  color: #8c81ff;
+  fill: #8c81ff;
 }
 
-/* line 57, ../sass/site.scss */
+/* line 70, ../sass/site.scss */
 .fc-insufficient {
-  fill: #e6e6e6;
   color: #e6e6e6;
-}
-
-/* line 66, ../sass/site.scss */
-.fc-graphic-article {
-  margin: 0 auto;
-  max-width: 623px;
-  height: 100%;
-  font-family: "Colfax", Helvetica, Arial, sans-serif;
-  color: #33312e;
-  font-size: 11px;
+  fill: #e6e6e6;
 }
 
 /* line 75, ../sass/site.scss */
+.requests, .fulfilled, .connectors {
+  stroke: white;
+}
+
+/* line 83, ../sass/site.scss */
+.fc-graphic-article {
+  margin: 0 auto;
+  max-width: 520px;
+  height: 100%;
+  color: #33312e;
+  font-size: 11px;
+  font-family: "Colfax", Helvetica, Arial, sans-serif;
+}
+@media (min-width: 400px) {
+  /* line 83, ../sass/site.scss */
+  .fc-graphic-article {
+    font-size: 12px;
+  }
+}
+
+/* line 95, ../sass/site.scss */
 .fc-decorative-border {
   margin: 0;
   padding: 0;
   font-size: 0;
 }
 
-/* line 81, ../sass/site.scss */
+/* line 101, ../sass/site.scss */
 .fc-decorative-border-box {
   display: -moz-inline-stack;
   display: inline-block;
@@ -375,76 +404,94 @@
   list-style: none;
 }
 
-/* line 89, ../sass/site.scss */
+/* line 109, ../sass/site.scss */
 .fc-graphic-container {
   position: relative;
-  padding: 25px 15px 15px;
+  padding: 30px 15px 15px;
   border-right: 1px solid #e6dfd1;
   border-bottom: 1px solid #e6dfd1;
   border-left: 1px solid #e6dfd1;
   background-color: white;
 }
 @media (min-width: 400px) {
-  /* line 89, ../sass/site.scss */
+  /* line 109, ../sass/site.scss */
   .fc-graphic-container {
-    padding: 20px;
+    padding: 30px 20px 20px;
   }
 }
 
-/* line 101, ../sass/site.scss */
+/* line 121, ../sass/site.scss */
 .fc-graphic-overline {
   margin: 0 0 5px;
-  color: #99948a;
-  letter-spacing: 1px;
   padding-bottom: 3px;
+  border-bottom: 1px solid #e6dfd1;
+  color: #99948a;
   font-weight: 300;
   font-size: 11px;
-  border-bottom: 1px solid #e6dfd1;
 }
 
-/* line 111, ../sass/site.scss */
+/* line 130, ../sass/site.scss */
 .fc-graphic-title {
-  margin: 0 0 25px -2px;
+  margin: 0 0 10px -2px;
   letter-spacing: -1px;
   font-weight: 600;
   font-size: 42px;
   line-height: 90%;
 }
-@media (min-width: 680px) {
-  /* line 111, ../sass/site.scss */
+@media (min-width: 400px) {
+  /* line 130, ../sass/site.scss */
   .fc-graphic-title {
-    font-size: 60px;
+    font-size: 48px;
   }
 }
 
-/* line 122, ../sass/site.scss */
-.fc-graphic-content-block {
-  margin: 0 0 15px;
+/* line 141, ../sass/site.scss */
+.fc-graphic-copy {
+  color: #66635d;
+  line-height: 130%;
 }
 
-/* line 126, ../sass/site.scss */
+/* line 146, ../sass/site.scss */
+.fc-graphic-byline {
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  font-size: 9px;
+  line-height: 90%;
+}
+
+/* line 153, ../sass/site.scss */
+.fc-graphic-content-block {
+  margin: 0 0 20px;
+}
+
+/* line 157, ../sass/site.scss */
 .fc-graphic-subhed {
   margin: 0 0 10px;
   padding-bottom: 3px;
   border-bottom: 1px solid #e6dfd1;
-  font-weight: 300;
-  font-size: 16px;
+  font-size: 14px;
+}
+@media (min-width: 400px) {
+  /* line 157, ../sass/site.scss */
+  .fc-graphic-subhed {
+    font-size: 16px;
+  }
 }
 
-/* line 134, ../sass/site.scss */
+/* line 167, ../sass/site.scss */
 .fc-graphic-select {
-  vertical-align: text-bottom;
   margin: 2px 0;
+  vertical-align: text-bottom;
 }
 
-/* line 139, ../sass/site.scss */
+/* line 172, ../sass/site.scss */
 .fc-graphic-trend-list {
   margin: 0;
   padding: 0;
   list-style-position: inside;
 }
 
-/* line 145, ../sass/site.scss */
+/* line 178, ../sass/site.scss */
 .fc-graphic-trend-item {
   display: -moz-inline-stack;
   display: inline-block;
@@ -455,29 +502,29 @@
   margin: 0 15px 5px 0;
 }
 
-/* line 150, ../sass/site.scss */
+/* line 183, ../sass/site.scss */
 .fc-graphic-annotation {
-  color: #33312e;
+  color: #66635d;
 }
 
-/* line 154, ../sass/site.scss */
+/* line 187, ../sass/site.scss */
 .fc-graphic-annotation-requests {
   margin: 0 0 3px;
 }
 
-/* line 158, ../sass/site.scss */
+/* line 191, ../sass/site.scss */
 .fc-graphic-annotation-funded {
   margin: 0 0 15px;
 }
 
-/* line 162, ../sass/site.scss */
+/* line 195, ../sass/site.scss */
 .fc-graphic-legend {
   margin: 0;
   padding: 0;
   list-style-position: inside;
 }
 
-/* line 168, ../sass/site.scss */
+/* line 201, ../sass/site.scss */
 .fc-graphic-legend-item {
   display: -moz-inline-stack;
   display: inline-block;
@@ -486,144 +533,171 @@
   zoom: 1;
   *display: inline;
   margin-right: 5px;
-  font-size: 36px;
-  line-height: 50%;
-  background-color: white;
   width: 47%;
+  background-color: white;
+  font-size: 36px;
+  line-height: 40%;
 }
-@media (min-width: 460px) {
-  /* line 168, ../sass/site.scss */
+@media (min-width: 450px) {
+  /* line 201, ../sass/site.scss */
   .fc-graphic-legend-item {
-    width: 31%;
+    width: 30%;
   }
 }
-@media (min-width: 600px) {
-  /* line 168, ../sass/site.scss */
+@media (min-width: 570px) {
+  /* line 201, ../sass/site.scss */
   .fc-graphic-legend-item {
     width: 23%;
   }
 }
-/* line 182, ../sass/site.scss */
+/* line 214, ../sass/site.scss */
 .fc-graphic-legend-item:before {
-  content: "\002022";
   margin-left: -5px;
   padding-right: 2px;
+  content: "\002022";
 }
 
-/* line 189, ../sass/site.scss */
+/* line 221, ../sass/site.scss */
 .fc-graphic-legend-text {
-  font-size: 11px;
+  color: #66635d;
   vertical-align: top;
-  line-height: 130%;
-  color: #99948a;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  font-size: 9px;
+  line-height: 90%;
 }
 
-/* line 196, ../sass/site.scss */
+/* line 230, ../sass/site.scss */
 .fc-graphic-extremes-list {
   margin: 0 0 5px;
   padding: 0;
   list-style: none;
 }
 
-/* line 202, ../sass/site.scss */
+/* line 236, ../sass/site.scss */
 .fc-graphic-extremes-item {
-  display: -moz-inline-stack;
-  display: inline-block;
-  vertical-align: middle;
-  *vertical-align: auto;
-  zoom: 1;
-  *display: inline;
-  margin: 0 4px 8px 0;
-  padding: 5px 5px 3px;
-  background-color: #e6e6e6;
-  border: 1px solid white;
-}
-
-/* line 210, ../sass/site.scss */
-.fc-graphic-extremes-active {
   -webkit-transition: border-color 0.2s ease-in-out;
   -moz-transition: border-color 0.2s ease-in-out;
   -o-transition: border-color 0.2s ease-in-out;
   transition: border-color 0.2s ease-in-out;
-  border: 1px solid #99948a;
+  margin: 0 4px 8px 0;
+  padding: 5px 5px 3px;
+  border: 1px solid #e6dfd1;
+  cursor: pointer;
+}
+/* line 243, ../sass/site.scss */
+.fc-graphic-extremes-item:hover {
+  border: 1px solid #66635d;
+}
+/* line 245, ../sass/site.scss */
+.fc-graphic-extremes-item:hover .fc-graphic-tag {
+  color: #66635d;
+}
+@media (min-width: 400px) {
+  /* line 236, ../sass/site.scss */
+  .fc-graphic-extremes-item {
+    display: -moz-inline-stack;
+    display: inline-block;
+    vertical-align: middle;
+    *vertical-align: auto;
+    zoom: 1;
+    *display: inline;
+  }
 }
 
-/* line 215, ../sass/site.scss */
+/* line 255, ../sass/site.scss */
+.fc-graphic-extremes-active {
+  border: 1px solid #66635d;
+}
+/* line 257, ../sass/site.scss */
+.fc-graphic-extremes-active .fc-graphic-tag {
+  color: #66635d;
+}
+
+/* line 262, ../sass/site.scss */
 .fc-graphic-tag {
+  -webkit-transition: color 0.2s ease-in-out;
+  -moz-transition: color 0.2s ease-in-out;
+  -o-transition: color 0.2s ease-in-out;
+  transition: color 0.2s ease-in-out;
   color: #99948a;
   text-decoration: none;
 }
 
-/* line 220, ../sass/site.scss */
+/* line 268, ../sass/site.scss */
 .sources-copy {
   display: block;
   padding-top: 7px;
   border-top: 1px solid #e6dfd1;
   color: #99948a;
-  text-align: left;
-  line-height: 130%;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: .5px;
 }
 
-/* line 229, ../sass/site.scss */
+/* line 281, ../sass/site.scss */
 .sources-leadin {
   text-transform: uppercase;
 }
 
-/* line 233, ../sass/site.scss */
+/* line 285, ../sass/site.scss */
 .sources-leadin-reverse {
   color: white;
   font-weight: 600;
 }
 
-/* line 238, ../sass/site.scss */
+/* line 290, ../sass/site.scss */
 .sources-copy-reverse {
   color: #e6dfd1;
 }
 
-/* line 249, ../sass/site.scss */
+/* line 301, ../sass/site.scss */
 .fc-stacked-bar {
   -webkit-transition: opacity 0.2s ease-in-out;
   -moz-transition: opacity 0.2s ease-in-out;
   -o-transition: opacity 0.2s ease-in-out;
   transition: opacity 0.2s ease-in-out;
-  opacity: 0;
-  margin: 0 0 1px;
   position: relative;
+  margin: 0 0 1px;
+  opacity: 0;
 }
 
-/* line 256, ../sass/site.scss */
+/* line 308, ../sass/site.scss */
 .fc-graphic-label {
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 10px;
-  color: #99948a;
   margin: 0;
+  color: #66635d;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  font-size: 9px;
 }
 
-/* line 262, ../sass/site.scss */
+/* line 317, ../sass/site.scss */
 .fc-graphic-requested {
   top: 15px;
 }
 
-/* line 266, ../sass/site.scss */
+/* line 321, ../sass/site.scss */
 .fc-graphic-fulfilled {
   top: 75px;
 }
 
-/* line 270, ../sass/site.scss */
+/* line 325, ../sass/site.scss */
 .connectors {
   opacity: .5;
 }
 
-/* line 279, ../sass/site.scss */
+/* line 334, ../sass/site.scss */
 .fc-graphic-inactive {
   opacity: 20;
+  -webkit-filter: blur(5px);
   -webkit-transition: all 1s ease;
   -moz-transition: all 1s ease;
-  -o-transition: all 1s ease;
   -ms-transition: all 1s ease;
+  -o-transition: all 1s ease;
   transition: all 1s ease;
-  -webkit-filter: blur(5px);
 }
