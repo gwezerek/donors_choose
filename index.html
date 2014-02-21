@@ -213,8 +213,6 @@
 			    });
 			  });
 
-			  console.log(DATA);
-
 			  var currentDatum = DATA.filter(function(row) {
 		        return row['State'] == 'NY';
 		      });
@@ -250,24 +248,32 @@
 			});
 
 			$('.fc-graphic-extremes-item').on('click', function() {
-			  var state = $(this).data( "state" );
+			  var 	$this = $(this),
+			  		state = $this.data( "state" );
 
 			  updateData(state); // or $(this).val()
 			  $('select').val(state);
+			  $this.addClass("fc-graphic-extremes-active");
+  			  $this.siblings().removeClass("fc-graphic-extremes-active");
 			});
 
 
+
+
+
 			// HELPER FUNCTIONS
-			function updateData(state) {
-			  
+
+			function updateData(state) {		  
 			  var currentDatum = DATA.filter(function(row) {
 		        return row['State'] == state;
 		      });
 
-  		      console.log(currentDatum);
+		      updateReqRects(currentDatum);
+		      updateConnectPolys(currentDatum);
+			  updateFilledRects(currentDatum);
+			}
 
-
-			  // REQUEST RECTS
+			function updateReqRects(currentDatum) {
 			  var reqRects = REQUESTS.selectAll("rect")
 			      .data(currentDatum[0]['categories']);
 
@@ -285,9 +291,10 @@
 			      	}
 			      })
 			      .attr("width", function(d) { return (x(d.x1) - x(d.x0)); });
+			}
 
-			  // CONNECTOR POLYGONS
-		      var connectPolys = CONNECTORS.selectAll("polygon")
+			function updateConnectPolys(currentDatum) {
+			  var connectPolys = CONNECTORS.selectAll("polygon")
 			      .data(currentDatum[0]['categories']);
 
 			  connectPolys.enter().append("polygon")
@@ -304,8 +311,9 @@
   			      .attr("points", function(d) { 
 			      	return x(d.x0) + ",0 " + x(d.x1) + ",0 " + ( x(d.x0) + (x(d.x1) - x(d.x0)) * ( d.filled / d.requested ) ) + ",20 " + x(d.x0) + ",20";
 			      });
+			}
 
-			  // FULFILLED RECTS
+			function updateFilledRects(currentDatum) {
 			  var filledRects = FULFILLED.selectAll("rect")
 			      .data(currentDatum[0]['categories']);
 
@@ -323,8 +331,9 @@
 			      	}
 			      })
 			      .attr("width", function(d) { return ( ( x(d.x1) - x(d.x0) ) * ( d.filled / d.requested ) ); });
-
 			}
+
+
 
 			function updateAnnotations(state) {
 

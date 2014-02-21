@@ -7,7 +7,7 @@
 
 //  Imports            
 // =============================================
-@import "compass/css3/inline-block";
+@import "compass/css3";
 @import "partials/mixins";
 @import "partials/type";
 @import "partials/variables";
@@ -177,6 +177,14 @@
 	background-color: $bground-gray;
 }
 
+.fc-graphic-extremes-active {
+	@include trans(0.2s, background-color, ease-in-out);
+	background-color: $med-gray;
+	& a {
+		color: $light-gray;
+	}
+}
+
 .fc-graphic-tag {
 	color: $med-gray;
 	text-decoration: none;
@@ -209,73 +217,7 @@
 }
 
 
-// GENERAL CHART STYLES
-svg {
-	shape-rendering: crispEdges;
-}
 
-
-
-// BAR CHART
-
-.bar-chart {
-	// margin-top: 10px;
-}
-
-.bar-bg {
-	fill: $bground;
-}
-
-.bar {
-	fill: $bground-4;
-	shape-rendering: crispEdges;
-}
-
-.name {
-	font-size: 12px;
-}
-
-.value-labels {
-	font-size: 11px;
-	@media (min-width: $smedium) {
-		font-size: 12px; 
-	}
-}
-
-.x-axis-label {
-	font-size: 11px;
-	@media (min-width: $smedium) {
-		font-size: 12px; 
-	}
-}
-
-.domain { 
-	fill: none; 
-	stroke: $med-gray; 
-	stroke-width: 1; 
-} 
-
-.graphic-tooltip {   
-	position: absolute;              
-	padding: 10px;   
-	border: 1px solid $med-gray;        
-	background: $bground;    
-	font-weight: 300;             
-	font-size: 12px;           
-	font-family: $sans;      
-	pointer-events: none;  
-}
-
-.tooltip-title {
-	margin: 0;
-	font-weight: 500;
-}
-
-.tooltip-param {
-	margin: 0;
-	color: $med-gray;
-	line-height: 120%;
-}
 
 
 
@@ -337,5 +279,18 @@ svg {
 	fill: $bground-gray;
 }
 
+
+
+
+// HOVER STATES
+.fc-graphic-inactive {
+	opacity: 20;
+	-webkit-transition: all 1s ease;
+     -moz-transition: all 1s ease;
+       -o-transition: all 1s ease;
+      -ms-transition: all 1s ease;
+          transition: all 1s ease;
+  -webkit-filter: blur(5px);
+}
 
 
