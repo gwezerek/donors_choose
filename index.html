@@ -191,7 +191,7 @@
 				});
 
 				var filledTotal = stateArray.reduce(function(a, b, index, array){
-			    	if( (index > 7)) {
+			    	if( (index > 8)) {
 					  return parseInt(a) + parseInt(b);
 			    	} else {
 			    		return b ;
@@ -271,7 +271,9 @@
 		      updateReqRects(currentDatum);
 		      updateConnectPolys(currentDatum);
 			  updateFilledRects(currentDatum);
+			  updateAnnotations(currentDatum)
 			}
+
 
 			function updateReqRects(currentDatum) {
 			  var reqRects = REQUESTS.selectAll("rect")
@@ -293,6 +295,7 @@
 			      .attr("width", function(d) { return (x(d.x1) - x(d.x0)); });
 			}
 
+
 			function updateConnectPolys(currentDatum) {
 			  var connectPolys = CONNECTORS.selectAll("polygon")
 			      .data(currentDatum[0]['categories']);
@@ -312,6 +315,7 @@
 			      	return x(d.x0) + ",0 " + x(d.x1) + ",0 " + ( x(d.x0) + (x(d.x1) - x(d.x0)) * ( d.filled / d.requested ) ) + ",20 " + x(d.x0) + ",20";
 			      });
 			}
+
 
 			function updateFilledRects(currentDatum) {
 			  var filledRects = FULFILLED.selectAll("rect")
@@ -335,8 +339,13 @@
 
 
 
-			function updateAnnotations(state) {
+			function updateAnnotations(currentDatum) {
+				console.log(currentDatum);
+				var comma = d3.format(",");
+				var percent = d3.format(".0%");
 
+				$('.fc-graphic-annotation-requests').text("Teachers requested "+ comma(currentDatum[0].reqTotal) +" resources overall.");
+				$('.fc-graphic-annotation-funded').text("Donors funded "+ percent(currentDatum[0].filledTotal/currentDatum[0].reqTotal, 0) +" of those requests.");
 			}
 
 
