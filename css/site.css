@@ -289,7 +289,62 @@
 /* !-- Project ------------------------------------ */
 /* !-- Project ------------------------------------ */
 /* !-- Paths ------------------------------------ */
-/* line 20, ../sass/site.scss */
+/* line 21, ../sass/site.scss */
+.LiteracyLanguage {
+  fill: #ffdf80;
+  color: #ffdf80;
+  background-color: #ffdf80;
+}
+
+/* line 26, ../sass/site.scss */
+.MathScience {
+  fill: #ffb581;
+  color: #ffb581;
+  background-color: #ffb581;
+}
+
+/* line 31, ../sass/site.scss */
+.MusictheArts {
+  fill: #ff8a80;
+  color: #ff8a80;
+  background-color: #ff8a80;
+}
+
+/* line 36, ../sass/site.scss */
+.AppliedLearning {
+  fill: #ff81c9;
+  color: #ff81c9;
+  background-color: #ff81c9;
+}
+
+/* line 41, ../sass/site.scss */
+.SpecialNeeds {
+  fill: #e081ff;
+  color: #e081ff;
+  background-color: #e081ff;
+}
+
+/* line 46, ../sass/site.scss */
+.HistoryCivics {
+  fill: #b781ff;
+  color: #b781ff;
+  background-color: #b781ff;
+}
+
+/* line 51, ../sass/site.scss */
+.HealthSports {
+  fill: #8c81ff;
+  color: #8c81ff;
+  background-color: #8c81ff;
+}
+
+/* line 57, ../sass/site.scss */
+.fc-insufficient {
+  fill: #e6e6e6;
+  color: #e6e6e6;
+}
+
+/* line 66, ../sass/site.scss */
 .fc-graphic-article {
   margin: 0 auto;
   max-width: 623px;
@@ -299,14 +354,14 @@
   font-size: 11px;
 }
 
-/* line 29, ../sass/site.scss */
+/* line 75, ../sass/site.scss */
 .fc-decorative-border {
   margin: 0;
   padding: 0;
   font-size: 0;
 }
 
-/* line 35, ../sass/site.scss */
+/* line 81, ../sass/site.scss */
 .fc-decorative-border-box {
   display: -moz-inline-stack;
   display: inline-block;
@@ -320,7 +375,7 @@
   list-style: none;
 }
 
-/* line 43, ../sass/site.scss */
+/* line 89, ../sass/site.scss */
 .fc-graphic-container {
   position: relative;
   padding: 25px 15px 15px;
@@ -330,13 +385,13 @@
   background-color: white;
 }
 @media (min-width: 400px) {
-  /* line 43, ../sass/site.scss */
+  /* line 89, ../sass/site.scss */
   .fc-graphic-container {
     padding: 20px;
   }
 }
 
-/* line 55, ../sass/site.scss */
+/* line 101, ../sass/site.scss */
 .fc-graphic-overline {
   margin: 0 0 5px;
   color: #99948a;
@@ -347,7 +402,7 @@
   border-bottom: 1px solid #e6dfd1;
 }
 
-/* line 65, ../sass/site.scss */
+/* line 111, ../sass/site.scss */
 .fc-graphic-title {
   margin: 0 0 25px -2px;
   letter-spacing: -1px;
@@ -356,18 +411,18 @@
   line-height: 90%;
 }
 @media (min-width: 680px) {
-  /* line 65, ../sass/site.scss */
+  /* line 111, ../sass/site.scss */
   .fc-graphic-title {
     font-size: 60px;
   }
 }
 
-/* line 76, ../sass/site.scss */
+/* line 122, ../sass/site.scss */
 .fc-graphic-content-block {
   margin: 0 0 15px;
 }
 
-/* line 80, ../sass/site.scss */
+/* line 126, ../sass/site.scss */
 .fc-graphic-subhed {
   margin: 0 0 10px;
   padding-bottom: 3px;
@@ -376,20 +431,20 @@
   font-size: 16px;
 }
 
-/* line 88, ../sass/site.scss */
+/* line 134, ../sass/site.scss */
 .fc-graphic-select {
   vertical-align: text-bottom;
   margin: 2px 0;
 }
 
-/* line 93, ../sass/site.scss */
+/* line 139, ../sass/site.scss */
 .fc-graphic-trend-list {
   margin: 0;
   padding: 0;
   list-style-position: inside;
 }
 
-/* line 99, ../sass/site.scss */
+/* line 145, ../sass/site.scss */
 .fc-graphic-trend-item {
   display: -moz-inline-stack;
   display: inline-block;
@@ -400,30 +455,29 @@
   margin: 0 15px 5px 0;
 }
 
-/* line 104, ../sass/site.scss */
+/* line 150, ../sass/site.scss */
 .fc-graphic-annotation {
   color: #33312e;
 }
 
-/* line 108, ../sass/site.scss */
+/* line 154, ../sass/site.scss */
 .fc-graphic-annotation-requests {
   margin: 0 0 3px;
 }
 
-/* line 112, ../sass/site.scss */
+/* line 158, ../sass/site.scss */
 .fc-graphic-annotation-funded {
   margin: 0 0 15px;
 }
 
-/* line 116, ../sass/site.scss */
+/* line 162, ../sass/site.scss */
 .fc-graphic-legend {
   margin: 0;
   padding: 0;
-  color: #99948a;
   list-style-position: inside;
 }
 
-/* line 123, ../sass/site.scss */
+/* line 168, ../sass/site.scss */
 .fc-graphic-legend-item {
   display: -moz-inline-stack;
   display: inline-block;
@@ -434,74 +488,44 @@
   margin-right: 5px;
   font-size: 36px;
   line-height: 50%;
+  background-color: white;
   width: 47%;
 }
 @media (min-width: 460px) {
-  /* line 123, ../sass/site.scss */
+  /* line 168, ../sass/site.scss */
   .fc-graphic-legend-item {
     width: 31%;
   }
 }
 @media (min-width: 600px) {
-  /* line 123, ../sass/site.scss */
+  /* line 168, ../sass/site.scss */
   .fc-graphic-legend-item {
     width: 23%;
   }
 }
-/* line 135, ../sass/site.scss */
+/* line 182, ../sass/site.scss */
 .fc-graphic-legend-item:before {
   content: "\002022";
   margin-left: -5px;
   padding-right: 2px;
 }
-/* line 140, ../sass/site.scss */
-.fc-graphic-legend-item:nth-of-type(1):before {
-  color: #ffdf80;
-}
-/* line 143, ../sass/site.scss */
-.fc-graphic-legend-item:nth-of-type(2):before {
-  color: #ffb581;
-}
-/* line 146, ../sass/site.scss */
-.fc-graphic-legend-item:nth-of-type(3):before {
-  color: #ff8a80;
-}
-/* line 149, ../sass/site.scss */
-.fc-graphic-legend-item:nth-of-type(4):before {
-  color: #ff81c9;
-}
-/* line 152, ../sass/site.scss */
-.fc-graphic-legend-item:nth-of-type(5):before {
-  color: #e081ff;
-}
-/* line 155, ../sass/site.scss */
-.fc-graphic-legend-item:nth-of-type(6):before {
-  color: #b781ff;
-}
-/* line 158, ../sass/site.scss */
-.fc-graphic-legend-item:nth-of-type(7):before {
-  color: #8c81ff;
-}
-/* line 161, ../sass/site.scss */
-.fc-graphic-legend-item:nth-of-type(8):before {
-  color: #e6e6e6;
-}
 
-/* line 166, ../sass/site.scss */
+/* line 189, ../sass/site.scss */
 .fc-graphic-legend-text {
   font-size: 11px;
   vertical-align: top;
   line-height: 130%;
+  color: #99948a;
 }
 
-/* line 172, ../sass/site.scss */
+/* line 196, ../sass/site.scss */
 .fc-graphic-extremes-list {
   margin: 0 0 5px;
   padding: 0;
   list-style: none;
 }
 
-/* line 178, ../sass/site.scss */
+/* line 202, ../sass/site.scss */
 .fc-graphic-extremes-item {
   display: -moz-inline-stack;
   display: inline-block;
@@ -515,7 +539,7 @@
   border: 1px solid white;
 }
 
-/* line 186, ../sass/site.scss */
+/* line 210, ../sass/site.scss */
 .fc-graphic-extremes-active {
   -webkit-transition: border-color 0.2s ease-in-out;
   -moz-transition: border-color 0.2s ease-in-out;
@@ -524,13 +548,13 @@
   border: 1px solid #99948a;
 }
 
-/* line 191, ../sass/site.scss */
+/* line 215, ../sass/site.scss */
 .fc-graphic-tag {
   color: #99948a;
   text-decoration: none;
 }
 
-/* line 196, ../sass/site.scss */
+/* line 220, ../sass/site.scss */
 .sources-copy {
   display: block;
   padding-top: 7px;
@@ -540,23 +564,23 @@
   line-height: 130%;
 }
 
-/* line 205, ../sass/site.scss */
+/* line 229, ../sass/site.scss */
 .sources-leadin {
   text-transform: uppercase;
 }
 
-/* line 209, ../sass/site.scss */
+/* line 233, ../sass/site.scss */
 .sources-leadin-reverse {
   color: white;
   font-weight: 600;
 }
 
-/* line 214, ../sass/site.scss */
+/* line 238, ../sass/site.scss */
 .sources-copy-reverse {
   color: #e6dfd1;
 }
 
-/* line 225, ../sass/site.scss */
+/* line 249, ../sass/site.scss */
 .fc-stacked-bar {
   -webkit-transition: opacity 0.2s ease-in-out;
   -moz-transition: opacity 0.2s ease-in-out;
@@ -567,7 +591,7 @@
   position: relative;
 }
 
-/* line 232, ../sass/site.scss */
+/* line 256, ../sass/site.scss */
 .fc-graphic-label {
   position: absolute;
   top: 0;
@@ -578,69 +602,22 @@
   margin: 0;
 }
 
-/* line 238, ../sass/site.scss */
+/* line 262, ../sass/site.scss */
 .fc-graphic-requested {
   top: 15px;
 }
 
-/* line 242, ../sass/site.scss */
+/* line 266, ../sass/site.scss */
 .fc-graphic-fulfilled {
   top: 75px;
 }
 
-/* line 246, ../sass/site.scss */
+/* line 270, ../sass/site.scss */
 .connectors {
   opacity: .5;
 }
 
-/* line 250, ../sass/site.scss */
-.LiteracyLanguage {
-  fill: #ffdf80;
-  background-color: #ffdf80;
-}
-
-/* line 254, ../sass/site.scss */
-.MathScience {
-  fill: #ffb581;
-  background-color: #ffb581;
-}
-
-/* line 258, ../sass/site.scss */
-.MusictheArts {
-  fill: #ff8a80;
-  background-color: #ff8a80;
-}
-
-/* line 262, ../sass/site.scss */
-.AppliedLearning {
-  fill: #ff81c9;
-  background-color: #ff81c9;
-}
-
-/* line 266, ../sass/site.scss */
-.SpecialNeeds {
-  fill: #e081ff;
-  background-color: #e081ff;
-}
-
-/* line 270, ../sass/site.scss */
-.HistoryCivics {
-  fill: #b781ff;
-  background-color: #b781ff;
-}
-
-/* line 274, ../sass/site.scss */
-.HealthSports {
-  fill: #8c81ff;
-  background-color: #8c81ff;
-}
-
 /* line 279, ../sass/site.scss */
-.fc-insufficient {
-  fill: #e6e6e6;
-}
-
-/* line 287, ../sass/site.scss */
 .fc-graphic-inactive {
   opacity: 20;
   -webkit-transition: all 1s ease;
