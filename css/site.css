@@ -633,7 +633,7 @@ body {
 
 /* line 270, ../sass/site.scss */
 .fc-graphic-most {
-  background: url("/icon_up.svg") no-repeat 6px 7px;
+  background: url("/projects/donors_choose/icon_up.svg") no-repeat 6px 7px;
   background-size: 8px;
 }
 @media (min-width: 400px) {
@@ -645,7 +645,7 @@ body {
 
 /* line 278, ../sass/site.scss */
 .fc-graphic-least {
-  background: url("/icon_down.svg") no-repeat 6px 7px;
+  background: url("/projects/donors_choose/icon_down.svg") no-repeat 6px 7px;
   background-size: 8px;
 }
 @media (min-width: 400px) {
