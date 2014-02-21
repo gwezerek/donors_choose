@@ -88,7 +88,7 @@ body {
 	font-size: 11px;
 	font-family: $sans;
 	@media (min-width: $small) {
-		font-size: 12px;
+		font-size: 14px;
 	}
 }
 
@@ -141,6 +141,10 @@ body {
 .fc-graphic-copy {
 	color: $dark-gray;
 	line-height: 130%;
+	font-size: 12px;
+	@media (min-width: $small) {
+		font-size: 14px;
+	}
 }
 
 .fc-graphic-byline {
@@ -151,7 +155,7 @@ body {
 }
 
 .fc-graphic-content-block {
-	margin: 0 0 20px;
+	margin: 0 0 25px;
 }
 
 .fc-graphic-subhed {
@@ -160,12 +164,16 @@ body {
 	border-bottom: 1px solid $light-gray;
 	font-size: 14px;
 	@media (min-width: $small) {
-		font-size: 16px;
+		font-size: 14px;
 	}
 }
 
+.fc-graphic-subhed-select {
+	padding-bottom: 7px;
+}
+
 .fc-graphic-select {
-	margin: 2px 0;
+	margin: 0 0 0 2px;
 	vertical-align: text-bottom;
 }
 
@@ -223,6 +231,7 @@ body {
 	vertical-align: top;
 	text-transform: uppercase;
 	letter-spacing: .5px;
+	font-weight: 500;
 	font-size: 9px;
 	line-height: 90%;
 }
@@ -270,9 +279,9 @@ body {
 	padding-top: 7px;
 	border-top: 1px solid $light-gray;
 	color: $med-gray;
-	font-size: 9px;
 	text-transform: uppercase;
 	letter-spacing: .5px;
+	font-size: 9px;
 	@media (min-width: $small) {
 		// font-size: 11px;
 	}
@@ -311,6 +320,7 @@ body {
 	color: $dark-gray;
 	text-transform: uppercase;
 	letter-spacing: .5px;
+	font-weight: 500;
 	font-size: 9px;
 }
 

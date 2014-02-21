@@ -379,7 +379,7 @@ body {
 @media (min-width: 400px) {
   /* line 83, ../sass/site.scss */
   .fc-graphic-article {
-    font-size: 12px;
+    font-size: 14px;
   }
 }
 
@@ -449,9 +449,16 @@ body {
 .fc-graphic-copy {
   color: #66635d;
   line-height: 130%;
+  font-size: 12px;
+}
+@media (min-width: 400px) {
+  /* line 141, ../sass/site.scss */
+  .fc-graphic-copy {
+    font-size: 14px;
+  }
 }
 
-/* line 146, ../sass/site.scss */
+/* line 150, ../sass/site.scss */
 .fc-graphic-byline {
   text-transform: uppercase;
   letter-spacing: .5px;
@@ -459,12 +466,12 @@ body {
   line-height: 90%;
 }
 
-/* line 153, ../sass/site.scss */
+/* line 157, ../sass/site.scss */
 .fc-graphic-content-block {
-  margin: 0 0 20px;
+  margin: 0 0 25px;
 }
 
-/* line 157, ../sass/site.scss */
+/* line 161, ../sass/site.scss */
 .fc-graphic-subhed {
   margin: 0 0 10px;
   padding-bottom: 3px;
@@ -472,26 +479,31 @@ body {
   font-size: 14px;
 }
 @media (min-width: 400px) {
-  /* line 157, ../sass/site.scss */
+  /* line 161, ../sass/site.scss */
   .fc-graphic-subhed {
-    font-size: 16px;
+    font-size: 14px;
   }
 }
 
-/* line 167, ../sass/site.scss */
+/* line 171, ../sass/site.scss */
+.fc-graphic-subhed-select {
+  padding-bottom: 7px;
+}
+
+/* line 175, ../sass/site.scss */
 .fc-graphic-select {
-  margin: 2px 0;
+  margin: 0 0 0 2px;
   vertical-align: text-bottom;
 }
 
-/* line 172, ../sass/site.scss */
+/* line 180, ../sass/site.scss */
 .fc-graphic-trend-list {
   margin: 0;
   padding: 0;
   list-style-position: inside;
 }
 
-/* line 178, ../sass/site.scss */
+/* line 186, ../sass/site.scss */
 .fc-graphic-trend-item {
   display: -moz-inline-stack;
   display: inline-block;
@@ -502,29 +514,29 @@ body {
   margin: 0 15px 5px 0;
 }
 
-/* line 183, ../sass/site.scss */
+/* line 191, ../sass/site.scss */
 .fc-graphic-annotation {
   color: #66635d;
 }
 
-/* line 187, ../sass/site.scss */
+/* line 195, ../sass/site.scss */
 .fc-graphic-annotation-requests {
   margin: 0 0 3px;
 }
 
-/* line 191, ../sass/site.scss */
+/* line 199, ../sass/site.scss */
 .fc-graphic-annotation-funded {
   margin: 0 0 15px;
 }
 
-/* line 195, ../sass/site.scss */
+/* line 203, ../sass/site.scss */
 .fc-graphic-legend {
   margin: 0;
   padding: 0;
   list-style-position: inside;
 }
 
-/* line 201, ../sass/site.scss */
+/* line 209, ../sass/site.scss */
 .fc-graphic-legend-item {
   display: -moz-inline-stack;
   display: inline-block;
@@ -539,42 +551,43 @@ body {
   line-height: 40%;
 }
 @media (min-width: 450px) {
-  /* line 201, ../sass/site.scss */
+  /* line 209, ../sass/site.scss */
   .fc-graphic-legend-item {
     width: 30%;
   }
 }
 @media (min-width: 570px) {
-  /* line 201, ../sass/site.scss */
+  /* line 209, ../sass/site.scss */
   .fc-graphic-legend-item {
     width: 23%;
   }
 }
-/* line 214, ../sass/site.scss */
+/* line 222, ../sass/site.scss */
 .fc-graphic-legend-item:before {
   margin-left: -5px;
   padding-right: 2px;
   content: "\002022";
 }
 
-/* line 221, ../sass/site.scss */
+/* line 229, ../sass/site.scss */
 .fc-graphic-legend-text {
   color: #66635d;
   vertical-align: top;
   text-transform: uppercase;
   letter-spacing: .5px;
+  font-weight: 500;
   font-size: 9px;
   line-height: 90%;
 }
 
-/* line 230, ../sass/site.scss */
+/* line 239, ../sass/site.scss */
 .fc-graphic-extremes-list {
   margin: 0 0 5px;
   padding: 0;
   list-style: none;
 }
 
-/* line 236, ../sass/site.scss */
+/* line 245, ../sass/site.scss */
 .fc-graphic-extremes-item {
   -webkit-transition: border-color 0.2s ease-in-out;
   -moz-transition: border-color 0.2s ease-in-out;
@@ -585,16 +598,16 @@ body {
   border: 1px solid #e6dfd1;
   cursor: pointer;
 }
-/* line 243, ../sass/site.scss */
+/* line 252, ../sass/site.scss */
 .fc-graphic-extremes-item:hover {
   border: 1px solid #66635d;
 }
-/* line 245, ../sass/site.scss */
+/* line 254, ../sass/site.scss */
 .fc-graphic-extremes-item:hover .fc-graphic-tag {
   color: #66635d;
 }
 @media (min-width: 400px) {
-  /* line 236, ../sass/site.scss */
+  /* line 245, ../sass/site.scss */
   .fc-graphic-extremes-item {
     display: -moz-inline-stack;
     display: inline-block;
@@ -605,16 +618,16 @@ body {
   }
 }
 
-/* line 255, ../sass/site.scss */
+/* line 264, ../sass/site.scss */
 .fc-graphic-extremes-active {
   border: 1px solid #66635d;
 }
-/* line 257, ../sass/site.scss */
+/* line 266, ../sass/site.scss */
 .fc-graphic-extremes-active .fc-graphic-tag {
   color: #66635d;
 }
 
-/* line 262, ../sass/site.scss */
+/* line 271, ../sass/site.scss */
 .fc-graphic-tag {
   -webkit-transition: color 0.2s ease-in-out;
   -moz-transition: color 0.2s ease-in-out;
@@ -624,34 +637,34 @@ body {
   text-decoration: none;
 }
 
-/* line 268, ../sass/site.scss */
+/* line 277, ../sass/site.scss */
 .sources-copy {
   display: block;
   padding-top: 7px;
   border-top: 1px solid #e6dfd1;
   color: #99948a;
-  font-size: 9px;
   text-transform: uppercase;
   letter-spacing: .5px;
+  font-size: 9px;
 }
 
-/* line 281, ../sass/site.scss */
+/* line 290, ../sass/site.scss */
 .sources-leadin {
   text-transform: uppercase;
 }
 
-/* line 285, ../sass/site.scss */
+/* line 294, ../sass/site.scss */
 .sources-leadin-reverse {
   color: white;
   font-weight: 600;
 }
 
-/* line 290, ../sass/site.scss */
+/* line 299, ../sass/site.scss */
 .sources-copy-reverse {
   color: #e6dfd1;
 }
 
-/* line 301, ../sass/site.scss */
+/* line 310, ../sass/site.scss */
 .fc-stacked-bar {
   -webkit-transition: opacity 0.2s ease-in-out;
   -moz-transition: opacity 0.2s ease-in-out;
@@ -662,7 +675,7 @@ body {
   opacity: 0;
 }
 
-/* line 308, ../sass/site.scss */
+/* line 317, ../sass/site.scss */
 .fc-graphic-label {
   position: absolute;
   top: 0;
@@ -673,25 +686,26 @@ body {
   color: #66635d;
   text-transform: uppercase;
   letter-spacing: .5px;
+  font-weight: 500;
   font-size: 9px;
 }
 
-/* line 317, ../sass/site.scss */
+/* line 327, ../sass/site.scss */
 .fc-graphic-requested {
   top: 15px;
 }
 
-/* line 321, ../sass/site.scss */
+/* line 331, ../sass/site.scss */
 .fc-graphic-fulfilled {
   top: 75px;
 }
 
-/* line 325, ../sass/site.scss */
+/* line 335, ../sass/site.scss */
 .connectors {
   opacity: .5;
 }
 
-/* line 334, ../sass/site.scss */
+/* line 344, ../sass/site.scss */
 .fc-graphic-inactive {
   opacity: 20;
   -webkit-filter: blur(5px);
