@@ -90,6 +90,7 @@ body {
 	color: $txt-black;
 	font-size: 11px;
 	font-family: $sans;
+	text-rendering: optimizeLegibility;
 	@media (min-width: $small) {
 		font-size: 14px;
 	}
@@ -152,9 +153,7 @@ body {
 }
 
 .fc-graphic-byline {
-	text-transform: uppercase;
 	letter-spacing: .5px;
-	font-size: 9px;
 	line-height: 90%;
 }
 
@@ -167,6 +166,8 @@ body {
 	padding-bottom: 3px;
 	border-bottom: 1px solid $light-gray;
 	font-size: 14px;
+		font-weight: 500;
+
 	@media (min-width: $small) {
 		font-size: 14px;
 	}
@@ -237,10 +238,8 @@ body {
 .fc-graphic-legend-text {
 	color: $dark-gray;
 	vertical-align: top;
-	text-transform: uppercase;
 	letter-spacing: .5px;
 	font-weight: 500;
-	font-size: 9px;
 	line-height: 90%;
 }
 
@@ -253,9 +252,12 @@ body {
 .fc-graphic-extremes-item {
 	@include trans(0.2s, border-color, ease-in-out);
 	margin: 0 4px 8px 0;
-	padding: 5px 8px 3px 19px;
+	padding: 5px 8px 4px 16px;
 	border: 1px solid $light-gray;
 	cursor: pointer;
+	background-repeat: no-repeat;
+	background-position: 6px 7px;
+	background-size: 8px;
 
 	&:hover {
 		border: 1px solid $dark-gray;
@@ -266,25 +268,19 @@ body {
 
 	@media (min-width: $small) {
 		@include inline-block;
+		padding: 2px 8px 3px 16px;
+		background-position: 6px 7px;
 	}
 }
 
 .fc-graphic-most {
-	background: url('/icon_up.svg') no-repeat 6px 7px;
-	// background: url('/projects/donors_choose/icon_up.svg') no-repeat 6px 7px;
-	background-size: 8px;
-	@media (min-width: $small) {
-		background-size: 11px;
-	}
+	background-image: url('/icon_up.svg');
+	// background-image: url('/projects/donors_choose/icon_up.svg');
 }
 
 .fc-graphic-least {
-	background: url('/icon_down.svg') no-repeat 6px 7px;
-	// background: url('/projects/donors_choose/icon_down.svg') no-repeat 6px 7px;
-	background-size: 8px;
-	@media (min-width: $small) {
-		background-size: 11px;
-	}
+	background-image: url('/icon_down.svg');
+	// background-image: url('/projects/donors_choose/icon_down.svg');
 }
 
 
@@ -307,14 +303,8 @@ body {
 	padding-top: 7px;
 	border-top: 1px solid $light-gray;
 	color: $med-gray;
-	text-transform: uppercase;
 	letter-spacing: .5px;
 	font-weight: 300;
-	font-size: 9px;
-}
-
-.sources-leadin {
-	text-transform: uppercase;
 }
 
 .sources-leadin-reverse {
@@ -344,10 +334,8 @@ body {
 	@include absolute(0 0 0 10px);
 	margin: 0;
 	color: $dark-gray;
-	text-transform: uppercase;
 	letter-spacing: .5px;
 	font-weight: 500;
-	font-size: 9px;
 	pointer-events: none;
 }
 
