@@ -92,7 +92,7 @@ body {
 	font-family: $sans;
 	text-rendering: optimizeLegibility;
 	@media (min-width: $small) {
-		font-size: 14px;
+		font-size: 13px;
 	}
 }
 
@@ -133,10 +133,10 @@ body {
 
 .fc-graphic-title {
 	margin: 0 0 10px -2px;
-	letter-spacing: -1px;
-	font-weight: 600;
+	font-weight: 500;
 	font-size: 42px;
 	line-height: 90%;
+	font-family: $condensed;
 	@media (min-width: $small) {
 		font-size: 48px;
 	}
@@ -148,7 +148,7 @@ body {
 	font-size: 12px;
 	line-height: 140%;
 	@media (min-width: $small) {
-		font-size: 14px;
+		font-size: 13px;
 	}
 }
 
@@ -165,12 +165,8 @@ body {
 	margin: 0 0 10px;
 	padding-bottom: 3px;
 	border-bottom: 1px solid $light-gray;
-	font-size: 14px;
-		font-weight: 500;
-
-	@media (min-width: $small) {
-		font-size: 14px;
-	}
+	font-weight: 500;
+	font-size: 13px;
 }
 
 .fc-graphic-subhed-select {
@@ -204,7 +200,7 @@ body {
 
 .fc-graphic-annotation-funded {
 	margin: 0 0 15px;
-	padding-bottom: 5px;
+	padding-bottom: 10px;
 	border-bottom: 1px solid #e6dfd1;
 }
 
@@ -217,7 +213,7 @@ body {
 .fc-graphic-legend-item {
 	@include inline-block;
 	@include trans(0.2s, opacity, ease-in-out);
-	margin-right: 5px;
+	margin: 0 5px 5px 0;
 	width: 47%;
 	background-color: white;
 	font-size: 36px;
@@ -237,10 +233,10 @@ body {
 
 .fc-graphic-legend-text {
 	color: $dark-gray;
-	vertical-align: top;
+	vertical-align: middle;
 	letter-spacing: .5px;
 	font-weight: 500;
-	line-height: 90%;
+	line-height: 80%;
 }
 
 .fc-graphic-extremes-list {
@@ -254,10 +250,10 @@ body {
 	margin: 0 4px 8px 0;
 	padding: 5px 8px 4px 16px;
 	border: 1px solid $light-gray;
-	cursor: pointer;
-	background-repeat: no-repeat;
 	background-position: 6px 7px;
 	background-size: 8px;
+	background-repeat: no-repeat;
+	cursor: pointer;
 
 	&:hover {
 		border: 1px solid $dark-gray;
