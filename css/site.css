@@ -450,7 +450,7 @@ body {
   color: #66635d;
   font-weight: 300;
   font-size: 12px;
-  line-height: 130%;
+  line-height: 140%;
 }
 @media (min-width: 400px) {
   /* line 145, ../sass/site.scss */

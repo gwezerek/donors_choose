@@ -253,8 +253,8 @@ function updateAnnotations(currentDatum) {
 	var comma = d3.format(",");
 	var percent = d3.format(".0%");
 
-	$('.fc-graphic-annotation-requests').text("Teachers requested "+ comma(currentDatum[0].reqTotal) +" resources overall.");
-	$('.fc-graphic-annotation-funded').text("Donors funded "+ percent(currentDatum[0].filledTotal/currentDatum[0].reqTotal, 0) +" of those requests.");
+	$('.fc-graphic-annotation-requests').text("Teachers requested funds for "+ comma(currentDatum[0].reqTotal) +" projects.");
+	$('.fc-graphic-annotation-funded').text("Donors funded "+ percent(currentDatum[0].filledTotal/currentDatum[0].reqTotal, 0) +" of those projects.");
 }
 
 function updateAnnotationsSegment(currentDatum, selected) {
@@ -339,4 +339,4 @@ function resize() {
 setTimeout(function(){ 
 	resize();
 	$(".fc-stacked-bar").css("opacity", "1");
-}, 500);
+}, 600);
