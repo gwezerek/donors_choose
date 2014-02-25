@@ -67,9 +67,7 @@
 			});
 
 			// Populate rankings array
-			rankings.push({name:d.State, reqTotal:reqTotal, filledPercent:});
-
-			console.log(rankings);
+			rankings.push( { name:d.State, reqTotal:reqTotal, filledPercent:filledTotal/reqTotal } );
 
 			// Add Total property to each state object
 			$.extend(d, {
@@ -88,17 +86,6 @@
 				d.x0 /= x0; d.x1 /= x0;
 			});
 		});
-
-		// Populate rankings array
-		// Sort rankings array
-
-		// Create rankings array
-		// rankings.push({name:d.State, reqTotal:reqTotal});
-
-		// Sort that array
-		// rankings.sort(function(a, b) {
-		// 	return a.reqTotal - b.reqTotal;
-		// });
 
 		
 		var currentDatum = ourData.filter(function(row) {
@@ -121,13 +108,14 @@
 			.data(currentDatum)
 			.enter().append("g")
 			.attr("transform", "translate(0,60)")
-			.attr("class", "fulfilled");
+			.attr("class", "fulfilled");	
 
+
+		addRanking();
 		updateData(state);
 
 	});
 
-	console.log(rankings);
 
 
 
@@ -215,6 +203,31 @@
   		updateAnnotations(currentDatum);
   	}
 
+  	function addRanking() {
+  		// reqTotal sorting
+		rankings.sort(function(a, b) {
+			return a.reqTotal - b.reqTotal;
+		});
+
+		ourData.forEach(function(d) {
+			var reqRank = 50 - rankings.map(function(el) {
+				return el.name;
+			}).indexOf(d.State);
+			d.reqRank = reqRank;
+		});
+
+		// filledPercent sorting
+		rankings.sort(function(a, b) {
+			return a.filledPercent - b.filledPercent;
+		});
+
+		ourData.forEach(function(d) {
+			var filledRank = 50 - rankings.map(function(el) {
+				return el.name;
+			}).indexOf(d.State);
+			d.filledRank = filledRank;
+		});
+  	}
 
   	function updateReqRects(currentDatum) {
   		var reqRects = requests.selectAll("rect")
@@ -278,13 +291,19 @@
   		.attr("width", function(d) { return ( ( xscale(d.x1) - xscale(d.x0) ) * ( d.filled / d.requested ) ); });
   	}
 
+  	function getGetOrdinal(n) {
+	   var s=["th","st","nd","rd"],
+	       v=n%100;
+	   return n+(s[(v-20)%10]||s[v]||s[0]);
+	}
+
 
   	function updateAnnotations(currentDatum) {
   		var comma = d3.format(",");
   		var percent = d3.format(".0%");
 
-  		$('.fc-graphic-annotation-requests').text("Teachers proposed "+ comma(currentDatum[0].reqTotal) +" projects.");
-  		$('.fc-graphic-annotation-funded').text("Donors funded "+ percent(currentDatum[0].filledTotal/currentDatum[0].reqTotal, 0) +" of those projects.");
+  		$('.fc-graphic-annotation-requests').text("Teachers proposed "+ comma(currentDatum[0].reqTotal) +" projects (" + getGetOrdinal(currentDatum[0].reqRank) + "/50 states).");
+  		$('.fc-graphic-annotation-funded').text("Donors funded "+ percent(currentDatum[0].filledTotal/currentDatum[0].reqTotal, 0) +" of those projects (" + getGetOrdinal(currentDatum[0].filledRank) + "/50).");
   	}
 
   	function updateAnnotationsSegment(currentDatum, selected) {
