@@ -17,7 +17,15 @@
   padding-left: 18px;
 }
 
-
+.prose.body .fc-graphic-inline-tag {
+	color: $dark-gray !important;
+	border-bottom: 1px solid $med-gray;
+	&:visited {
+		color: $dark-gray !important;
+		border-width: 0;
+		border-bottom: 1px solid $med-gray;
+	}
+}
 
 
 
@@ -90,11 +98,11 @@
   line-height: 140%;
   -webkit-font-smoothing: subpixel-antialiased !important;
 }
-@media (min-width: 420px) {
-  .fc-graphic-copy {
-    font-size: 15px !important;
-  }
-}
+// @media (min-width: 420px) {
+//   .fc-graphic-copy {
+//     font-size: 13px !important;
+//   }
+// }
 
 .fc-graphic-byline {
   letter-spacing: .5px;
@@ -156,7 +164,7 @@
   font-size: 13px !important;
   display: block;
   @media (min-width: 420px) {
-	    font-size: 15px !important;
+	    font-size: 13px !important;
   }
 }
 

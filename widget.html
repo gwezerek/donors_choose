@@ -11,15 +11,15 @@
   <div class="fc-graphic-container">
     <header class="fc-graphic-content-block">
       <span class="fc-graphic-title">Which States Are Getting&nbsp;Funded?</span>
-      <span class="fc-graphic-copy">And which aren't? Over the years, the halfpipe has evolved into an industry standard &ldquo;Superpipe.&rdquo; Yes, its walls have gradually gotten taller, but that height has enabled a smoother geometry: Now, the entire half-pipe is essentially one huge transition with no flat spots or sudden impacts. <span class="fc-graphic-byline fc-graphic-detail">Graphic by Gus&nbsp;Wezerek.</span></span>
+      <span class="fc-graphic-copy">And which aren't? Over the past five years, donors funded 78 percent of projects in <a href="#" data-state="HI" class="fc-graphic-inline-tag">Hawaii</a>, but only 56 percent in <a href="#" data-state="SC" class="fc-graphic-inline-tag">South Carolina</a>. Subject popularity varied, too. Were your state’s teachers were more inclined to ask for basketballs or beakers? <span class="fc-graphic-byline fc-graphic-detail">Graphic by Gus&nbsp;Wezerek.</span></span>
     </header>
     <section class="fc-graphic-content-block">
       <h5 class="fc-graphic-subhed fc-graphic-subhed-select">In 
       <select class="fc-graphic-select" tabindex="-1">
-        <option value="AL">Alabama</option>
+        <option value="AL" selected>Alabama</option>
         <option value="AK">Alaska</option>
         <option value="AZ">Arizona</option>
-        <option value="AR" selected>Arkansas</option>
+        <option value="AR">Arkansas</option>
         <option value="CA">California</option>
         <option value="CO">Colorado</option>
         <option value="CT">Connecticut</option>
@@ -101,7 +101,7 @@
         <li class="fc-graphic-extremes-item fc-graphic-least" data-state="AR"><a href="#" class="fc-graphic-tag fc-graphic-detail">Funded Health &amp; Sports</a></li>
       </ol> 
     </section>
-    <span class="sources-copy fc-graphic-detail"><span class="sources-leadin">Source:</span> Donors Choose</span>
+    <span class="sources-copy fc-graphic-detail"><span class="sources-leadin">Source:</span> DonorsChoose.org</span>
   </div>
 
 
@@ -250,13 +250,22 @@
         var   $this = $(this);
         state = $this.data( "state" );
 
-        updateData(state); // or $(this).val()
+        updateData(state);
         $('select').val(state);
         $this.addClass("fc-graphic-extremes-active");
         $this.siblings().removeClass("fc-graphic-extremes-active");
       });
 
-      $('.fc-graphic-tag').on('click', function() {
+      $('.fc-graphic-inline-tag').on('click', function() {
+        var   $this = $(this);
+        state = $this.data( "state" );
+
+        updateData(state);
+        $('select').val(state);
+      });
+
+      // Prevents link from reloading page
+      $('.fc-graphic-tag, .fc-graphic-inline-tag').on('click', function() {
       	event.preventDefault();
       });
 
