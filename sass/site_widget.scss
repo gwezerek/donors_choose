@@ -97,17 +97,22 @@ body {
 }
 
 .fc-decorative-border {
-	margin: 0;
+	margin: 0 !important;
 	padding: 0;
 	font-size: 0;
 }
 
 .fc-decorative-border-box {
 	@include inline-block;
-	margin: 0;
-	width: calc(100%/7);
+	display: inline-block;
+	vertical-align: middle;
+	zoom: 1;
+	margin: 0 !important;
+	width: calc(100%/7) !important;
 	height: 10px;
 	list-style: none;
+	position: inherit !important;
+	padding: 0 !important;
 }
 
 .fc-graphic-container {
@@ -132,13 +137,16 @@ body {
 }
 
 .fc-graphic-title {
+	font-family: $condensed !important;
 	margin: 0 0 10px -2px;
-	font-weight: 500;
-	font-size: 42px;
-	font-family: $condensed;
-	line-height: 90%;
+	font-weight: 500 !important;
+	font-size: 42px !important;
+	text-transform: none !important;
+	letter-spacing: 0 !important;
+	line-height: 90% !important;
+
 	@media (min-width: $small) {
-		font-size: 48px;
+		font-size: 48px !important;
 	}
 }
 

@@ -1,193 +1,518 @@
-<article class="graphic-article">
-		<div class="graphic-container">
-			<div id="chart"> 
-				<span class="graphic-dek">Which Countries Will Win&nbsp;Big?</span>
-				<span class="graphic-copy">According to the Graettingers' model, the United States will walk away once more with the most overall medals, though it won't come close to last year's record-setting 37 individual awards. China, which only won 11 medals in the last Winter Games, is set to double its haul. Hover over each bar to see individual values for the four parameters the Graettingers modeled.</span>
-			</div>
-			<span class="sources-copy">SOURCES: CIA World Factbook, Wikipedia</span>
-		</div>
-
-		<!-- D3 LAYOUT -->
-		<script type="text/javascript">
-
-		// Global vars
-		var x, labels, axisLabels;
-
-		// Config vars
-		var valueLabelWidth = 30; // Space reserved for value labels (right)
-		var barHeight = 30; // Height of one bar
-		var barPadding = 7; // Padding between bars
-		var barLabelWidth = 100; // Space reserved for bar labels
-		var barLabelPadding = 5; // Padding between bar and bar labels (left)
-		var gridLabelHeight = 15; // Space reserved for gridline labels
-		var gridChartOffset = 3; // Space between start of grid and first bar
-		var width = parseInt(d3.select('#chart').style('width'), 10);
-
-		// Formatting
-		var formatCurrency = d3.format("$,");
-		var formatGeo = d3.format(",");
-		var formatBils = d3.format('$.3s');
-		var bilsReplace = function(val) { return formatBils(val).replace(/G/, ' bil.').replace(/T/, ' tril.') };
-
-		// Accessor functions 
-		var barLabel = function(d) { return d['nation']; };
-		var barValue = function(d) { return parseFloat(d['adj_medals']); };
-		var barGeo = function(d) { return formatGeo(d['geog_area']); };
-		var barGDP = function(d) { return formatCurrency(d['gdp_per_cap']); };
-		var barExport = function(d) { return bilsReplace(d['exports']); };
-		var barLat = function(d) { return d['lat_of_capital']; };
-		var height = function(sortedData) { return gridLabelHeight + gridChartOffset + sortedData.length * barHeight; };
-
-		// SVG container element
-		var chart = d3.select('#chart').append("svg")
-			.attr("xmlns","http://www.w3.org/2000/svg")
-            .attr("xmlns","http://www.w3.org/1999/xlink")
-            .attr("version","1.1")
-			.attr("class", "bar-chart")
-			.attr('width', width);
-
-		// DAT DATA		
-		d3.csv('http://www.fastcodesign.com/asset_files/-/2014/02/06/medals.csv', function(data){
-
-			// Sorting
-			var sortedData = data.sort(function(a, b) {
-				return d3.descending(barValue(a), barValue(b));
-			}); 
-
-			// Set chart height now that we have data
-			chart.attr('height', height(sortedData));
-
-			// Scales
-			var yScale = d3.scale.ordinal().domain(d3.range(0, sortedData.length)).rangeBands([0, sortedData.length * barHeight]);
-			var y = function(d, i) { return yScale(i); };
-			var yPad = function(d, i) { return yScale(i) + (barPadding/2); };
-			var yText = function(d, i) { return y(d, i) + yScale.rangeBand() / 2; };
-			x = d3.scale.linear()
-				.domain([0, d3.max(sortedData, barValue)])
-				.range([0, width - barLabelWidth - valueLabelWidth]);
-
-			// Bar labels
-			var labelsContainer = chart.append('g')
-				.attr('transform', 'translate(' + (barLabelWidth - barLabelPadding) + ',' + (gridLabelHeight + gridChartOffset) + ')'); 
-			
-			labelsContainer.selectAll('text')
-				.data(sortedData)
-				.enter()
-			  .append('text')
-				.attr('y', yText)
-				.attr('stroke', 'none')
-				.attr('fill', 'black')
-				.attr("dy", ".35em") // vertical-align: middle
-				.attr('text-anchor', 'end')
-				.attr("class", "name")
-				.text(barLabel);
-
-			// Background bars
-			var barsBG = chart.append('g')
-				.attr('transform', 'translate(' + barLabelWidth + ',' + (gridLabelHeight + gridChartOffset) + ')'); 
-			
-			barsBG.selectAll("rect")
-				.data(sortedData)
-				.enter()
-			  .append("rect")
-				.attr('y', y)
-				.attr('height', yScale.rangeBand())
-				.attr('width', function(d) { return x(barValue(d)); })
-				.attr("class", "bar-bg");
-
-			// Bars
-			var barsContainer = chart.append('g')
-				.attr('transform', 'translate(' + barLabelWidth + ',' + (gridLabelHeight + gridChartOffset) + ')'); 
-			
-			barsContainer.selectAll("rect")
-				.data(sortedData)
-				.enter()
-			  .append("rect")
-				.attr('y', yPad)
-				.attr('height', yScale.rangeBand() - barPadding)
-				.attr('width', function(d) { return x(barValue(d)); })
-				.attr("class", "bar")
-				.on("mouseover", function(d) {      
-					div.transition()        
-					.duration(200)      
-					.style("opacity", 1);      
-					div .html(
-						"<span class='tooltip-title'>"+ barLabel(d) +"</span><br/>" +
-						"<span class='tooltip-param'>Geographic Area: "+ barGeo(d) +" km<sup>2</sup></span><br/>" +
-						"<span class='tooltip-param'>GDP per Capita: "+ barGDP(d) +"</span><br/>" +
-						"<span class='tooltip-param'>Exports: "+ barExport(d) +"</span><br/>" +
-						"<span class='tooltip-param'>Latitude of Capital: "+ barLat(d) + "&#176;</span>"
-					)
-					.style("left", (d3.event.pageX + 10) + "px")     
-					.style("top", (d3.event.pageY - 20) + "px");    
-				})                  
-				.on("mouseout", function(d) {       
-					div.transition()        
-					.duration(500)      
-					.style("opacity", 0);   
-				});
-
-			// Bar value labels
-			labels = barsContainer.selectAll("text")
-				.data(sortedData)
-				.enter()
-			  .append("text")
-				.attr("x", function(d) { return x(barValue(d)); })
-				.attr("y", yText)
-				.attr("dx", 3) // padding-left
-				.attr("dy", ".35em") // vertical-align: middle
-				.attr("text-anchor", "start") // text-align: right
-				.attr("fill", "black")
-				.attr("stroke", "none")
-				.attr("class", "value-labels")
-				.text(function(d) { return d3.round(barValue(d), 2); });
-
-			// X-axis label
-			axisLabel = chart.append('text')
-				.attr('transform', 'translate(' + ((width-100)/2 + 80) + ',' + gridLabelHeight + ')') 
-				.attr("dy", -3)
-				.attr("text-anchor", "middle")
-				.attr("class", "x-axis-label")
-				.text("Predicted Medals");
-
-			// Tooltipz
-			var div = d3.select("body").append("div")   
-				.attr("class", "graphic-tooltip")               
-				.style("opacity", 0);
-		});
+<article class="fc-graphic-article">
+  <ul class="fc-decorative-border">
+    <li class="fc-decorative-border-box LiteracyLanguage"></li>
+    <li class="fc-decorative-border-box MathScience"></li>
+    <li class="fc-decorative-border-box MusictheArts"></li>
+    <li class="fc-decorative-border-box AppliedLearning"></li>
+    <li class="fc-decorative-border-box SpecialNeeds"></li>
+    <li class="fc-decorative-border-box HistoryCivics"></li>
+    <li class="fc-decorative-border-box HealthSports"></li>
+  </ul>
+  <div class="fc-graphic-container">
+    <header class="fc-graphic-content-block">
+      <span class="fc-graphic-title">Which States Are Getting&nbsp;Funded?</span>
+      <span class="fc-graphic-copy">And which aren't? Over the years, the halfpipe has evolved into an industry standard &ldquo;Superpipe.&rdquo; Yes, its walls have gradually gotten taller, but that height has enabled a smoother geometry: Now, the entire half-pipe is essentially one huge transition with no flat spots or sudden impacts. <span class="fc-graphic-byline fc-graphic-detail">Graphic by Gus&nbsp;Wezerek.</span></span>
+    </header>
+    <section class="fc-graphic-content-block">
+      <h5 class="fc-graphic-subhed fc-graphic-subhed-select">In 
+      <select class="fc-graphic-select" tabindex="-1">
+        <option value="AL">Alabama</option>
+        <option value="AK">Alaska</option>
+        <option value="AZ">Arizona</option>
+        <option value="AR" selected>Arkansas</option>
+        <option value="CA">California</option>
+        <option value="CO">Colorado</option>
+        <option value="CT">Connecticut</option>
+        <option value="DE">Delaware</option>
+        <option value="FL">Florida</option>
+        <option value="GA">Georgia</option>
+        <option value="HI">Hawaii</option>
+        <option value="ID">Idaho</option>
+        <option value="IL">Illinois</option>
+        <option value="IN">Indiana</option>
+        <option value="IA">Iowa</option>
+        <option value="KS">Kansas</option>
+        <option value="KY">Kentucky</option>
+        <option value="LA">Louisiana</option>
+        <option value="ME">Maine</option>
+        <option value="MD">Maryland</option>
+        <option value="MA">Massachusetts</option>
+        <option value="MI">Michigan</option>
+        <option value="MN">Minnesota</option>
+        <option value="MS">Mississippi</option>
+        <option value="MO">Missouri</option>
+        <option value="MT">Montana</option>
+        <option value="NE">Nebraska</option>
+        <option value="NV">Nevada</option>
+        <option value="NH">New Hampshire</option>
+        <option value="NJ">New Jersey</option>
+        <option value="NM">New Mexico</option>
+        <option value="NY">New York</option>
+        <option value="NC">North Carolina</option>
+        <option value="ND">North Dakota</option>
+        <option value="OH">Ohio</option>
+        <option value="OK">Oklahoma</option>
+        <option value="OR">Oregon</option>
+        <option value="PA">Pennsylvania</option>
+        <option value="RI">Rhode Island</option>
+        <option value="SC">South Carolina</option>
+        <option value="SD">South Dakota</option>
+        <option value="TN">Tennessee</option>
+        <option value="TX">Texas</option>
+        <option value="UT">Utah</option>
+        <option value="VT">Vermont</option>
+        <option value="VA">Virginia</option>
+        <option value="WA">Washington</option>
+        <option value="WV">West Virginia</option>
+        <option value="WI">Wisconsin</option>
+        <option value="WY">Wyoming</option>
+          </select>
+      , from 2008&ndash;2013:</h5>
+      <span class="fc-graphic-annotation fc-graphic-annotation-requests"></span>
+      <div class="fc-stacked-bar">
+        <span class="fc-graphic-label fc-graphic-requested fc-graphic-detail">Requested</span>
+        <span class="fc-graphic-label fc-graphic-fulfilled fc-graphic-detail">Funded</span>
+      </div>
+      <span class="fc-graphic-annotation fc-graphic-annotation-funded"></span>
+      <ol class="fc-graphic-legend">
+        <li class="fc-graphic-legend-item LiteracyLanguage"><span class="fc-graphic-legend-text fc-graphic-detail">Literacy &amp; Lang.</span></li>
+        <li class="fc-graphic-legend-item MathScience"><span class="fc-graphic-legend-text fc-graphic-detail">Math &amp; Science</span></li>
+        <li class="fc-graphic-legend-item MusictheArts"><span class="fc-graphic-legend-text fc-graphic-detail">Music &amp; Arts</span></li>
+        <li class="fc-graphic-legend-item AppliedLearning"><span class="fc-graphic-legend-text fc-graphic-detail">Applied Learning</span></li>
+        <li class="fc-graphic-legend-item SpecialNeeds"><span class="fc-graphic-legend-text fc-graphic-detail">Special Needs</span></li>
+        <li class="fc-graphic-legend-item HistoryCivics"><span class="fc-graphic-legend-text fc-graphic-detail">History &amp; Civics</span></li>
+        <li class="fc-graphic-legend-item HealthSports"><span class="fc-graphic-legend-text fc-graphic-detail">Health &amp; Sports</span></li>
+        <li class="fc-graphic-legend-item fc-insufficient"><span class="fc-graphic-legend-text fc-graphic-detail">Data insufficient</span></li>
+      </ol> 
+    </section>
+    <section class="fc-graphic-content-block">
+      <h5 class="fc-graphic-subhed">Explore the Extremes</h5>
+      <ol class="fc-graphic-extremes-list">
+        <li class="fc-graphic-extremes-item fc-graphic-most" data-state="HI"><a href="#" class="fc-graphic-tag fc-graphic-detail">Funded Overall</a></li>
+        <li class="fc-graphic-extremes-item fc-graphic-least" data-state="SC"><a href="#" class="fc-graphic-tag fc-graphic-detail">Funded Overall</a></li>
+        <li class="fc-graphic-extremes-item fc-graphic-most" data-state="NY"><a href="#" class="fc-graphic-tag fc-graphic-detail">Project Proposals Per Student</a></li>
+        <li class="fc-graphic-extremes-item fc-graphic-least" data-state="VT"><a href="#" class="fc-graphic-tag fc-graphic-detail">Project Proposals Per Student</a></li>
+        <li class="fc-graphic-extremes-item fc-graphic-most" data-state="NH"><a href="#" class="fc-graphic-tag fc-graphic-detail">Funded Literacy &amp; Language</a></li>
+        <li class="fc-graphic-extremes-item fc-graphic-most" data-state="AR"><a href="#" class="fc-graphic-tag fc-graphic-detail">Funded Math &amp; Science</a></li>
+        <li class="fc-graphic-extremes-item fc-graphic-least" data-state="AL"><a href="#" class="fc-graphic-tag fc-graphic-detail">Funded Math &amp; Science</a></li>
+        <li class="fc-graphic-extremes-item fc-graphic-most" data-state="AK"><a href="#" class="fc-graphic-tag fc-graphic-detail">Funded Applied Learning</a></li>
+        <li class="fc-graphic-extremes-item fc-graphic-least" data-state="NE"><a href="#" class="fc-graphic-tag fc-graphic-detail">Funded Applied Learning</a></li>
+        <li class="fc-graphic-extremes-item fc-graphic-most" data-state="CT"><a href="#" class="fc-graphic-tag fc-graphic-detail">Funded Special Needs</a></li>
+        <li class="fc-graphic-extremes-item fc-graphic-least" data-state="AR"><a href="#" class="fc-graphic-tag fc-graphic-detail">Funded Health &amp; Sports</a></li>
+      </ol> 
+    </section>
+    <span class="sources-copy fc-graphic-detail"><span class="sources-leadin">Source:</span> Donors Choose</span>
+  </div>
 
 
-		// Resize
-		d3.select(window).on('resize', resize);
 
 
-		// Helper Functions		 
-		function resize() {
+  <!-- D3 STACKED BAR LAYOUT -->
+  <script type="text/javascript">
 
-			// Update width
-			width = parseInt(d3.select('#chart').style('width'), 10);
+    window.FC = window.FC || {};
+    window.FC.inlineFunctions = window.FC.inlineFunctions || {};
 
-			// Resize the chart
-			x.range([0, width - barLabelWidth - valueLabelWidth]);
-			d3.select(chart.node().parentNode)
-			chart.style('width', width);
+    window.FC.inlineFunctions.gusScript = function() {
 
-			// Resize the bars
-			chart.selectAll('rect')
-			.attr('width', function(d) {
-				return x(barValue(d));
-			});
+      // Creating for later
+      var ourData, requests, filled, connectors, state;
+      var rankings = [];
 
-			// Update value position
-			labels.attr("x", function(d) {
-				return x(d.adj_medals);
-			})
+      // Formatting
+      var comma = d3.format(",");
+      var percent = d3.format(".0%");
 
-			// Update x-axis label position
-			axisLabel.attr('transform', 'translate(' + ((width-100)/2 + 80) + ',' + gridLabelHeight + ')');
+      // Config
+      var width = $('.fc-graphic-legend').width();
+      var height = 102;
+      var state = $('select').val();
+      var xscale = d3.scale.linear()
+              .rangeRound([0, width]);
 
-		}
+      // Sets ordinal scale
+      var eachState = d3.scale.ordinal();
 
-	</script>
+      // Adds SVG element, append a container g element for each state
+      var chart = d3.select(".fc-stacked-bar").append("svg")
+              .attr("width", width)
+              .attr("height", height)
+
+            chart.append("g")
+              .attr("class", "state-container");
+
+      // DAT ourData
+      d3.tsv("http://www.fastcodesign.com/asset_files/-/2014/02/26/requests.tsv", function(error, data) {
+
+          ourData = data;
+
+        // Setting domain just for the base categories, so we don't graph FILLED
+        eachState.domain(d3.keys(ourData[0]).filter(function(key, index) {
+          if( (index > 0) && (index < 8) ) {
+            return key;
+          } else {
+            return;
+          }
+        }));
+
+        // Running a forEach here to create a subarray that holds the individual segments
+        ourData.forEach(function(d) {
+          var x0 = 0;
+          var stateArray = $.map(d, function (value) { return value; });
+
+          // Adds all of the base category keys in d to get total
+          // Whatever is returned becomes "a"
+          var reqTotal = stateArray.reduce(function(a, b, index, array){
+            if( (index > 1) && (index < 8) ) {
+              return parseInt(a) + parseInt(b);
+            } else if ( index < 2 ) {
+              return b;
+            } else {
+              return a;
+            }
+          });
+
+          // Adds all of the FILLED category keys in d to get total
+          var filledTotal = stateArray.reduce(function(a, b, index, array){
+            if( (index > 8)) {
+              return parseInt(a) + parseInt(b);
+            } else {
+              return b ;
+            }
+          });
+
+          // Populate rankings array
+          rankings.push( { name:d.State, reqTotal:reqTotal, filledPercent:filledTotal/reqTotal } );
+
+          // Add Total property to each state object
+          $.extend(d, {
+            reqTotal: reqTotal,
+            filledTotal: filledTotal,
+          });
+
+          // Creates a new sub-array in each d that holds the returned vals
+          // Putting reqTotal into each item for easy access in the filled width calc in the updateData function
+          d.categories = eachState.domain().map(function(name, index) {
+            return {name: name, requested:+d[name], filled:+d["FILLED " + name], reqTotal:reqTotal, x0: x0, x1: x0 += +d[name]};
+          });
+
+          // Divides by the iterated x0 to move each segment to the right place
+          d.categories.forEach(function(d) {
+            d.x0 /= x0; d.x1 /= x0;
+          });
+        });
+
+        
+        var currentDatum = ourData.filter(function(row) {
+          return row['State'] == state;
+        });
+
+        // Defining our bar segment variables that we declared up top
+        requests = chart.selectAll(".requests")
+          .data(currentDatum)
+          .enter().append("g")
+          .attr("class", "requests");
+
+        connectors = chart.selectAll(".connectors")
+          .data(currentDatum)
+          .enter().append("g")
+          .attr("transform", "translate(0,40)")
+          .attr("class", "connectors");
+
+        filled = chart.selectAll(".fulfilled")
+          .data(currentDatum)
+          .enter().append("g")
+          .attr("transform", "translate(0,60)")
+          .attr("class", "fulfilled");  
+
+
+        addRanking();
+        updateData(state);
+
+      });
+
+
+
+
+      // =============================================
+      // HANDLERS
+      // =============================================
+
+      // Select box
+      $('select').on('change', function() {
+        state = this.value;
+        updateData(state);
+        $('.fc-graphic-extremes-item').removeClass("fc-graphic-extremes-active");
+      });
+
+      // Extremes list
+      $('.fc-graphic-extremes-item').on('click', function() {
+        var   $this = $(this);
+        state = $this.data( "state" );
+
+        updateData(state); // or $(this).val()
+        $('select').val(state);
+        $this.addClass("fc-graphic-extremes-active");
+        $this.siblings().removeClass("fc-graphic-extremes-active");
+      });
+
+      $('.fc-graphic-tag').on('click', function() {
+      	event.preventDefault();
+      });
+
+      // Hover
+      $('.fc-stacked-bar').on({
+        mouseenter: function () {
+          var nopeClasses = justThisClass(this);
+          var currentDatum = ourData.filter(function(row) {
+            return row['State'] == state;
+          });
+          for (var i = 0; i < nopeClasses.length; i++) {
+            nopeClasses[i].classList.add('fc-graphic-inactive');
+          } 
+          updateAnnotationsSegment(currentDatum, this);
+        },
+        mouseleave: function () {
+          var errybody = $('rect, polygon, .fc-graphic-legend-item');
+          for (var i = 0; i < errybody.length; i++) {
+            errybody[i].classList.remove('fc-graphic-inactive');
+          };
+        }
+      }, "rect, polygon, .fc-graphic-legend-item");
+
+      // Resize
+      window.addEventListener("resize", debounce(function () {
+        resize();
+      }, 250), false);
+
+
+
+
+
+      // =============================================
+      // HELPER FUNCTIONS
+      // =============================================
+
+      function getChildren(n, skipMe){
+          var r = [];
+          var elem = null;
+          for ( ; n; n = n.nextSibling )
+            if ( n.nodeType == 1 && n != skipMe)
+              r.push( n );
+            return r;
+        };
+
+        function getSiblings(n) {
+          return getChildren(n.parentNode.firstChild, n);
+        }
+
+        function justThisClass(selected) {
+          var className = selected.getAttribute('class');
+          return $('rect, polygon, .fc-graphic-legend-item').not('.'+className);
+        }
+
+        function updateData(state) {
+          var currentDatum = ourData.filter(function(row) {
+            return row['State'] == state;
+          });
+
+          updateReqRects(currentDatum);
+          updateConnectPolys(currentDatum);
+          updateFilledRects(currentDatum);
+          updateAnnotations(currentDatum);
+        }
+
+        function addRanking() {
+          // reqTotal sorting
+        rankings.sort(function(a, b) {
+          return a.reqTotal - b.reqTotal;
+        });
+
+        ourData.forEach(function(d) {
+          var reqRank = 50 - rankings.map(function(el) {
+            return el.name;
+          }).indexOf(d.State);
+          d.reqRank = reqRank;
+        });
+
+        // filledPercent sorting
+        rankings.sort(function(a, b) {
+          return a.filledPercent - b.filledPercent;
+        });
+
+        ourData.forEach(function(d) {
+          var filledRank = 50 - rankings.map(function(el) {
+            return el.name;
+          }).indexOf(d.State);
+          d.filledRank = filledRank;
+        });
+        }
+
+        function updateReqRects(currentDatum) {
+          var reqRects = requests.selectAll("rect")
+          .data(currentDatum[0]['categories']);
+
+          reqRects.enter().append("rect")
+          .attr("height", "40")
+          .attr("class", function(d) { return d.name.replace(/[\s+\&]/g, ''); });
+
+          reqRects
+          .attr("x", function(d) { return xscale(d.x0); })
+          .attr("class", function(d) {
+            if (d.requested < 40){
+              return "fc-insufficient";
+            } else {
+              return d.name.replace(/[\s+\&]/g, '');
+            }
+          })
+          .attr("width", function(d) { return (xscale(d.x1) - xscale(d.x0)); });
+        }
+
+
+        function updateConnectPolys(currentDatum) {
+          var connectPolys = connectors.selectAll("polygon")
+          .data(currentDatum[0]['categories']);
+
+          connectPolys.enter().append("polygon")
+          .attr("class", function(d) { return d.name.replace(/[\s+\&]/g, ''); });
+
+          connectPolys
+          .attr("class", function(d) {
+            if (d.requested < 40){
+              return "fc-insufficient";
+            } else {
+              return d.name.replace(/[\s+\&]/g, '');
+            }
+          })
+          .attr("points", function(d) {
+            return xscale(d.x0) + ",0 " + xscale(d.x1) + ",0 " + ( xscale(d.x0) + (xscale(d.x1) - xscale(d.x0)) * ( d.filled / d.requested ) ) + ",20 " + xscale(d.x0) + ",20";
+          });
+        }
+
+
+        function updateFilledRects(currentDatum) {
+          var filledRects = filled.selectAll("rect")
+          .data(currentDatum[0]['categories']);
+
+          filledRects.enter().append("rect")
+          .attr("height", "40")
+          .attr("class", function(d) { return d.name.replace(/[\s+\&]/g, ''); });
+
+          filledRects
+          .attr("x", function(d) { return xscale(d.x0); })
+          .attr("class", function(d) {
+            if (d.requested < 40){
+              return "fc-insufficient";
+            } else {
+              return d.name.replace(/[\s+\&]/g, '');
+            }
+          })
+          .attr("width", function(d) { return ( ( xscale(d.x1) - xscale(d.x0) ) * ( d.filled / d.requested ) ); });
+        }
+
+        function getGetOrdinal(n) {
+         var s=["th","st","nd","rd"],
+             v=n%100;
+         return n+(s[(v-20)%10]||s[v]||s[0]);
+      }
+
+
+        function updateAnnotations(currentDatum) {
+          var comma = d3.format(",");
+          var percent = d3.format(".0%");
+
+          $('.fc-graphic-annotation-requests').text("Teachers proposed "+ comma(currentDatum[0].reqTotal) +" projects (" + getGetOrdinal(currentDatum[0].reqRank) + "/50 states).");
+          $('.fc-graphic-annotation-funded').text("Donors funded "+ percent(currentDatum[0].filledTotal/currentDatum[0].reqTotal, 0) +" of those projects (" + getGetOrdinal(currentDatum[0].filledRank) + "/50).");
+        }
+
+        function updateAnnotationsSegment(currentDatum, selected) {
+        var elIndex = $(selected).index();
+        var currentCat = currentDatum[0]['categories'][elIndex];
+        var category = currentCat.name;
+        var reqPercent = percent(currentCat.requested/currentDatum[0].reqTotal, 0);
+        var filledPecrcent = percent(currentCat.filled/currentCat.requested, 0);
+
+        $('.fc-graphic-annotation-requests').text(reqPercent +" of proposals were for "+ category +".");
+        $('.fc-graphic-annotation-funded').text("Donors funded "+ filledPecrcent +" of those projects.");
+      }
+
+      function debounce(fn, wait) {
+        var timeout;
+
+        return function () {
+            var context = this,              // preserve context
+              args = arguments,            // preserve arguments
+              later = function () {        // define a function that:
+                timeout = null;          // * nulls the timeout (GC)
+                fn.apply(context, args); // * calls the original fn
+              };
+
+          // (re)set the timer which delays the function call
+          clearTimeout(timeout);
+          timeout = setTimeout(later, wait);
+        };
+      };
+
+      function resize() {
+
+        var currentDatum = ourData.filter(function(row) {
+          return row['State'] == state;
+        });
+
+        // Update width
+        var width = parseInt(d3.select('.fc-graphic-content-block').style('width'), 10);
+
+        xscale = d3.scale.linear()
+        .rangeRound([0, width]);
+
+        // Resize SVG element
+        chart.attr("width", width);
+
+        // Recalc x0 and x1s
+        ourData.forEach(function(d) {
+          var x0 = 0;
+          var stateArray = $.map(d, function (value) { return value; });
+
+          // Creates a new sub-array in each d that holds the returned vals
+          d.categories = eachState.domain().map(function(name, index) {
+            return {name: name, requested:+d[name], filled:+d["FILLED " + name], x0: x0, x1: x0 += +d[name]};
+          });
+
+          d.categories.forEach(function(d) {
+            d.x0 /= x0; d.x1 /= x0;
+          });
+        });
+
+
+        requests = chart.selectAll(".requests")
+        .data(currentDatum);
+
+        connectors = chart.selectAll(".connectors")
+        .data(currentDatum);
+
+        filled = chart.selectAll(".fulfilled")
+        .data(currentDatum);
+
+        // Redraw shapes
+        updateReqRects(currentDatum);
+        updateConnectPolys(currentDatum);
+        updateFilledRects(currentDatum);
+
+      };
+
+      // Dangerous hack to get around wrong SVG width due to width not being set by time d3 runs
+      setTimeout(function(){
+          resize();
+          $(".fc-stacked-bar").css("opacity", "1");
+      }, 600);
+    }; // window.FC.inlineFunctions.d3
+
+
+    require(['/js/vendor/d3.min.js'], function(d3) {
+      window.d3 = d3;
+      window.FC.inlineFunctions.gusScript();
+    });
+
+  </script>
 
 </article>
