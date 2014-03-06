@@ -1,4 +1,6 @@
 
+@import "compass/css3";
+@import "partials/mixins";
 @import "partials/variables";
 
 .prose.body .fc-graphic-subhed {
@@ -17,14 +19,25 @@
   padding-left: 18px;
 }
 
+.prose.body .fc-graphic-extremes-active {
+  border-color: $dark-gray;
+  color: $dark-gray;
+  & .fc-graphic-tag {
+    color: $dark-gray !important;
+  }
+}
+
 .prose.body .fc-graphic-inline-tag {
-	color: $dark-gray !important;
-	border-bottom: 1px solid $med-gray;
-	&:visited {
-		color: $dark-gray !important;
-		border-width: 0;
-		border-bottom: 1px solid $med-gray;
-	}
+  @include trans(0.2s, border-color, ease-in-out);
+  // @include trans(0.2s, color, ease-in-out);
+  padding: 4px 5px 3px 4px;
+  border: 1px solid $light-gray;
+  text-decoration: none;
+  color: $med-gray;
+  &:hover {
+    border: 1px solid $dark-gray;
+    color: $dark-gray;
+  }
 }
 
 

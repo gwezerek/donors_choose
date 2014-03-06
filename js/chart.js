@@ -132,13 +132,53 @@
 
 	// Extremes list
 	$('.fc-graphic-extremes-item').on('click', function() {
-		var 	$this = $(this);
+		var $this = $(this);
+		var selected = getSelected(this);
+		var nopeClasses = justThisData(this);
+        var errybody = $('rect, polygon, .fc-graphic-legend-item');
 		state = $this.data( "state" );
+		var currentDatum = ourData.filter(function(row) {
+			return row['State'] == state;
+		});
 
-		updateData(state); // or $(this).val()
+		updateData(state);
 		$('select').val(state);
 		$this.addClass("fc-graphic-extremes-active");
 		$this.siblings().removeClass("fc-graphic-extremes-active");
+        $('.fc-graphic-inline-tag').removeClass("fc-graphic-extremes-active");
+
+		for (var i = 0; i < errybody.length; i++) {
+			errybody[i].classList.remove('fc-graphic-inactive');
+		};
+		
+		if(selected.length > 0) {
+			// Highlighting particular segment		
+			for (var i = 0; i < nopeClasses.length; i++) {
+				nopeClasses[i].classList.add('fc-graphic-inactive');
+			}
+			console.log(selected)	;
+			updateAnnotationsSegment(currentDatum, selected);
+		}
+
+
+	});
+
+
+	$('.fc-graphic-inline-tag').on('click', function() {
+		var 	$this = $(this);
+		state = $this.data( "state" );
+
+		updateData(state);
+		$('select').val(state);
+		$this.addClass("fc-graphic-extremes-active");
+		$this.siblings().removeClass("fc-graphic-extremes-active");
+		$('.fc-graphic-extremes-item').removeClass("fc-graphic-extremes-active");
+	});
+
+
+	// Prevents link from reloading page
+	$('.fc-graphic-tag, .fc-graphic-inline-tag').on('click', function(event) {
+		event.preventDefault();
 	});
 
 	// Hover
@@ -185,6 +225,16 @@
 
   	function getSiblings(n) {
   		return getChildren(n.parentNode.firstChild, n);
+  	}
+
+  	function getSelected(selected) {
+  		var className = selected.getAttribute('data-category');
+  		return $('.'+className);
+  	}
+
+  	function justThisData(selected) {
+  		var className = selected.getAttribute('data-category');
+  		return $('rect, polygon, .fc-graphic-legend-item').not('.'+className);
   	}
 
   	function justThisClass(selected) {
@@ -309,6 +359,8 @@
   	function updateAnnotationsSegment(currentDatum, selected) {
 		var elIndex = $(selected).index();
 		var currentCat = currentDatum[0]['categories'][elIndex];
+				console.log(currentDatum[0]);
+
 		var category = currentCat.name;
 		var reqPercent = percent(currentCat.requested/currentDatum[0].reqTotal, 0);
 		var filledPecrcent = percent(currentCat.filled/currentCat.requested, 0);

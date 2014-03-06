@@ -1,3 +1,14 @@
+/* line 770, ../sass/partials/_mixins.scss */
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+}
+
 /* !============================================= */
 /* ! Variables						  			  */
 /* !============================================= */
@@ -5,46 +16,61 @@
 /* !-- Project ------------------------------------ */
 /* !-- Project ------------------------------------ */
 /* !-- Paths ------------------------------------ */
-/* line 4, ../sass/site_widget_contentMod.scss */
+/* line 6, ../sass/site_widget_contentMod.scss */
 .prose.body .fc-graphic-subhed {
   font-family: "MuseoSans", Helvetica, Arial, sans-serif !important;
 }
 
-/* line 8, ../sass/site_widget_contentMod.scss */
+/* line 10, ../sass/site_widget_contentMod.scss */
 .prose.body .fc-graphic-title {
   display: block;
 }
 
-/* line 12, ../sass/site_widget_contentMod.scss */
+/* line 14, ../sass/site_widget_contentMod.scss */
 .fc-graphic-copy {
   display: block;
 }
 
-/* line 16, ../sass/site_widget_contentMod.scss */
+/* line 18, ../sass/site_widget_contentMod.scss */
 .prose.body .fc-graphic-legend-text {
   padding-left: 18px;
 }
 
-/* line 20, ../sass/site_widget_contentMod.scss */
-.prose.body .fc-graphic-inline-tag {
-  color: #66635d !important;
-  border-bottom: 1px solid #99948a;
+/* line 22, ../sass/site_widget_contentMod.scss */
+.prose.body .fc-graphic-extremes-active {
+  border-color: #66635d;
+  color: #66635d;
 }
-/* line 23, ../sass/site_widget_contentMod.scss */
-.prose.body .fc-graphic-inline-tag:visited {
+/* line 25, ../sass/site_widget_contentMod.scss */
+.prose.body .fc-graphic-extremes-active .fc-graphic-tag {
   color: #66635d !important;
-  border-width: 0;
-  border-bottom: 1px solid #99948a;
 }
 
-/* line 36, ../sass/site_widget_contentMod.scss */
+/* line 30, ../sass/site_widget_contentMod.scss */
+.prose.body .fc-graphic-inline-tag {
+  -webkit-transition: border-color 0.2s ease-in-out;
+  -moz-transition: border-color 0.2s ease-in-out;
+  -o-transition: border-color 0.2s ease-in-out;
+  transition: border-color 0.2s ease-in-out;
+  padding: 4px 5px 3px 4px;
+  border: 1px solid #e6dfd1;
+  text-decoration: none;
+  color: #99948a;
+}
+/* line 37, ../sass/site_widget_contentMod.scss */
+.prose.body .fc-graphic-inline-tag:hover {
+  border: 1px solid #66635d;
+  color: #66635d;
+}
+
+/* line 49, ../sass/site_widget_contentMod.scss */
 .prose.body .fc-graphic-detail {
   font-size: 9px;
   text-transform: uppercase;
   -webkit-font-smoothing: subpixel-antialiased !important;
 }
 
-/* line 42, ../sass/site_widget_contentMod.scss */
+/* line 55, ../sass/site_widget_contentMod.scss */
 .fc-graphic-article {
   margin: 0 auto;
   height: 100%;
@@ -55,12 +81,12 @@
 }
 
 @media (min-width: 420px) {
-  /* line 51, ../sass/site_widget_contentMod.scss */
+  /* line 64, ../sass/site_widget_contentMod.scss */
   .fc-graphic-article {
     font-size: 13px;
   }
 }
-/* line 56, ../sass/site_widget_contentMod.scss */
+/* line 69, ../sass/site_widget_contentMod.scss */
 .fc-graphic-container {
   position: relative;
   padding: 30px 15px 15px;
@@ -71,12 +97,12 @@
 }
 
 @media (min-width: 420px) {
-  /* line 65, ../sass/site_widget_contentMod.scss */
+  /* line 78, ../sass/site_widget_contentMod.scss */
   .fc-graphic-container {
     padding: 30px 20px 20px;
   }
 }
-/* line 70, ../sass/site_widget_contentMod.scss */
+/* line 83, ../sass/site_widget_contentMod.scss */
 .fc-graphic-overline {
   margin: 0 0 5px;
   padding-bottom: 3px;
@@ -86,7 +112,7 @@
   font-size: 11px;
 }
 
-/* line 79, ../sass/site_widget_contentMod.scss */
+/* line 92, ../sass/site_widget_contentMod.scss */
 .prose.body .fc-graphic-title {
   font-family: "FCKaiserCond", Helvetica, Arial, sans-serif !important;
   margin: 0 0 10px -2px;
@@ -98,12 +124,12 @@
 }
 
 @media (min-width: 420px) {
-  /* line 89, ../sass/site_widget_contentMod.scss */
+  /* line 102, ../sass/site_widget_contentMod.scss */
   .fc-graphic-title {
     font-size: 48px !important;
   }
 }
-/* line 94, ../sass/site_widget_contentMod.scss */
+/* line 107, ../sass/site_widget_contentMod.scss */
 .fc-graphic-copy {
   color: #66635d;
   font-weight: 300;
@@ -112,18 +138,18 @@
   -webkit-font-smoothing: subpixel-antialiased !important;
 }
 
-/* line 107, ../sass/site_widget_contentMod.scss */
+/* line 120, ../sass/site_widget_contentMod.scss */
 .fc-graphic-byline {
   letter-spacing: .5px;
   line-height: 90%;
 }
 
-/* line 112, ../sass/site_widget_contentMod.scss */
+/* line 125, ../sass/site_widget_contentMod.scss */
 .fc-graphic-content-block {
   margin: 0 0 25px;
 }
 
-/* line 116, ../sass/site_widget_contentMod.scss */
+/* line 129, ../sass/site_widget_contentMod.scss */
 .prose.body .fc-graphic-subhed {
   margin: 0 0 10px;
   padding-bottom: 3px;
@@ -135,12 +161,12 @@
   font-family: "MuseoSans", Helvetica, Arial, sans-serif !important;
 }
 
-/* line 127, ../sass/site_widget_contentMod.scss */
+/* line 140, ../sass/site_widget_contentMod.scss */
 .prose.body .fc-graphic-subhed-select {
   padding-bottom: 7px;
 }
 
-/* line 131, ../sass/site_widget_contentMod.scss */
+/* line 144, ../sass/site_widget_contentMod.scss */
 .fc-graphic-select {
   margin: 0 0 0 2px;
   vertical-align: text-bottom;
@@ -155,14 +181,14 @@
   font-size: 12px;
 }
 
-/* line 145, ../sass/site_widget_contentMod.scss */
+/* line 158, ../sass/site_widget_contentMod.scss */
 .fc-graphic-trend-list {
   margin: 0;
   padding: 0;
   list-style-position: inside;
 }
 
-/* line 151, ../sass/site_widget_contentMod.scss */
+/* line 164, ../sass/site_widget_contentMod.scss */
 .fc-graphic-trend-item {
   display: -moz-inline-stack;
   display: inline-block;
@@ -173,7 +199,7 @@
   margin: 0 15px 5px 0;
 }
 
-/* line 161, ../sass/site_widget_contentMod.scss */
+/* line 174, ../sass/site_widget_contentMod.scss */
 .prose.body .fc-graphic-annotation {
   color: #66635d;
   font-weight: 300;
@@ -181,25 +207,25 @@
   display: block;
 }
 @media (min-width: 420px) {
-  /* line 161, ../sass/site_widget_contentMod.scss */
+  /* line 174, ../sass/site_widget_contentMod.scss */
   .prose.body .fc-graphic-annotation {
     font-size: 13px !important;
   }
 }
 
-/* line 171, ../sass/site_widget_contentMod.scss */
+/* line 184, ../sass/site_widget_contentMod.scss */
 .prose.body .fc-graphic-annotation-requests {
   margin: 0 0 3px;
 }
 
-/* line 175, ../sass/site_widget_contentMod.scss */
+/* line 188, ../sass/site_widget_contentMod.scss */
 .prose.body .fc-graphic-annotation-funded {
   margin: 0 0 15px;
   padding-bottom: 10px;
   border-bottom: 1px solid #e6dfd1;
 }
 
-/* line 181, ../sass/site_widget_contentMod.scss */
+/* line 194, ../sass/site_widget_contentMod.scss */
 .prose.body .fc-graphic-legend {
   margin: 0;
   padding: 0;
@@ -207,7 +233,7 @@
   line-height: 100%;
 }
 
-/* line 188, ../sass/site_widget_contentMod.scss */
+/* line 201, ../sass/site_widget_contentMod.scss */
 .prose.body .fc-graphic-legend-item {
   display: -moz-inline-stack;
   display: inline-block;
@@ -230,30 +256,30 @@
 }
 
 @media (min-width: 450px) {
-  /* line 209, ../sass/site_widget_contentMod.scss */
+  /* line 222, ../sass/site_widget_contentMod.scss */
   .prose.body .fc-graphic-legend-item {
     width: 30%;
   }
 }
 @media (min-width: 570px) {
-  /* line 214, ../sass/site_widget_contentMod.scss */
+  /* line 227, ../sass/site_widget_contentMod.scss */
   .prose.body .fc-graphic-legend-item {
     width: 23%;
   }
 }
 @media (min-width: 768px) {
-  /* line 219, ../sass/site_widget_contentMod.scss */
+  /* line 232, ../sass/site_widget_contentMod.scss */
   .prose.body .fc-graphic-legend-item {
     width: 30%;
   }
 }
-/* line 225, ../sass/site_widget_contentMod.scss */
+/* line 238, ../sass/site_widget_contentMod.scss */
 .prose.body .fc-graphic-legend-item:before {
   content: "\002022" !important;
   color: inherit;
 }
 
-/* line 230, ../sass/site_widget_contentMod.scss */
+/* line 243, ../sass/site_widget_contentMod.scss */
 .prose.body .fc-graphic-legend-text {
   color: #66635d;
   vertical-align: middle;
@@ -262,14 +288,14 @@
   line-height: 80%;
 }
 
-/* line 238, ../sass/site_widget_contentMod.scss */
+/* line 251, ../sass/site_widget_contentMod.scss */
 .prose.body .fc-graphic-extremes-list {
   margin: 0 0 5px;
   padding: 0;
   list-style: none;
 }
 
-/* line 244, ../sass/site_widget_contentMod.scss */
+/* line 257, ../sass/site_widget_contentMod.scss */
 .prose.body .fc-graphic-extremes-item {
   -webkit-transition: border-color 0.2s ease-in-out;
   -moz-transition: border-color 0.2s ease-in-out;
@@ -286,18 +312,18 @@
   list-style-type: none !important;
 }
 
-/* line 260, ../sass/site_widget_contentMod.scss */
+/* line 273, ../sass/site_widget_contentMod.scss */
 .prose.body .fc-graphic-extremes-item:hover {
   border: 1px solid #66635d;
 }
 
-/* line 263, ../sass/site_widget_contentMod.scss */
+/* line 276, ../sass/site_widget_contentMod.scss */
 .prose.body .fc-graphic-extremes-item:hover .fc-graphic-tag {
   color: #66635d !important;
 }
 
 @media (min-width: 420px) {
-  /* line 267, ../sass/site_widget_contentMod.scss */
+  /* line 280, ../sass/site_widget_contentMod.scss */
   .prose.body .fc-graphic-extremes-item {
     display: -moz-inline-stack;
     display: inline-block;
@@ -308,7 +334,7 @@
     padding-top: 3px;
   }
 }
-/* line 278, ../sass/site_widget_contentMod.scss */
+/* line 291, ../sass/site_widget_contentMod.scss */
 .prose.body .fc-graphic-tag {
   -webkit-transition: color 0.2s ease-in-out;
   -moz-transition: color 0.2s ease-in-out;
@@ -320,7 +346,7 @@
   border-bottom: none;
 }
 
-/* line 289, ../sass/site_widget_contentMod.scss */
+/* line 302, ../sass/site_widget_contentMod.scss */
 .prose.body .sources-copy {
   display: block;
   padding-top: 7px;
@@ -330,18 +356,18 @@
   font-weight: 300;
 }
 
-/* line 298, ../sass/site_widget_contentMod.scss */
+/* line 311, ../sass/site_widget_contentMod.scss */
 .prose.body .sources-leadin-reverse {
   color: white;
   font-weight: 600;
 }
 
-/* line 303, ../sass/site_widget_contentMod.scss */
+/* line 316, ../sass/site_widget_contentMod.scss */
 .prose.body .sources-copy-reverse {
   color: #e6dfd1;
 }
 
-/* line 307, ../sass/site_widget_contentMod.scss */
+/* line 320, ../sass/site_widget_contentMod.scss */
 .prose.body .fc-stacked-bar {
   -webkit-transition: opacity 0.2s ease-in-out;
   -moz-transition: opacity 0.2s ease-in-out;
@@ -352,7 +378,7 @@
   opacity: 0;
 }
 
-/* line 317, ../sass/site_widget_contentMod.scss */
+/* line 330, ../sass/site_widget_contentMod.scss */
 .prose.body .fc-graphic-label {
   position: absolute;
   top: 0;
@@ -366,109 +392,109 @@
   pointer-events: none;
 }
 
-/* line 337, ../sass/site_widget_contentMod.scss */
+/* line 350, ../sass/site_widget_contentMod.scss */
 .LiteracyLanguage {
   background-color: #ffdf80;
   color: #ffdf80;
   fill: #ffdf80;
 }
 
-/* line 343, ../sass/site_widget_contentMod.scss */
+/* line 356, ../sass/site_widget_contentMod.scss */
 .MathScience {
   background-color: #ffb581;
   color: #ffb581;
   fill: #ffb581;
 }
 
-/* line 349, ../sass/site_widget_contentMod.scss */
+/* line 362, ../sass/site_widget_contentMod.scss */
 .MusictheArts {
   background-color: #ff8a80;
   color: #ff8a80;
   fill: #ff8a80;
 }
 
-/* line 355, ../sass/site_widget_contentMod.scss */
+/* line 368, ../sass/site_widget_contentMod.scss */
 .AppliedLearning {
   background-color: #ff81c9;
   color: #ff81c9;
   fill: #ff81c9;
 }
 
-/* line 361, ../sass/site_widget_contentMod.scss */
+/* line 374, ../sass/site_widget_contentMod.scss */
 .SpecialNeeds {
   background-color: #e081ff;
   color: #e081ff;
   fill: #e081ff;
 }
 
-/* line 367, ../sass/site_widget_contentMod.scss */
+/* line 380, ../sass/site_widget_contentMod.scss */
 .HistoryCivics {
   background-color: #b781ff;
   color: #b781ff;
   fill: #b781ff;
 }
 
-/* line 373, ../sass/site_widget_contentMod.scss */
+/* line 386, ../sass/site_widget_contentMod.scss */
 .HealthSports {
   background-color: #8c81ff;
   color: #8c81ff;
   fill: #8c81ff;
 }
 
-/* line 379, ../sass/site_widget_contentMod.scss */
+/* line 392, ../sass/site_widget_contentMod.scss */
 .fc-insufficient {
   color: #e6e6e6;
   fill: #e6e6e6;
 }
 
-/* line 384, ../sass/site_widget_contentMod.scss */
+/* line 397, ../sass/site_widget_contentMod.scss */
 .prose.body .fc-graphic-requested {
   top: 16px;
 }
 
-/* line 388, ../sass/site_widget_contentMod.scss */
+/* line 401, ../sass/site_widget_contentMod.scss */
 .prose.body .fc-graphic-fulfilled {
   top: 76px;
 }
 
-/* line 392, ../sass/site_widget_contentMod.scss */
+/* line 405, ../sass/site_widget_contentMod.scss */
 .connectors {
   opacity: .5;
 }
 
-/* line 396, ../sass/site_widget_contentMod.scss */
+/* line 409, ../sass/site_widget_contentMod.scss */
 .fc-graphic-inactive {
   opacity: .2;
 }
 
-/* line 400, ../sass/site_widget_contentMod.scss */
+/* line 413, ../sass/site_widget_contentMod.scss */
 .fc-graphic-most {
   background-image: url("http://www.fastcodesign.com/asset_files/-/2014/02/26/icon_up.svg");
 }
 
-/* line 404, ../sass/site_widget_contentMod.scss */
+/* line 417, ../sass/site_widget_contentMod.scss */
 .fc-graphic-least {
   background-image: url("http://www.fastcodesign.com/asset_files/-/2014/02/26/icon_down.svg");
 }
 
-/* line 408, ../sass/site_widget_contentMod.scss */
+/* line 421, ../sass/site_widget_contentMod.scss */
 .prose.body .fc-graphic-extremes-active {
   border: 1px solid #66635d;
 }
 
-/* line 411, ../sass/site_widget_contentMod.scss */
+/* line 424, ../sass/site_widget_contentMod.scss */
 .prose.body .fc-graphic-extremes-active .fc-graphic-tag {
   color: #66635d !important;
 }
 
-/* line 415, ../sass/site_widget_contentMod.scss */
+/* line 428, ../sass/site_widget_contentMod.scss */
 .fc-decorative-border {
   margin: 0 !important;
   padding: 0;
   font-size: 0;
 }
 
-/* line 421, ../sass/site_widget_contentMod.scss */
+/* line 434, ../sass/site_widget_contentMod.scss */
 .fc-decorative-border-box {
   display: -moz-inline-stack;
   display: inline-block;
@@ -487,12 +513,12 @@
   padding: 0 !important;
 }
 
-/* line 439, ../sass/site_widget_contentMod.scss */
+/* line 452, ../sass/site_widget_contentMod.scss */
 .requests, .fulfilled, .connectors {
   stroke: white;
 }
 
-/* line 442, ../sass/site_widget_contentMod.scss */
+/* line 455, ../sass/site_widget_contentMod.scss */
 .requests rect, .requests polygon, .fulfilled rect, .fulfilled polygon, .connectors rect, .connectors polygon {
   -webkit-transition: opacity 0.2s ease-in-out;
   -moz-transition: opacity 0.2s ease-in-out;

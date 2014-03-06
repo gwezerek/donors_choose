@@ -152,6 +152,19 @@ body {
 	}
 }
 
+.fc-graphic-inline-tag {
+	@include trans(0.2s, border-color, ease-in-out);
+	// @include trans(0.2s, color, ease-in-out);
+	padding: 4px 5px 3px 4px;
+	border: 1px solid $light-gray;
+	text-decoration: none;
+	color: $med-gray;
+	&:hover {
+		border: 1px solid $dark-gray;
+		color: $dark-gray;
+	}
+}
+
 .fc-graphic-byline {
 	letter-spacing: .5px;
 	line-height: 90%;
@@ -264,24 +277,22 @@ body {
 
 	@media (min-width: $small) {
 		@include inline-block;
-		// padding: 2px 8px 3px 16px;
 		padding-top: 3px;
 	}
 }
 
 .fc-graphic-most {
-	// background-image: url('/icon_up.svg');
-	background-image: url('www.guswezerek.com/projects/donors_choose/icon_up.svg');
+	background-image: url('/icon_up.svg');
 }
 
 .fc-graphic-least {
-	// background-image: url('/icon_down.svg');
-	background-image: url('www.guswezerek.com/projects/donors_choose/icon_down.svg');
+	background-image: url('/icon_down.svg');
 }
 
 
 .fc-graphic-extremes-active {
-	border: 1px solid $dark-gray;
+	border-color: $dark-gray;
+	color: $dark-gray;
 	& .fc-graphic-tag {
 		color: $dark-gray;
 	}
